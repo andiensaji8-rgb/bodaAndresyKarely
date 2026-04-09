@@ -1,120 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación de Boda - Andrés y Karely</title>
+    <title>Wedding Invitation</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #f5f1ea 0%, #e8dfd6 100%);
+            font-family: 'Arial', sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            width: 95%;
-            max-width: 1000px;
-            background: white;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            border-radius: 16px;
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #c8a96a 0%, #a88c55 100%);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2em;
-            letter-spacing: 2px;
-        }
-        .header p {
-            margin: 10px 0 0 0;
-            font-size: 1.1em;
-            opacity: 0.95;
-        }
-        .pdf-viewer {
-            width: 100%;
-            height: 700px;
-            border: none;
-        }
-        .footer {
-            padding: 20px;
-            background: #f9f7f4;
-            text-align: center;
-            color: #666;
-        }
-        .button-group {
-            display: flex;
             justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
         }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #c8a96a;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-size: 0.95em;
-            font-weight: bold;
-            border: 2px solid #c8a96a;
-            cursor: pointer;
+        h1 {
+            color: #4A4A4A;
+            margin-bottom: 10px;
         }
-        .btn:hover {
-            background: #a88c55;
-            border-color: #a88c55;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(200, 169, 106, 0.3);
+        .content {
+            text-align: center;
         }
-        .btn-secondary {
-            background: white;
-            color: #c8a96a;
+        .divider {
+            width: 60%;
+            height: 2px;
+            background-color: #e0e0e0;
+            margin: 20px auto;
         }
-        .btn-secondary:hover {
-            background: #f9f7f4;
-            color: #a88c55;
-        }
-        @media (max-width: 600px) {
-            .pdf-viewer {
-                height: 500px;
-            }
-            .header h1 {
-                font-size: 1.5em;
-            }
-            .button-group {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-                box-sizing: border-box;
-            }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>✨ Andrés y Karely ✨</h1>
-            <p>¡Nos gustaría que fueras parte de nuestro gran día!</p>
-        </div>
-        <iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://github.com/andiensaji8-rgb/bodaAndresyKarely/raw/main/Ceremonia%20Religiosa%20y%20Recepcion%20(2).pdf&embedded=true"></iframe>
-        <div class="footer">
-            <p>¡Gracias por acompañarnos en este momento tan especial! 💕</p>
-            <div class="button-group">
-                <a href="Ceremonia%20Religiosa%20y%20Recepcion%20(2).pdf" class="btn" download>📥 Descargar PDF</a>
-                <a href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" class="btn btn-secondary" target="_blank">📍 Ver Ubicación</a>
-            </div>
-        </div>
+    <h1>You're Invited to Our Wedding!</h1>
+    <div class="content">
+        <img src="https://images.unsplash.com/photo-1565299638059-eeff726210c4" alt="Beautiful Wedding Rings" />
+        <div class="divider"></div>
+        <img src="https://images.unsplash.com/photo-1517138149850-3bbed4b19c05" alt="Wedding Flowers" />
+        <div class="divider"></div>
+        <img src="https://images.unsplash.com/photo-1501601675776-c8d6c9de8f02" alt="Ceremony Image" />
+        <div class="divider"></div>
+        <p>Join us for a day filled with love and happiness.</p>
     </div>
 </body>
 </html>
