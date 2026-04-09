@@ -26,10 +26,11 @@ h1,h2{
 }
 
 .section{
-  padding:40px 20px;
+  padding:60px 20px;
   text-align:center;
 }
 
+/* HERO */
 .hero{
   height:100vh;
   background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');
@@ -42,42 +43,83 @@ h1,h2{
   color:white;
 }
 
-.hero h1{
-  font-size:3em;
-}
+.hero h1{font-size:3.2em;}
+.hero p{font-size:1.2em;}
 
 .countdown{
-  font-size:1.5em;
-  margin-top:10px;
+  font-size:1.6em;
+  margin-top:15px;
+  letter-spacing:1px;
 }
 
+/* CARDS */
 .card{
   background:white;
-  margin:20px;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  margin:auto;
+  max-width:600px;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.1);
+  transition:.4s;
 }
 
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* BOTONES */
 .btn{
   display:inline-block;
   margin:10px;
-  padding:12px 25px;
-  border-radius:30px;
-  background:var(--green);
+  padding:14px 28px;
+  border-radius:40px;
+  background:linear-gradient(135deg,var(--green),#6f8a78);
   color:white;
   text-decoration:none;
+  font-weight:600;
+  box-shadow:0 10px 25px rgba(94,114,97,.4);
   transition:.3s;
 }
 
 .btn:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 15px 35px rgba(94,114,97,.6);
+}
+
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  padding:20px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  height:150px;
+  object-fit:cover;
+  transition:.3s;
+}
+
+.gallery img:hover{
   transform:scale(1.05);
 }
 
+/* MAP */
 .map{
   width:100%;
   height:300px;
-  border-radius:15px;
+  border-radius:20px;
+}
+
+/* DIVIDER */
+.divider{
+  width:60px;
+  height:3px;
+  background:var(--green);
+  margin:20px auto;
+  border-radius:5px;
 }
 
 </style>
@@ -95,7 +137,8 @@ h1,h2{
 <div class="section">
   <div class="card">
     <h2>Nuestra Boda</h2>
-    <p>Con la bendición de Dios y de nuestros padres, queremos invitarte a ser parte de este momento tan especial en nuestras vidas.</p>
+    <div class="divider"></div>
+    <p>Con la bendición de Dios y de nuestros padres, queremos invitarte a compartir con nosotros este día tan especial.</p>
   </div>
 </div>
 
@@ -103,6 +146,7 @@ h1,h2{
 <div class="section">
   <div class="card">
     <h2>Ceremonia & Recepción</h2>
+    <div class="divider"></div>
     <p>Tepanco 781, Ciudad Industrial</p>
     <p>Villahermosa, Tabasco</p>
     <p>15 de agosto · 2:00 PM</p>
@@ -112,25 +156,39 @@ h1,h2{
 <!-- MAPA -->
 <div class="section">
   <h2>Ubicación</h2>
+  <div class="divider"></div>
   <iframe class="map" src="https://maps.google.com/maps?q=Tepanco%20781%20Villahermosa&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
   <br>
   <a class="btn" href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" target="_blank">Abrir en Maps</a>
 </div>
 
+<!-- GALERIA -->
+<div class="section">
+  <h2>Momentos</h2>
+  <div class="divider"></div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
+    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
+  </div>
+</div>
+
 <!-- FOTOS -->
 <div class="section">
   <h2>Comparte tus fotos</h2>
+  <div class="divider"></div>
   <a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir fotos</a>
 </div>
 
 <!-- RSVP -->
 <div class="section">
   <h2>Confirmación</h2>
-  <a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">1 persona</a>
-  <a class="btn" href="https://wa.me/5219934199255?text=Confirmamos%202%20personas">2 personas</a>
-  <a class="btn" href="https://wa.me/5219934199255?text=Iremos%20en%20familia">Familia</a>
+  <div class="divider"></div>
+  <a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">👤 1 persona</a>
+  <a class="btn" href="https://wa.me/5219934199255?text=Confirmamos%202%20personas">👥 2 personas</a>
+  <a class="btn" href="https://wa.me/5219934199255?text=Iremos%20en%20familia">👨‍👩‍👧 Familia</a>
   <br>
-  <a class="btn" href="https://wa.me/5219934199255?text=No%20asistiré">No asistiré</a>
+  <a class="btn" href="https://wa.me/5219934199255?text=No%20asistiré">❌ No asistiré</a>
 </div>
 
 <script>
