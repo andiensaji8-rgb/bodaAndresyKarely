@@ -1,143 +1,191 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Boda Andrés & Karely</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Boda Andrés & Karely</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f1ea, #e8dfd6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdf6f0, #f3e5d8);
+}
 
-        .container {
-            width: 95%;
-            max-width: 1000px;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-            animation: fadeIn 1.5s ease;
-        }
+.welcome {
+    position: fixed;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+}
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);} 
-            to {opacity: 1; transform: translateY(0);} 
-        }
+.welcome h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+}
 
-        .header {
-            background: linear-gradient(135deg, #c8a96a, #a88c55);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
+.welcome button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    color: #b8962e;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin: 0;
-        }
+.container {
+    display: none;
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    text-align: center;
+}
 
-        .date {
-            margin-top: 10px;
-            font-size: 1.1em;
-        }
+.hero {
+    position: relative;
+}
 
-        .countdown {
-            margin-top: 15px;
-            font-size: 1.2em;
-        }
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
 
-        .pdf-viewer {
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
 
-        .section {
-            padding: 25px;
-            text-align: center;
-        }
+.hero-text h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8em;
+    margin: 0;
+}
 
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            background: #c8a96a;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+.hero-text p { margin: 5px 0; }
 
-        .btn:hover {
-            background: #a88c55;
-            transform: scale(1.05);
-        }
+.countdown-box {
+    padding: 20px;
+    font-size: 1.2em;
+}
 
-        audio { display: none; }
+.pdf-viewer {
+    width: 100%;
+    height: 500px;
+}
 
-        @media (max-width: 600px) {
-            .pdf-viewer { height: 450px; }
-            .header h1 { font-size: 1.8em; }
-        }
-    </style>
+.section { padding: 25px; }
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d4af37;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    color: white;
+}
+</style>
 </head>
 <body>
 
-<audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+<div class="welcome" id="welcome">
+    <h1>Andrés & Karely</h1>
+    <p>Nuestra boda</p>
+    <button onclick="enterSite()">Abrir invitación 💌</button>
+</div>
+
+<audio id="music" loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
 </audio>
 
-<div class="container">
+<button class="music-btn" onclick="toggleMusic()">🔊</button>
 
-    <div class="header">
-        <h1>✨ Andrés & Karely ✨</h1>
-        <p>¡Nos gustaría que fueras parte de nuestro gran día!</p>
-        <div class="date">📅 15 de agosto de 2026 · 🕑 2:00 PM</div>
-        <div class="countdown" id="countdown"></div>
-    </div>
+<div class="container" id="main">
 
-    <iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://github.com/andiensaji8-rgb/bodaAndresyKarely/raw/main/Ceremonia%20Religiosa%20y%20Recepcion%20(2).pdf&embedded=true"></iframe>
+<div class="hero">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" />
+<div class="hero-text">
+<h1>Karely & Andrés</h1>
+<p>15/08/2026</p>
+<p>02:00 PM</p>
+</div>
+</div>
 
-    <div class="section">
-        <h2>📍 Ubicación</h2>
-        <a class="btn" href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" target="_blank">Ver en Google Maps</a>
-    </div>
+<div class="countdown-box" id="countdown"></div>
 
-    <div class="section">
-        <h2>📸 Comparte tus fotos</h2>
-        <a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir Fotos</a>
-    </div>
+<iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://github.com/andiensaji8-rgb/bodaAndresyKarely/raw/main/Ceremonia%20Religiosa%20y%20Recepcion%20(2).pdf&embedded=true"></iframe>
 
-    <div class="section">
-        <a href="https://github.com/andiensaji8-rgb/bodaAndresyKarely/raw/main/Ceremonia%20Religiosa%20y%20Recepcion%20(2).pdf" class="btn" download>Descargar Invitación</a>
-    </div>
+<div class="section">
+<h2>📍 Ubicación</h2>
+<a class="btn" href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" target="_blank">Ver mapa</a>
+</div>
+
+<div class="section">
+<h2>📸 Fotos</h2>
+<a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir fotos</a>
+</div>
+
+<div class="section">
+<h2>💬 RSVP</h2>
+<a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">👤 1 persona</a>
+<a class="btn" href="https://wa.me/5219934199255?text=Confirmamos%202%20personas">👥 2 personas</a>
+<a class="btn" href="https://wa.me/5219934199255?text=Iremos%20en%20familia">👨‍👩‍👧 Familia</a>
+<br>
+<a class="btn" href="https://wa.me/5219934199255?text=No%20podremos%20asistir">❌ No asistiré</a>
+</div>
 
 </div>
 
 <script>
-    const weddingDate = new Date("2026-08-15T14:00:00").getTime();
+function enterSite(){
+ document.getElementById('welcome').style.display='none';
+ document.getElementById('main').style.display='block';
+ document.getElementById('music').play();
+}
 
-    setInterval(() => {
-        const now = new Date().getTime();
-        const diff = weddingDate - now;
+function toggleMusic(){
+ const m=document.getElementById('music');
+ m.paused?m.play():m.pause();
+}
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-        document.getElementById("countdown").innerHTML =
-            `Faltan ${days} días, ${hours} hrs y ${minutes} min`;
-    }, 1000);
+const date=new Date("2026-08-15T14:00:00").getTime();
+setInterval(()=>{
+ let now=new Date().getTime();
+ let d=date-now;
+ let days=Math.floor(d/(1000*60*60*24));
+ let h=Math.floor((d/(1000*60*60))%24);
+ let m=Math.floor((d/(1000*60))%60);
+ document.getElementById("countdown").innerHTML=`${days} días · ${h} hrs · ${m} min`;
+},1000);
 </script>
 
 </body>
