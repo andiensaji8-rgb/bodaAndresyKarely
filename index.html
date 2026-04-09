@@ -5,219 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Invitación Boda Andrés & Karely</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #fff8f0, #f1e4d7);
-    overflow-x: hidden;
+:root{
+  --bg:#faf0eb;
+  --brown:#614124;
+  --green:#5e7261;
 }
 
-/* Animaciones */
-.fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--brown);
 }
 
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+h1,h2{
+  font-family:'Dancing Script',cursive;
 }
 
-/* Bienvenida */
-.welcome {
-    position: fixed;
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #d4af37, #b8962e);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+.section{
+  padding:40px 20px;
+  text-align:center;
 }
 
-.welcome h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3em;
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
 }
 
-.welcome button {
-    margin-top: 20px;
-    padding: 15px 30px;
-    border-radius: 12px;
-    border: none;
-    background: white;
-    color: #b8962e;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+.hero h1{
+  font-size:3em;
 }
 
-.welcome button:hover {
-    transform: scale(1.1);
+.countdown{
+  font-size:1.5em;
+  margin-top:10px;
 }
 
-.container {
-    display: none;
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+.card{
+  background:white;
+  margin:20px;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-.hero {
-    position: relative;
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:12px 25px;
+  border-radius:30px;
+  background:var(--green);
+  color:white;
+  text-decoration:none;
+  transition:.3s;
 }
 
-.hero img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    filter: brightness(0.7);
+.btn:hover{
+  transform:scale(1.05);
 }
 
-.hero-text {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-}
-
-.hero-text h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3em;
-}
-
-.countdown-box {
-    padding: 20px;
-    font-size: 1.3em;
-    text-align: center;
-}
-
-.section {
-    padding: 30px;
-    text-align: center;
-}
-
-/* Botones premium */
-.btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    background: linear-gradient(135deg, #d4af37, #b8962e);
-    box-shadow: 0 8px 20px rgba(212,175,55,0.4);
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 30px rgba(212,175,55,0.6);
-}
-
-.pdf-viewer {
-    width: 100%;
-    height: 500px;
-    border: none;
-}
-
-.music-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #d4af37;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.map{
+  width:100%;
+  height:300px;
+  border-radius:15px;
 }
 
 </style>
 </head>
 <body>
 
-<div class="welcome" id="welcome">
-    <h1>Andrés & Karely</h1>
-    <p>Nuestra boda</p>
-    <button onclick="enterSite()">Abrir invitación 💌</button>
+<!-- HERO -->
+<div class="hero">
+  <h1>Karely & Andrés</h1>
+  <p>15 de agosto 2026 · 2:00 PM</p>
+  <div class="countdown" id="countdown"></div>
 </div>
 
-<audio id="music" loop>
-<source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
-</audio>
-
-<button class="music-btn" onclick="toggleMusic()">🔊</button>
-
-<div class="container" id="main">
-
-<div class="hero fade-up">
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" />
-<div class="hero-text">
-<h1>Karely & Andrés</h1>
-<p>15 Agosto 2026</p>
-<p>2:00 PM</p>
-</div>
+<!-- MENSAJE -->
+<div class="section">
+  <div class="card">
+    <h2>Nuestra Boda</h2>
+    <p>Con la bendición de Dios y de nuestros padres, queremos invitarte a ser parte de este momento tan especial en nuestras vidas.</p>
+  </div>
 </div>
 
-<div class="countdown-box fade-up" id="countdown"></div>
-
-<iframe class="pdf-viewer fade-up" src="https://docs.google.com/gview?url=https://github.com/andiensaji8-rgb/bodaAndresyKarely/raw/main/Ceremonia%20Religiosa%20y%20Recepcion%20(2).pdf&embedded=true"></iframe>
-
-<div class="section fade-up">
-<h2>📍 Ubicación</h2>
-<a class="btn" href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" target="_blank">Ver ubicación</a>
+<!-- DETALLES -->
+<div class="section">
+  <div class="card">
+    <h2>Ceremonia & Recepción</h2>
+    <p>Tepanco 781, Ciudad Industrial</p>
+    <p>Villahermosa, Tabasco</p>
+    <p>15 de agosto · 2:00 PM</p>
+  </div>
 </div>
 
-<div class="section fade-up">
-<h2>📸 Fotos</h2>
-<a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir fotos</a>
+<!-- MAPA -->
+<div class="section">
+  <h2>Ubicación</h2>
+  <iframe class="map" src="https://maps.google.com/maps?q=Tepanco%20781%20Villahermosa&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+  <br>
+  <a class="btn" href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" target="_blank">Abrir en Maps</a>
 </div>
 
-<div class="section fade-up">
-<h2>💬 Confirmación</h2>
-<a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">👤 1 persona</a>
-<a class="btn" href="https://wa.me/5219934199255?text=Confirmamos%202%20personas">👥 2 personas</a>
-<a class="btn" href="https://wa.me/5219934199255?text=Iremos%20en%20familia">👨‍👩‍👧 Familia</a>
-<br>
-<a class="btn" href="https://wa.me/5219934199255?text=No%20podremos%20asistir">❌ No asistiré</a>
+<!-- FOTOS -->
+<div class="section">
+  <h2>Comparte tus fotos</h2>
+  <a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir fotos</a>
 </div>
 
+<!-- RSVP -->
+<div class="section">
+  <h2>Confirmación</h2>
+  <a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">1 persona</a>
+  <a class="btn" href="https://wa.me/5219934199255?text=Confirmamos%202%20personas">2 personas</a>
+  <a class="btn" href="https://wa.me/5219934199255?text=Iremos%20en%20familia">Familia</a>
+  <br>
+  <a class="btn" href="https://wa.me/5219934199255?text=No%20asistiré">No asistiré</a>
 </div>
 
 <script>
-function enterSite(){
- document.getElementById('welcome').style.display='none';
- document.getElementById('main').style.display='block';
- document.getElementById('music').play();
-}
-
-function toggleMusic(){
- const m=document.getElementById('music');
- m.paused?m.play():m.pause();
-}
-
-// Animación scroll
-const elements = document.querySelectorAll('.fade-up');
-window.addEventListener('scroll', () => {
-    elements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 50){
-            el.classList.add('visible');
-        }
-    });
-});
-
 const date=new Date("2026-08-15T14:00:00").getTime();
 setInterval(()=>{
  let now=new Date().getTime();
