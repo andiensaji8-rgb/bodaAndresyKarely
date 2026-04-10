@@ -44,7 +44,7 @@
 
         p { font-family: var(--font-cuerpo); font-weight: 300; line-height: 1.8; font-size: 1rem; letter-spacing: 0.5px; }
 
-        .section { padding: 80px 20px; text-align: center; max-width: 1100px; margin: 0 auto; }
+        .section { padding: 60px 20px; text-align: center; max-width: 1100px; margin: 0 auto; }
 
         .divider-pro {
             width: 80px; height: 1px;
@@ -74,7 +74,7 @@
         .cd-num { font-size: 2.5rem; font-weight: 200; font-family: var(--font-titulo); }
 
         .card-pro {
-            background: var(--blanco); padding: 60px 40px; border: 1px solid rgba(197, 160, 89, 0.2);
+            background: var(--blanco); padding: 50px 30px; border: 1px solid rgba(197, 160, 89, 0.2);
             box-shadow: 0 10px 40px rgba(0,0,0,0.03); max-width: 750px; margin: 0 auto;
         }
         
@@ -89,18 +89,17 @@
         }
         .btn-pro:hover { color: var(--blanco); background-color: var(--verde-oliva); border-color: var(--verde-oliva); }
 
-        .gallery-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; padding: 20px; }
-        .gallery-pro img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 1px solid var(--oro-suave); padding: 8px; transition: 0.3s; }
-        .gallery-pro img:hover { transform: scale(1.03); }
+        .gallery-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; padding: 20px; }
+        .gallery-pro img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 1px solid var(--oro-suave); padding: 8px; }
 
-        .adults-only { max-width: 600px; margin: 40px auto 0; padding: 30px; border-top: 1px double var(--oro-suave); border-bottom: 1px double var(--oro-suave); }
+        .gift-box { margin-top: 20px; padding: 20px; border: 1px dashed var(--oro-suave); }
 
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 600px) {
             .hero { background-attachment: scroll; }
-            .card-pro { padding: 40px 20px; }
+            .section { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -132,10 +131,29 @@
             <p>Sábado, 15 de agosto de 2026<br><strong>2:00 PM</strong></p>
             <br>
             <p><strong>Salón De Fiestas Amaranto</strong><br>Tapanco 781, Ciudad Industrial<br>Villahermosa, Tabasco</p>
+            <p><small>Espacio climatizado</small></p>
             
-            <div class="adults-only">
+            <div style="max-width: 600px; margin: 40px auto 0; padding: 30px; border-top: 1px double var(--oro-suave); border-bottom: 1px double var(--oro-suave);">
                 <p class="cite">“Un tiempo para nosotros”</p>
                 <p>Amamos a sus pequeños, pero para esta ocasión hemos decidido planificar una celebración <strong>solo para adultos</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section fade-in-section">
+        <h2>Mesa de Regalos</h2>
+        <div class="divider-pro"></div>
+        <div class="card-pro">
+            <p>Vuestra presencia es nuestro mejor regalo, pero si desean tener un detalle con nosotros, estas son nuestras opciones:</p>
+            
+            <div class="gift-box">
+                <p><strong>Lluvia de Sobres</strong><br>Encontrarás un buzón especial en la recepción para vuestros buenos deseos.</p>
+            </div>
+
+            <div class="btn-group">
+                <a class="btn-pro" href="https://www.liverpool.com.mx/tienda/mesa-de-regalos" target="_blank">
+                    🎁 Ver Mesa de Regalos
+                </a>
             </div>
         </div>
     </div>
@@ -153,7 +171,6 @@
                 loading="lazy">
             </iframe>
         </div>
-
         <a class="btn-pro" href="https://www.google.com/maps?q=Salon+De+Fiestas+Amaranto+Villahermosa+Tabasco" target="_blank">
             📍 Abrir en Google Maps
         </a>
@@ -172,21 +189,30 @@
 
     <div class="section fade-in-section">
         <div class="card-pro">
-            <h2>Confirma tu lugar</h2>
+            <h2>Sugerir Música</h2>
             <div class="divider-pro"></div>
-            <p>Por favor, confirma tu asistencia para asignarte un código de acceso.</p>
+            <p>¿Qué canción no puede faltar en la fiesta? Ayúdanos a armar la playlist perfecta.</p>
+            <div class="btn-group">
+                <a class="btn-pro" href="https://open.spotify.com" target="_blank">
+                    🎵 Agregar canción en Spotify
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section fade-in-section" style="padding-bottom: 100px;">
+        <div class="card-pro">
+            <h2>Confirmar Asistencia</h2>
+            <div class="divider-pro"></div>
+            <p>Para nosotros es muy importante contar con tu presencia. Por favor, confírmanos antes del 15 de julio.</p>
             
             <div class="btn-group">
                 <a class="btn-pro" href="https://docs.google.com/forms/d/e/1FAIpQLSe0hic1AN_qBpKbJwodNmI5TRna6R-xpgqC4F_Mx-Lei4fkPQ/viewform?usp=sf_link" target="_blank">
-                    📩 Llenar Formulario de Asistencia
+                    📩 Confirmar por Formulario
                 </a>
 
                 <a class="btn-pro" href="https://wa.me/529934199255?text=Hola%20Andr%C3%A9s!%20Queremos%20confirmar%20nuestra%20asistencia%20a%20la%20boda." target="_blank">
                     📱 Confirmar por WhatsApp
-                </a>
-
-                <a class="btn-pro" href="mesas.html" target="_blank">
-                    🪑 Ver Distribución de Asientos
                 </a>
             </div>
         </div>
@@ -209,18 +235,14 @@
         function updateCountdown() {
             const now = new Date().getTime();
             const d = targetDate - now;
-            
             if (d < 0) return;
-
             const days = Math.floor(d / (1000 * 60 * 60 * 24));
             const hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-
             document.getElementById("days").innerText = days.toString().padStart(2, '0');
             document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
         }
-
         setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
