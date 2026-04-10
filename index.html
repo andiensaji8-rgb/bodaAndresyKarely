@@ -11,10 +11,10 @@
 
     <style>
         :root {
-            --bg-crema: #fdf8f5; /* Fondo lino muy suave */
-            --texto-principal: #2c1e14; /* Marrón casi negro, muy elegante */
-            --verde-oliva: #4a5d4f; /* Verde cenizo profundo */
-            --oro-suave: #c5a059; /* Toque dorado para detalles */
+            --bg-crema: #fdf8f5;
+            --texto-principal: #2c1e14;
+            --verde-oliva: #4a5d4f;
+            --oro-suave: #c5a059;
             --blanco: #ffffff;
             --font-titulo: 'Cormorant Garamond', serif;
             --font-cuerpo: 'Montserrat', sans-serif;
@@ -32,7 +32,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Títulos principales */
         h1, h2, h3 { 
             font-family: var(--font-titulo); 
             font-weight: 300; 
@@ -51,9 +50,6 @@
             letter-spacing: 0.5px;
         }
 
-        strong { font-weight: 500; }
-
-        /* Contenedor global de secciones */
         .section { 
             padding: 100px 20px; 
             text-align: center; 
@@ -61,10 +57,8 @@
             margin: 0 auto;
         }
 
-        /* Divisor Pro */
         .divider-pro {
-            width: 80px;
-            height: 1px;
+            width: 80px; height: 1px;
             background-color: var(--oro-suave);
             margin: 25px auto 40px;
             position: relative;
@@ -81,7 +75,7 @@
             padding: 0 4px;
         }
 
-        /* --- HERO PRO (Con Paralaje) --- */
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             display: flex;
@@ -91,7 +85,7 @@
             color: var(--blanco);
             text-align: center;
             position: relative;
-            background-attachment: fixed; /* Efecto Paralaje */
+            background-attachment: fixed;
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
                               url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
             background-size: cover;
@@ -99,68 +93,37 @@
         }
 
         .hero-names {
-            font-family: var(--font-titulo);
-            font-size: 5.5rem;
+            font-size: clamp(3rem, 10vw, 5.5rem);
             font-weight: 200;
             text-transform: none;
             letter-spacing: -1px;
             margin-bottom: 10px;
-            animation: fadeDown 1.8s ease;
         }
-
-        .hero-names span { font-family: var(--font-titulo); font-style: italic; }
+        .hero-names span { font-style: italic; }
 
         .hero-date {
-            font-family: var(--font-cuerpo);
-            font-weight: 200;
             text-transform: uppercase;
             letter-spacing: 5px;
             font-size: 1.1rem;
-            animation: fadeUp 2.2s ease;
             margin-bottom: 40px;
         }
 
-        /* Contador Minimalista */
-        .countdown-pro {
-            display: flex;
-            gap: 20px;
-            font-family: var(--font-cuerpo);
-            animation: fadeIn 3s ease;
-        }
+        .countdown-pro { display: flex; gap: 20px; }
         .cd-item { display: flex; flex-direction: column; align-items: center; }
         .cd-num { font-size: 2rem; font-weight: 200; }
         .cd-word { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
 
-        /* --- ANIMACIONES --- */
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Scroll Animation Class */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-            visibility: hidden;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-            visibility: visible;
-        }
-
-        /* --- CARDS & DETALLES --- */
+        /* CARDS */
         .card-pro {
             background: var(--blanco);
             padding: 70px 50px;
-            border-radius: 4px; /* Bordes más rectos = más formal */
-            border: 1px solid rgba(197, 160, 89, 0.2); /* Borde dorado casi invisible */
+            border: 1px solid rgba(197, 160, 89, 0.2);
             box-shadow: 0 10px 40px rgba(0,0,0,0.03);
             max-width: 750px;
             margin: 0 auto;
         }
         
-        .card-pro p.cite {
+        .cite {
             font-style: italic;
             color: var(--oro-suave);
             font-family: var(--font-titulo);
@@ -168,26 +131,20 @@
             margin-bottom: 30px;
         }
 
-        /* --- BOTONES DE LUJO --- */
+        /* BOTONES */
         .btn-pro {
             display: inline-block;
-            margin: 15px;
+            margin: 10px;
             padding: 18px 40px;
-            border-radius: 2px; /* Rectangulares */
             background-color: transparent;
             color: var(--texto-principal);
             text-decoration: none;
-            font-family: var(--font-cuerpo);
-            font-weight: 400;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            border: 1px solid var(--oro-suave); /* Borde dorado */
+            border: 1px solid var(--oro-suave);
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
-
         .btn-pro:hover {
             color: var(--blanco);
             background-color: var(--verde-oliva);
@@ -195,90 +152,42 @@
             transform: translateY(-2px);
         }
 
-        /* --- GALERÍA TIPO MOSAICO (ARTÍSTICA) --- */
+        /* GALERÍA */
         .gallery-pro {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(2, 250px);
             gap: 15px;
-            padding: 20px;
         }
+        .gallery-pro img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .gallery-pro img:hover { transform: scale(1.03); }
+        .img-1 { grid-column: 1 / 3; }
+        .img-3 { grid-column: 4 / 5; grid-row: 1 / 3; }
+        .img-5 { grid-column: 2 / 4; }
 
-        .gallery-pro img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 2px;
-            transition: transform 0.6s ease;
-            cursor: pointer;
+        /* MAPA */
+        .map-container-pro { border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .map-pro { width: 100%; height: 400px; border: none; filter: grayscale(20%); }
+
+        /* CÓDIGO DE VESTIMENTA */
+        .dress-code-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .dress-item { flex: 1; min-width: 280px; background: var(--blanco); padding: 40px; border: 1px solid rgba(0,0,0,0.03); }
+        .dress-icon { font-size: 2.5rem; color: var(--oro-suave); margin-bottom: 20px; }
+
+        /* ANIMACIÓN SCROLL */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
         }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-        .gallery-pro img:hover { transform: scale(1.03); filter: brightness(1.1); }
-
-        /* Layout del mosaico */
-        .img-1 { grid-column: 1 / 3; grid-row: 1 / 2; } /* Grande horizontal */
-        .img-2 { grid-column: 3 / 4; grid-row: 1 / 2; } /* Normal */
-        .img-3 { grid-column: 4 / 5; grid-row: 1 / 3; } /* Vertical larga */
-        .img-4 { grid-column: 1 / 2; grid-row: 2 / 3; } /* Normal */
-        .img-5 { grid-column: 2 / 4; grid-row: 2 / 3; } /* Grande horizontal */
-
-        /* --- MAPA --- */
-        .map-container-pro {
-            border-radius: 2px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-        .map-pro { width: 100%; height: 400px; border: none; filter: grayscale(30%); } /* Un toque gris para elegancia */
-
-        /* --- CÓDIGO DE VESTIMENTA (NUEVO) --- */
-        .dress-code-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .dress-item {
-            flex: 1;
-            min-width: 250px;
-            max-width: 350px;
-            background: var(--blanco);
-            padding: 40px;
-            border-radius: 2px;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .dress-icon {
-            font-size: 2.5rem;
-            color: var(--oro-suave);
-            margin-bottom: 20px;
-        }
-
-        .dress-item h3 {
-            font-size: 1.2rem;
-            color: var(--texto-principal);
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            h2 { font-size: 1.8rem; }
-            .section { padding: 70px 15px; }
+            .section { padding: 60px 20px; }
+            .gallery-pro { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+            .img-1, .img-3, .img-5 { grid-column: span 2; height: 200px; }
             .hero-names { font-size: 3.5rem; }
-            .hero-date { font-size: 0.9rem; letter-spacing: 3px; }
-            
-            .card-pro { padding: 40px 25px; }
-            
-            .gallery-pro { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 150px); }
-            .img-1, .img-5 { grid-column: 1 / 3; }
-            .img-2, .img-4 { grid-column: auto; grid-row: auto; }
-            .img-3 { grid-column: auto; grid-row: auto; height: 100%;}
-
-            .dress-code-container { gap: 20px; }
+            .card-pro { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -287,7 +196,6 @@
     <div class="hero">
         <h1 class="hero-names">Karely <span>&</span> Andrés</h1>
         <p class="hero-date">XV . VIII . MMXXVI</p>
-        
         <div class="countdown-pro" id="countdown">
             <div class="cd-item"><span class="cd-num" id="days">00</span><span class="cd-word">Días</span></div>
             <div class="cd-item"><span class="cd-num">·</span></div>
@@ -301,8 +209,8 @@
         <div class="card-pro">
             <h2>Nuestra Historia</h2>
             <div class="divider-pro"></div>
-            <p class="cite">"Dos caminos que Dios unió..."</p>
-            <p>Dos corazones con un mismo propósito. Hoy queremos compartir contigo el inicio de esta nueva etapa.</p>
+            <p class="cite">"Por encima de todo, vístanse de amor."</p>
+            <p>Dos caminos que Dios unió y dos corazones con un mismo propósito. Estamos felices de que seas parte de nuestro comienzo.</p>
         </div>
     </div>
 
@@ -320,29 +228,25 @@
         <h2>Ubicación</h2>
         <div class="divider-pro"></div>
         <div class="map-container-pro">
-            <iframe class="map-pro" src="http://googleusercontent.com/maps.google.com/4"></iframe>
+            <iframe class="map-pro" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.244304674716!2d-92.9054761!3d17.9904259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eed95f5900508f%3A0xc6c7694f29139f1c!2sTepanco%20781%2C%20Cd%20Industrial%2C%2086010%20Villahermosa%2C%20Tab.!5e0!3m2!1ses-419!2smx!4v1712680000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <a class="btn-pro" href="http://googleusercontent.com/maps.google.com/5" target="_blank">Abrir en Google Maps</a>
+        <a class="btn-pro" href="https://www.google.com/maps/search/?api=1&query=Tepanco+781+Ciudad+Industrial+Villahermosa" target="_blank">📍 Ver en Google Maps</a>
     </div>
 
     <div class="section fade-in-section">
         <h2>Código de Vestimenta</h2>
         <div class="divider-pro"></div>
-        <p>Para esta ocasión especial, hemos elegido un estilo:</p>
         <p><strong>FORMAL JARDÍN / PLAYA</strong></p>
-        
         <div class="dress-code-container">
             <div class="dress-item">
                 <div class="dress-icon">👗</div>
                 <h3>DAMAS</h3>
-                <p>Vestido largo o midi en telas fluidas (lino, gasa). Colores claros o estampados florales suaves. Cuñas o sandalias elegantes de tacón ancho (recomendado para césped).</p>
-                <p><small>*Se ruega evitar el color blanco y beige.</small></p>
+                <p>Vestido largo o midi en telas fluidas. Colores claros o estampados suaves. Se recomienda tacón ancho para mayor comodidad en el jardín.</p>
             </div>
             <div class="dress-item">
                 <div class="dress-icon">👔</div>
                 <h3>CABALLEROS</h3>
-                <p>Traje completo de lino o algodón en tonos claros (khaki, azul claro, gris beige). Guayabera formal de manga larga con pantalón de vestir. No es necesaria la corbata.</p>
-                <p><small>*No shorts, no mezclilla.</small></p>
+                <p>Traje de lino o algodón en tonos claros, o guayabera formal de manga larga con pantalón de vestir. No es necesaria la corbata.</p>
             </div>
         </div>
     </div>
@@ -351,84 +255,47 @@
         <h2>Momentos</h2>
         <div class="divider-pro"></div>
         <div class="gallery-pro">
-            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0008.jpg" class="img-1" alt="Momento 1">
-            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0009.jpg" class="img-2" alt="Momento 2">
-            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg" class="img-3" alt="Momento 3">
-            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0014.jpg" class="img-4" alt="Momento 4">
-            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0015.jpg" class="img-5" alt="Momento 5">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0008.jpg" class="img-1">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0009.jpg" class="img-2">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg" class="img-3">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0014.jpg" class="img-4">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0015.jpg" class="img-5">
         </div>
-    </div>
-
-    <div class="section fade-in-section">
-        <h2>Comparte tus fotos</h2>
-        <div class="divider-pro"></div>
-        <p>Ayúdanos a capturar cada sonrisa.</p>
-        <a class="btn-pro" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir al Álbum</a>
     </div>
 
     <div class="section fade-in-section">
         <div class="card-pro">
             <h2>Confirmación</h2>
             <div class="divider-pro"></div>
-            <p>Favor de confirmar su asistencia antes del 1 de Julio de 2026.</p>
+            <p>Favor de confirmar su asistencia antes del 15 de julio.</p>
             <br>
-            <a class="btn-pro" href="https://wa.me/5219934199255?text=¡Hola!%20Confirmo%20mi%20asistencia%20(1%20persona)" target="_blank">1 persona</a>
-            <a class="btn-pro" href="https://wa.me/5219934199255?text=¡Hola!%20Confirmamos%20asistencia%20(2%20personas)" target="_blank">2 personas</a>
-            <a class="btn-pro" href="https://wa.me/5219934199255?text=¡Hola!%20Confirmamos%20asistencia%20familiar" target="_blank">Familia</a>
+            <a class="btn-pro" href="https://wa.me/5219934199255?text=Confirmo%20asistencia%20(1%20persona)" target="_blank">1 Persona</a>
+            <a class="btn-pro" href="https://wa.me/5219934199255?text=Confirmamos%20asistencia%20(2%20personas)" target="_blank">2 Personas</a>
+            <a class="btn-pro" href="https://wa.me/5219934199255?text=Confirmamos%20asistencia%20familiar" target="_blank">Familia</a>
         </div>
     </div>
 
     <script>
-        // --- 1. Animación de entrada Pro (Intersection Observer) ---
         const faders = document.querySelectorAll('.fade-in-section');
-        
-        const appearOptions = {
-            threshold: 0.15, // La sección aparece cuando el 15% es visible
-            rootMargin: "0px 0px -50px 0px" // Un pequeño delay antes de aparecer
-        };
-
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        const appearOptions = { threshold: 0.15 };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('is-visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             });
         }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-
-        // --- 2. Contador Preciso ---
         const targetDate = new Date("August 15, 2026 14:00:00").getTime();
-
-        function updateCountdown() {
+        setInterval(() => {
             const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "<div class='hero-date'>¡Llegó el gran día!</div>";
-                clearInterval(timerInterval);
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            // Actualizar HTML con ceros a la izquierda si es necesario
-            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
-        }
-
-        // Ejecutar inmediatamente y luego cada minuto (para elegancia, no necesitamos segundos)
-        updateCountdown();
-        const timerInterval = setInterval(updateCountdown, 60000); 
-
+            const d = targetDate - now;
+            if (d < 0) return;
+            document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+        }, 1000);
     </script>
 </body>
 </html>
