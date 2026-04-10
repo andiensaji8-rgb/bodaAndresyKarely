@@ -11,29 +11,27 @@
 
     <style>
         :root {
-            /* NUEVA PALETA: Fondo oscuro moderno/romántico */
-            --bg-oscuro: #2c1e14;  /* Marrón Chocolate Profundo */
-            --texto-crema: #f2ece8; /* Crema Suave para texto */
+            /* PALETA ORIGINAL CREMA Y VERDE */
+            --bg-crema: #fdf8f5;
+            --texto: #2c1e14;
             --verde-menta: #7ea89b; 
             --verde-oliva: #4a5d4f;
             --oro: #c5a059;
             --font-t: 'Cormorant Garamond', serif;
             --font-c: 'Montserrat', sans-serif;
-            --shadow-soft: 0 30px 60px rgba(0,0,0,0.1);
-            --shadow-strong: 0 20px 45px rgba(0,0,0,0.2);
-            --borde-oro: 1px solid rgba(197, 160, 89, 0.2);
+            --shadow-soft: 0 20px 40px rgba(0,0,0,0.03);
+            --shadow-strong: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        /* Actualización de fondo y texto principal */
-        body { font-family: var(--font-c); background-color: var(--bg-oscuro); color: var(--texto-crema); overflow-x: hidden; line-height: 1.8; }
+        body { font-family: var(--font-c); background-color: var(--bg-crema); color: var(--texto); overflow-x: hidden; line-height: 1.8; }
 
-        /* --- PANTALLA DE ACCESO MEJORADA (Se mantiene igual) --- */
+        /* --- PANTALLA DE ACCESO --- */
         #login-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 3000;
-            background: linear-gradient(rgba(44, 58, 53, 0.8), rgba(44, 58, 53, 0.8)), 
+            background: linear-gradient(rgba(44, 58, 53, 0.75), rgba(44, 58, 53, 0.75)), 
                         url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
             background-size: cover; background-position: center;
             display: flex; justify-content: center; align-items: center;
@@ -49,12 +47,11 @@
             backdrop-filter: blur(8px);
         }
         .login-card h2 { font-family: var(--font-t); font-size: clamp(2.5rem, 8vw, 3.5rem); text-transform: uppercase; letter-spacing: 8px; margin-bottom: 20px; }
-        /* Input ahora con fondo claro y texto oscuro para contraste */
-        .input-boda { padding: 20px; width: 100%; border: none; text-align: center; font-family: var(--font-c); font-size: 1rem; margin-bottom: 20px; background: #fff; color: #000; outline: none; border-radius: 2px; }
+        .input-boda { padding: 20px; width: 100%; border: none; text-align: center; font-family: var(--font-c); font-size: 1rem; margin-bottom: 20px; background: white; color: var(--texto); outline: none; border-radius: 2px; }
         .btn-pases { background: transparent; border: 1px solid white; color: white; padding: 18px 30px; width: 100%; font-family: var(--font-c); text-transform: uppercase; letter-spacing: 4px; font-size: 0.85rem; cursor: pointer; transition: 0.5s; font-weight: bold; }
         .btn-pases:hover { background: white; color: var(--verde-oliva); transform: scale(1.02); }
 
-        /* --- SISTEMA PARALLAX (Se mantiene igual) --- */
+        /* --- SISTEMA PARALLAX --- */
         .parallax-container {
             position: relative;
             height: 95vh;
@@ -82,7 +79,7 @@
         .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
         .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; max-width: 900px; }
 
-        /* --- SECCIONES (Ajuste de fondo) --- */
+        /* --- SECCIONES --- */
         section { padding: 130px 0; } 
 
         .reveal { opacity: 0; transform: translateY(60px); transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -90,20 +87,19 @@
 
         .photo-separator { width: 150px; height: 150px; border: 1px solid var(--oro); border-radius: 50%; margin: 0 auto; background-size: cover; background-position: center; background-color: white; padding: 8px; box-shadow: var(--shadow-strong); position: relative; top: 75px; z-index: 20; }
         
-        /* Card Premium ahora con fondo oscuro y bordes suaves */
-        .card-premium { background: #35291f; padding: 130px 60px 80px; border: var(--borde-oro); max-width: 950px; width: 92%; margin: 0 auto; text-align: center; box-shadow: var(--shadow-soft); color: var(--texto-crema); }
+        .card-premium { background: white; padding: 130px 60px 80px; border: 1px solid rgba(197, 160, 89, 0.1); max-width: 950px; width: 92%; margin: 0 auto; text-align: center; box-shadow: var(--shadow-soft); }
 
-        /* --- MAPA INTERACTIVO (Se mantiene igual) --- */
+        /* --- MAPA INTERACTIVO --- */
         .map-container { 
             width: 100%; 
             height: 450px; 
             margin-top: 50px; 
             background: #eee;
-            border: 15px solid #fff;
+            border: 15px solid white;
             box-shadow: var(--shadow-strong);
         }
 
-        /* --- SECCIÓN SPOTIFY (Se mantiene igual) --- */
+        /* --- SECCIÓN SPOTIFY --- */
         .spotify-card {
             background: #191414;
             color: white;
@@ -114,35 +110,36 @@
         }
         .spotify-logo { width: 45px; margin-bottom: 20px; }
 
-        /* --- SECCIÓN HISTORIA EN FOTOS (Nuevo diseño grande) --- */
+        /* --- SECCIÓN HISTORIA EN FOTOS --- */
         .historia-foto-container {
             width: 100%;
-            max-width: 800px; /* Tamaño grande para la foto */
+            max-width: 800px; 
             margin: 0 auto;
             position: relative;
             padding: 20px;
-            border: 2px solid var(--oro); /* Marco de Oro alrededor */
-            border-radius: 8px;
+            background: white;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 4px;
             box-shadow: var(--shadow-strong);
-            margin-bottom: 50px; /* Espacio antes del botón */
+            margin-bottom: 50px; 
         }
         .historia-foto-frame {
             width: 100%;
             height: 0;
-            padding-bottom: 75%; /* Ratio 4:3 para la foto */
+            padding-bottom: 75%; 
             background-size: cover;
             background-position: center;
-            border-radius: 4px;
+            border-radius: 2px;
             overflow: hidden;
-            background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/e092487e7d4b36a2427dafef8a34e44f00ca661d/IMG-20260409-WA0015.jpg'); /* Tu Foto Integrada */
+            background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/e092487e7d4b36a2427dafef8a34e44f00ca661d/IMG-20260409-WA0015.jpg');
         }
 
-        /* --- BOTONES (Ajuste para fondo oscuro) --- */
+        /* --- BOTONES --- */
         .btn-gold-lg { 
             display: inline-block; 
             padding: 22px 50px; 
             border: 1px solid var(--oro); 
-            color: var(--oro); /* Texto en oro para fondo oscuro */
+            color: var(--texto); 
             text-decoration: none; 
             text-transform: uppercase; 
             letter-spacing: 5px; 
@@ -162,7 +159,7 @@
 
         /* --- DETALLES --- */
         h1, h2, h3 { font-family: var(--font-t); text-transform: uppercase; letter-spacing: 7px; font-weight: 300; }
-        .adults-only { font-family: var(--font-t); font-size: 1.6rem; color: var(--oro); letter-spacing: 5px; margin: 30px 0; font-style: italic; border-top: 1px solid rgba(197, 160, 89, 0.15); border-bottom: 1px solid rgba(197, 160, 89, 0.15); padding: 25px 0; }
+        .adults-only { font-family: var(--font-t); font-size: 1.6rem; color: var(--oro); letter-spacing: 5px; margin: 30px 0; font-style: italic; border-top: 1px solid #f2ece8; border-bottom: 1px solid #f2ece8; padding: 25px 0; }
 
         #music-btn, #whatsapp-btn { position: fixed; bottom: 30px; z-index: 2000; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: white; transition: 0.3s; }
         #music-btn { right: 30px; border: 1px solid var(--oro); font-size: 1.5rem; }
@@ -217,7 +214,7 @@
             <div class="reveal">
                 <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
                 <div class="card-premium">
-                    <p style="font-style: italic; font-family: var(--font-t); font-size: 2.2rem; color: var(--verde-menta); max-width: 700px; margin: 0 auto; line-height: 1.4;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
+                    <p style="font-style: italic; font-family: var(--font-t); font-size: 2.2rem; color: var(--verde-oliva); max-width: 700px; margin: 0 auto; line-height: 1.4;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
                     <p style="font-size: 0.85rem; margin-top: 45px; letter-spacing: 6px; font-weight: bold; color: var(--oro);">1 CORINTIOS 13:13</p>
                 </div>
             </div>
@@ -232,12 +229,12 @@
                 
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15166.57022026214!2d-92.93666249999999!3d17.96208035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ee7df4b4f5351f%3A0xc621b4478d52c6f1!2sSal%C3%B3n%20Amaranto!5e0!3m2!1ses-419!2smx!4v1712771501173!5m2!1ses-419!2smx" 
+                        src="https://maps.app.goo.gl/AyDD8CzKXJrp3uLM8" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
 
-                <a href="https://maps.app.goo.gl/B9p5G8k4W74L1N2u5" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 50px;">📍 VER UBICACIÓN EN MAPAS</a>
+                <a href="https://maps.app.goo.gl/AyDD8CzKXJrp3uLM8" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 50px;">📍 VER UBICACIÓN EN MAPAS</a>
             </div>
         </section>
 
@@ -247,8 +244,8 @@
                 <div class="card-premium">
                     <h3 style="color: var(--oro); font-size: 2.4rem; margin-bottom: 25px;">Código de Vestimenta</h3>
                     <p style="font-size: 1.8rem; letter-spacing: 12px; color: var(--verde-menta); margin-bottom: 25px;">FORMAL</p>
-                    <p style="font-size: 1.1rem; opacity: 0.7; max-width: 650px; margin: 0 auto; color: var(--texto-crema);">Agradecemos de antemano su elegancia para este día tan especial.</p>
-                    <div class="adults-only">ADULTOS SOLAMENTE<br><span style="font-size: 1.1rem; letter-spacing: 3px; font-style: normal; opacity: 0.8; color: var(--texto-crema);">CUPO LIMITADO A ADULTOS</span></div>
+                    <p style="font-size: 1.1rem; opacity: 0.7; max-width: 650px; margin: 0 auto;">Agradecemos de antemano su elegancia para este día tan especial.</p>
+                    <div class="adults-only">ADULTOS SOLAMENTE<br><span style="font-size: 1.1rem; letter-spacing: 3px; font-style: normal; opacity: 0.8;">CUPO LIMITADO A ADULTOS</span></div>
                 </div>
             </div>
         </section>
@@ -263,23 +260,23 @@
                     
                     <div style="margin-top: 60px; padding-top: 50px; border-top: 1px solid rgba(197, 160, 89, 0.1);">
                         <h3 style="font-size: 1.6rem; color: var(--verde-menta); margin-bottom: 20px;">LLUVIA DE SOBRES</h3>
-                        <p style="font-size: 1.1rem; opacity: 0.7; margin-bottom: 40px; color: var(--texto-crema);">Su presencia es nuestro mejor regalo, pero si desean tener un detalle, contaremos con un baúl para sobres.</p>
+                        <p style="font-size: 1.1rem; opacity: 0.7; margin-bottom: 40px;">Su presencia es nuestro mejor regalo, pero si desean tener un detalle, contaremos con un baúl para sobres.</p>
                     </div>
 
                     <div class="spotify-card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="spotify-logo" alt="Spotify">
                         <h3 style="color: #1DB954; font-size: 1.8rem; margin-bottom: 15px;">Música para el evento</h3>
                         <p style="font-size: 1rem; margin-bottom: 30px; opacity: 0.9; letter-spacing: 1px;">¿Tienes alguna canción favorita? ¡Sugiérela en nuestra playlist!</p>
-                        <a href="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGo73UeR?si=030d970e7e1f4864" target="_blank" class="btn-gold-lg btn-spotify">🎵 AGREGAR MI CANCIÓN</a>
+                        <a href="https://open.spotify.com/playlist/1Q5dUhpMzLb0j5amahvVfL?si=d79ee66533a14535&pt=2f3f0177f814556057b76fa2297219e0" target="_blank" class="btn-gold-lg btn-spotify">🎵 AGREGAR MI CANCIÓN</a>
                         <p style="font-size: 0.75rem; margin-top: 20px; color: #888;">(Enlace a la playlist colaborativa de Karely y Andrés)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="background-color: #35291f; padding: 180px 0;">
+        <section style="background-color: #f9f4f0; padding: 180px 0;">
             <div class="reveal" style="text-align: center;">
-                <p style="font-family: var(--font-t); font-size: 2rem; color: var(--verde-menta); margin-bottom: 70px; letter-spacing: 4px; padding: 0 20px; color: var(--texto-crema);">Nos haría muy felices compartir este nuevo comienzo contigo.</p>
+                <p style="font-family: var(--font-t); font-size: 2rem; color: var(--verde-oliva); margin-bottom: 70px; letter-spacing: 4px; padding: 0 20px;">Nos haría muy felices compartir este nuevo comienzo contigo.</p>
                 
                 <div class="reveal active historias-grande">
                     <div class="historia-foto-container">
@@ -300,7 +297,6 @@
     </div>
 
     <script>
-        // ... (Se mantiene la lógica de lista de invitados y funciones de acceso igual que en tu original)
         const listaInvitados = [
             { nombre: "Cruz del alba", pases: 1 },
             { nombre: "Waldemar Ceballos y Carolina", pases: 2 },
