@@ -49,22 +49,22 @@
             color: var(--blanco);
         }
 
-        /* DECORACIÓN FLORAL CON TU IMAGEN DE GITHUB */
+        /* DECORACIÓN FLORAL CON TRANSPARENCIA REAL */
         .floral-corner {
             position: absolute;
-            /* LINK DIRECTO A TU IMAGEN EN GITHUB */
-            background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/095aa1de04f629dd694031e8ea60f57ae333212e/Gemini_Generated_Image_tvqv90tvqv90tvqv.png');
+            background-image: url('https://www.transparentpng.com/download/watercolor-leaves/green-watercolor-leaves-transparent-background-3051.png');
             background-size: contain;
             background-repeat: no-repeat;
-            width: 250px; /* Tamaño ajustable */
-            height: 250px;
-            opacity: 0.8;
+            width: 220px; 
+            height: 220px;
+            opacity: 0.5;
             z-index: 0;
-            pointer-events: none; /* No interfiere con clics */
+            pointer-events: none;
+            filter: sepia(0.4) saturate(0.8); /* Ajuste de color para tono Oliva */
         }
-        .floral-top-left { top: 0; left: 0; }
-        /* Para usar la misma imagen en otra esquina, la rotamos */
-        .floral-bottom-right { bottom: 0; right: 0; transform: rotate(180deg); opacity: 0.5; }
+        
+        .floral-top-left { top: -20px; left: -20px; }
+        .floral-bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
 
         h1, h2 { 
             font-family: var(--font-t); 
@@ -90,7 +90,7 @@
             transform: translateX(-50%); background: transparent; color: var(--oro); font-size: 12px;
         }
 
-        /* Tarjeta con Transparencia Sofisticada */
+        /* Tarjeta Premium */
         .card-premium {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
@@ -129,7 +129,7 @@
             .parallax { background-attachment: scroll; }
             .hero-names { font-size: 3.5rem; }
             .card-premium { padding: 40px 20px; }
-            .floral-corner { width: 150px; height: 150px; }
+            .floral-corner { width: 140px; height: 140px; }
         }
     </style>
 </head>
@@ -138,10 +138,10 @@
     <header class="full-section parallax" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
         <div class="floral-corner floral-top-left reveal active"></div>
         
-        <p class="reveal active" style="letter-spacing: 8px; position: relative; z-index: 1;">¡QUEREMOS CELEBRARLO CONTIGO!</p>
-        <h1 class="hero-names reveal active" style="position: relative; z-index: 1;">Karely <span>&</span> Andrés</h1>
+        <p class="reveal active" style="letter-spacing: 8px;">¡QUEREMOS CELEBRARLO CONTIGO!</p>
+        <h1 class="hero-names reveal active">Karely <span>&</span> Andrés</h1>
         <div class="divider-diamond reveal active"></div>
-        <p class="reveal active" style="font-size: 1.2rem; font-family: var(--font-t); position: relative; z-index: 1;">15 . 08 . 2026</p>
+        <p class="reveal active" style="font-size: 1.2rem; font-family: var(--font-t);">15 . 08 . 2026</p>
         
         <div class="countdown-container reveal active">
             <div><div class="cd-box" id="days">00</div><p><small>DÍAS</small></p></div>
@@ -154,7 +154,7 @@
 
     <section class="full-section reveal">
         <div class="card-premium">
-            <div class="floral-corner floral-top-left" style="opacity: 0.4;"></div>
+            <div class="floral-corner floral-top-left" style="opacity: 0.3;"></div>
             <h2 style="color: var(--verde);">Nuestra Historia</h2>
             <div class="divider-diamond"></div>
             <p style="font-style: italic; font-size: 1.2rem; color: var(--oro);">"Por encima de todo, vístanse de amor, que es el vínculo perfecto."</p>
@@ -183,7 +183,7 @@
             <div class="divider-diamond"></div>
             <p style="margin-bottom: 30px;">Vuestra presencia es nuestro mejor regalo, pero si desean tener un detalle:</p>
             
-            <div style="padding: 30px; border: 1px dashed var(--oro); background: rgba(255,255,255,0.5); position: relative; z-index: 1;">
+            <div style="padding: 30px; border: 1px dashed var(--oro); background: rgba(255,255,255,0.5);">
                 <p><strong>LLUVIA DE SOBRES</strong></p>
                 <p><small>Buzón disponible en la recepción</small></p>
                 <div class="divider-diamond" style="width: 40px; margin: 20px auto;"></div>
@@ -193,52 +193,49 @@
     </section>
 
     <section class="full-section reveal" style="background-color: rgba(244, 238, 232, 0.8);">
-        <h2>Música en Vivo</h2>
+        <div class="floral-corner floral-top-left" style="opacity: 0.2;"></div>
+        <h2>Música de la Fiesta</h2>
         <div class="divider-diamond"></div>
-        <p>Acompáñanos a crear el ambiente perfecto.</p>
+        <p>¿Qué canción no puede faltar? Ayúdanos con la playlist.</p>
         <br>
-        <a href="googleusercontent.com/spotify.com/5" target="_blank" class="btn-gold">🎵 Sugerir Canción</a>
+        <a href="https://open.spotify.com/playlist/1Q5dUhpMzLb0j5amahvVfL?si=kwaFk4ODT1auPTOopkMovA" target="_blank" class="btn-gold">🎵 Sugerir en Spotify</a>
     </section>
 
     <section class="full-section reveal">
-        <div class="floral-corner floral-top-left" style="opacity: 0.6;"></div>
         <div class="card-premium">
+            <div class="floral-corner floral-top-left" style="opacity: 0.5;"></div>
             <h2>Confirmación</h2>
             <div class="divider-diamond"></div>
-            <p>Agradecemos tu confirmación antes del 15 de julio.</p>
-            <div style="margin-top: 30px; position: relative; z-index: 2;">
-                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Asistencia</a>
+            <p>Por favor, confírmanos tu asistencia antes del 15 de julio.</p>
+            <div style="margin-top: 30px;">
+                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar en Typeform</a>
                 <br>
-                <a href="https://wa.me/529934199255" target="_blank" style="display: block; margin-top: 20px; color: var(--verde); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; position: relative; z-index: 2;">Confirmar vía WhatsApp</a>
+                <a href="https://wa.me/529934199255" target="_blank" style="display: block; margin-top: 20px; color: var(--verde); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">Confirmar vía WhatsApp</a>
             </div>
         </div>
     </section>
 
     <script>
-        // Animación al hacer scroll
+        // Animación de aparición suave
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 150) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Para activar las que ya están visibles
+        reveal();
 
-        // Cuenta regresiva
+        // Contador
         const weddingDate = new Date("August 15, 2026 14:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const diff = weddingDate - now;
-            if (diff < 0) {
-                document.getElementById("countdown").innerHTML = "¡LLEGÓ EL DÍA!";
-                return;
-            }
+            if (diff < 0) return;
             document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
             document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
             document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
