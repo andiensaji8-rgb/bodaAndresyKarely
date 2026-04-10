@@ -16,134 +16,101 @@
             --verde-menta: #7ea89b; 
             --verde-oliva: #4a5d4f;
             --oro: #c5a059;
-            --blanco: #ffffff;
             --font-t: 'Cormorant Garamond', serif;
             --font-c: 'Montserrat', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-c); background-color: var(--bg-crema); color: var(--texto); overflow-x: hidden; line-height: 1.6; }
 
-        body { 
-            font-family: var(--font-c); 
-            background-color: var(--bg-crema); 
-            color: var(--texto); 
-            overflow-x: hidden;
-            line-height: 1.4;
-        }
-
-        /* --- PANTALLA DE ACCESO (COLORES ORIGINALES RESTAURADOS) --- */
+        /* --- PANTALLA DE ACCESO (ESTILO IMAGEN 10) --- */
         #login-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 3000;
-            background: linear-gradient(rgba(126, 168, 155, 0.85), rgba(126, 168, 155, 0.85)), 
+            background: linear-gradient(rgba(126, 168, 155, 0.8), rgba(126, 168, 155, 0.8)), 
                         url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
             background-size: cover; background-position: center;
             display: flex; justify-content: center; align-items: center;
             color: white; text-align: center; transition: opacity 1s ease;
         }
 
-        .login-card h2 { font-family: var(--font-t); font-size: 3.5rem; font-weight: 400; margin-bottom: 10px; }
-        
-        /* Input original restaurado */
+        .login-card { width: 90%; max-width: 500px; padding: 20px; }
+        .login-card h2 { 
+            font-family: var(--font-t); font-size: clamp(2rem, 8vw, 3.5rem); 
+            text-transform: uppercase; letter-spacing: 5px; margin-bottom: 5px;
+        }
+
         .input-boda { 
-            padding: 15px; width: 100%; border: none; outline: none; 
-            text-align: center; font-family: var(--font-c); font-size: 1rem;
-            margin-bottom: 20px; background: white; color: var(--texto);
+            padding: 18px; width: 100%; border: none; text-align: center; 
+            font-family: var(--font-c); font-size: 1rem; margin-bottom: 15px; 
+            background: white; color: var(--texto); outline: none;
         }
 
-        /* --- ANIMACIONES --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .btn-pases {
+            background: rgba(255,255,255,0.2); border: 2px solid white;
+            color: white; padding: 15px 30px; width: 100%; 
+            text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem;
+            cursor: pointer; transition: 0.4s; font-weight: bold;
         }
-        .animated-element {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
+        .btn-pases:hover { background: white; color: var(--verde-oliva); }
 
-        /* --- INVITACIÓN --- */
-        #main-content { display: none; }
-
-        .full-section {
-            min-height: 65vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 40px 20px; position: relative;
+        /* --- EFECTO PARALLAX Y ANIMACIONES --- */
+        .parallax-window {
+            height: 75vh; background-attachment: fixed; background-position: center;
+            background-repeat: no-repeat; background-size: cover;
+            display: flex; align-items: center; justify-content: center; position: relative;
         }
 
-        h1, h2, h3 { font-family: var(--font-t); font-weight: 400; text-transform: uppercase; letter-spacing: 3px; }
-        .hero-names { font-size: clamp(3rem, 10vw, 5.5rem); margin-bottom: 5px; }
-        
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- SEPARADORES FOTOGRÁFICOS --- */
+        .photo-separator {
+            width: 100px; height: 100px; border: 1px solid var(--oro); border-radius: 50%;
+            margin: 0 auto; background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');
+            background-size: cover; background-position: center;
+            background-color: white; padding: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative; top: 50px; z-index: 20;
+        }
+
         .card-premium {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px 25px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 10px;
-            max-width: 700px; width: 90%;
+            background: white; padding: 80px 40px 50px; border: 1px solid rgba(197, 160, 89, 0.2);
+            max-width: 750px; width: 90%; margin: 0 auto 60px; text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            margin: 10px 0;
         }
 
-        .premium-separator {
-            width: 60px; height: 60px;
-            border: 1px solid var(--oro);
-            border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            margin: 20px auto;
-            background-color: var(--blanco);
-        }
-        .premium-separator span { font-size: 1.5rem; }
-
-        .btn-gold {
-            display: inline-block; padding: 12px 24px; border: 1px solid var(--oro);
-            color: var(--texto); text-decoration: none; text-transform: uppercase;
-            letter-spacing: 2px; font-size: 0.7rem; transition: 0.3s; cursor: pointer;
-            margin-top: 15px;
-        }
-        .btn-gold:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); }
-
-        .parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; color: white; padding: 80px 20px; }
-
-        /* CONTADOR */
-        .countdown-container { display: flex; gap: 15px; margin-top: 20px; }
-        .count-item { background: rgba(126, 168, 155, 0.2); padding: 10px; min-width: 60px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); }
-        .count-num { display: block; font-size: 1.5rem; font-weight: bold; font-family: var(--font-t); }
-        .count-lab { font-size: 0.6rem; text-transform: uppercase; }
-
-        /* BOTONES FLOTANTES */
+        /* --- BOTONES FLOTANTES --- */
         #music-btn, #whatsapp-btn {
             position: fixed; bottom: 20px; z-index: 2000;
             width: 50px; height: 50px; border-radius: 50%; 
             cursor: pointer; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: white;
         }
-        #music-btn { right: 20px; background: white; border: 1px solid var(--oro); }
-        
+        #music-btn { right: 20px; border: 1px solid var(--oro); font-size: 1.2rem; }
         #whatsapp-btn { 
-            left: 20px; 
+            left: 20px; border: 1px solid #eee;
             background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8837d6d3561e18e38ea617e33356963ed4a06a24/%E2%80%94Pngtree%E2%80%94whatsapp%20icon%20whatsapp%20logo%20whatsapp_3584845.png');
-            background-size: 60%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: white;
-            border: 1px solid #eee;
+            background-size: 60%; background-position: center; background-repeat: no-repeat;
         }
 
-        .circle-frame {
-            width: 220px; height: 220px;
-            border: 2px solid var(--oro);
-            border-radius: 50%;
-            padding: 10px; margin-bottom: 20px;
-            background-color: white;
+        .btn-gold {
+            display: inline-block; padding: 12px 30px; border: 1px solid var(--oro);
+            color: var(--texto); text-decoration: none; text-transform: uppercase;
+            letter-spacing: 2px; font-size: 0.7rem; transition: 0.3s; margin-top: 20px;
         }
-        .circle-photo {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
-            background-size: cover; background-position: center;
-        }
+        .btn-gold:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); }
 
-        @media (max-width: 768px) { .parallax { background-attachment: scroll; } }
+        /* CONTADOR */
+        .countdown-container { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+        .count-item { background: rgba(255, 255, 255, 0.2); padding: 10px; min-width: 70px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); }
+        .count-num { display: block; font-size: 1.8rem; font-weight: bold; font-family: var(--font-t); }
+        .count-lab { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (max-width: 768px) { 
+            .parallax-window { background-attachment: scroll; height: 60vh; } 
+            .photo-separator { width: 85px; height: 85px; top: 40px; }
+        }
     </style>
 </head>
 <body>
@@ -156,77 +123,90 @@
     </audio>
 
     <div id="login-screen">
-        <div class="login-card" style="width: 90%; max-width: 400px;">
+        <div class="login-card">
             <div id="step-1">
                 <h2>Karely & Andrés</h2>
-                <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 30px;">Bienvenidos</p>
-                <input type="text" id="guest-input" class="input-boda" placeholder="Escribe tu nombre">
-                <br>
-                <button class="btn-gold" style="color: white; border-color: white; width: 100%;" onclick="checkGuest()">Buscar pases</button>
+                <p style="letter-spacing: 6px; font-size: 0.75rem; margin-bottom: 35px; opacity: 0.9;">NUESTRA BODA</p>
+                <input type="text" id="guest-input" class="input-boda" placeholder="Escribe tu nombre completo">
+                <button class="btn-pases" onclick="checkGuest()">Buscar mis pases</button>
             </div>
             <div id="step-2" style="display: none;">
-                <h2 id="guest-name-display" style="font-size: 2.5rem;"></h2>
-                <p>Hola, te esperamos en nuestra Boda</p>
-                <p style="margin-top: 20px; font-size: 0.7rem; text-transform: uppercase;">Tu número de pases:</p>
-                <div style="font-family: var(--font-t); font-size: 5rem; line-height: 1;"><span id="pases-display">0</span></div>
-                <br>
-                <button class="btn-gold" style="color: white; border-color: white; width: 100%;" onclick="enterInvitation()">Ver invitación →</button>
+                <h2 id="guest-name-display" style="font-size: 2.2rem; margin-bottom: 10px;"></h2>
+                <p>¡Qué alegría que nos acompañes!</p>
+                <p style="margin-top: 20px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">Tienes asignados:</p>
+                <div style="font-family: var(--font-t); font-size: 6rem; line-height: 1; margin: 5px 0;"><span id="pases-display">0</span></div>
+                <p style="font-size: 0.8rem; margin-bottom: 25px;">Pases</p>
+                <button class="btn-pases" onclick="enterInvitation()">Abrir Invitación →</button>
             </div>
         </div>
     </div>
 
-    <div id="main-content">
-        <header class="full-section parallax animated-element" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
-            <h1 class="hero-names">Karely & Andrés</h1>
-            <p style="font-size: 1.2rem;">15 de Agosto de 2026</p>
-            <div class="countdown-container" id="countdown">
-                <div class="count-item"><span class="count-num" id="days">00</span><span class="count-lab">Días</span></div>
-                <div class="count-item"><span class="count-num" id="hours">00</span><span class="count-lab">Hrs</span></div>
-                <div class="count-item"><span class="count-num" id="minutes">00</span><span class="count-lab">Min</span></div>
+    <div id="main-content" style="display: none;">
+        
+        <header class="parallax-window" style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
+            <div class="reveal" style="text-align: center; color: white;">
+                <h1 style="font-family: var(--font-t); font-size: clamp(3.2rem, 10vw, 5.5rem); letter-spacing: 6px; margin-bottom: 10px;">Karely & Andrés</h1>
+                <p style="font-size: 1.3rem; letter-spacing: 5px; font-weight: 300;">15 DE AGOSTO 2026</p>
+                
+                <div class="countdown-container" id="countdown">
+                    <div class="count-item"><span class="count-num" id="days">00</span><span class="count-lab">Días</span></div>
+                    <div class="count-item"><span class="count-num" id="hours">00</span><span class="count-lab">Hrs</span></div>
+                    <div class="count-item"><span class="count-num" id="minutes">00</span><span class="count-lab">Min</span></div>
+                </div>
             </div>
         </header>
 
-        <section class="full-section animated-element" style="animation-delay: 0.2s;">
-            <div class="card-premium">
-                <p style="font-style: italic; font-family: var(--font-t); font-size: 1.4rem;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
-                <p style="font-size: 0.7rem; margin-top: 10px; color: var(--verde-oliva);">1 CORINTIOS 13:13</p>
+        <section style="padding: 40px 0;">
+            <div class="reveal">
+                <div class="photo-separator"></div>
+                <div class="card-premium">
+                    <p style="font-style: italic; font-family: var(--font-t); font-size: 1.5rem; color: var(--verde-oliva); line-height: 1.4;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
+                    <p style="font-size: 0.75rem; margin-top: 15px; letter-spacing: 2px; font-weight: bold;">1 CORINTIOS 13:13</p>
+                </div>
             </div>
         </section>
 
-        <section class="full-section parallax animated-element" style="background-image: linear-gradient(rgba(44,30,20,0.7), rgba(44,30,20,0.7)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); animation-delay: 0.4s;">
-            <h2>La Recepción</h2>
-            <p style="font-size: 1.5rem;">SALÓN AMARANTO</p>
-            <p>Villahermosa, Tabasco | 2:00 PM</p>
-            <br>
-            <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 Ubicación GPS</a>
-        </section>
-
-        <section class="full-section animated-element" style="animation-delay: 0.6s;">
-            <div class="circle-frame"><div class="circle-photo"></div></div>
-            <div class="card-premium">
-                <h3>Código de Vestimenta</h3>
-                <p style="font-size: 1.2rem; color: var(--verde-oliva);">FORMAL</p>
-                <p>Nos encantaría compartir este día con la elegancia que la ocasión amerita.</p>
+        <section class="parallax-window" style="background-image: linear-gradient(rgba(44,30,20,0.6), rgba(44,30,20,0.6)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); height: 65vh;">
+            <div class="reveal" style="color: white; text-align: center; padding: 0 20px;">
+                <h2 style="font-size: 2.8rem; letter-spacing: 6px; margin-bottom: 15px;">La Recepción</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 5px; font-weight: 300;">SALÓN AMARANTO</p>
+                <p style="opacity: 0.9; letter-spacing: 1px;">2:00 PM | Villahermosa, Tabasco</p>
+                <br>
+                <a href="https://maps.app.goo.gl/EjemploUbicacion" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 Ver Ubicación GPS</a>
             </div>
         </section>
 
-        <div class="premium-separator animated-element" style="animation-delay: 0.7s;"><span>🎁</span></div>
-
-        <section class="full-section animated-element" style="animation-delay: 0.8s;">
-            <div class="card-premium">
-                <h2>Mesa de Regalos</h2>
-                <p>Liverpool Evento: <strong>51985288</strong></p>
-                <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold">🎁 Ver Mesa</a>
+        <section style="padding: 40px 0;">
+            <div class="reveal">
+                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');"></div>
+                <div class="card-premium">
+                    <h3 style="color: var(--oro); font-size: 1.8rem; margin-bottom: 10px;">Código de Vestimenta</h3>
+                    <p style="font-size: 1.4rem; margin: 10px 0; letter-spacing: 4px; color: var(--verde-oliva);">FORMAL</p>
+                    <p style="font-size: 0.95rem; opacity: 0.8; max-width: 400px; margin: 0 auto;">Nos encantaría compartir este día con la elegancia que la ocasión amerita.</p>
+                </div>
             </div>
         </section>
 
-        <div class="premium-separator animated-element" style="animation-delay: 0.9s;"><span>📩</span></div>
+        <section style="padding: 20px 0;">
+            <div class="reveal">
+                <div class="photo-separator"></div>
+                <div class="card-premium">
+                    <h2 style="color: var(--oro); margin-bottom: 15px;">Mesa de Regalos</h2>
+                    <p style="margin-bottom: 10px;">Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle:</p>
+                    <p style="font-size: 1.1rem;">Liverpool Evento: <strong>51985288</strong></p>
+                    <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold">🎁 Ir a la Mesa</a>
+                </div>
+            </div>
+        </section>
 
-        <section class="full-section animated-element" style="animation-delay: 1s; padding-bottom: 100px;">
-            <div class="card-premium">
-                <h2>Asistencia</h2>
-                <p>¡Estamos muy emocionados! Por favor, confírmanos antes del 15 de Julio.</p>
-                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Aquí</a>
+        <section style="padding: 20px 0 100px;">
+            <div class="reveal">
+                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
+                <div class="card-premium">
+                    <h2 style="color: var(--oro); margin-bottom: 15px;">Confirmar Asistencia</h2>
+                    <p style="margin-bottom: 20px;">Por favor, confírmanos tu asistencia antes del 15 de Julio para una mejor organización.</p>
+                    <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Aquí</a>
+                </div>
             </div>
         </section>
     </div>
@@ -272,12 +252,15 @@
         function checkGuest() {
             const input = document.getElementById('guest-input').value.toLowerCase().trim();
             const guest = listaInvitados.find(g => input.includes(g.nombre.toLowerCase()) || g.nombre.toLowerCase().includes(input));
+            
             if (guest && input !== "") {
                 document.getElementById('guest-name-display').innerText = guest.nombre;
                 document.getElementById('pases-display').innerText = guest.pases;
                 document.getElementById('step-1').style.display = 'none';
                 document.getElementById('step-2').style.display = 'block';
-            } else { alert("No encontramos tu nombre. Por favor intenta de nuevo."); }
+            } else {
+                alert("No encontramos tu nombre en la lista. Por favor, asegúrate de escribirlo correctamente.");
+            }
         }
 
         function enterInvitation() {
@@ -286,16 +269,24 @@
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 const audio = document.getElementById('bg-music');
-                audio.volume = 0.5;
-                audio.play();
+                audio.volume = 0.4;
+                audio.play().catch(() => console.log("Auto-play bloqueado por el navegador"));
                 startTimer();
+                reveal();
             }, 1000);
         }
 
-        function toggleMusic() {
-            const audio = document.getElementById('bg-music');
-            audio.paused ? audio.play() : audio.pause();
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
         }
+        window.addEventListener("scroll", reveal);
 
         function startTimer() {
             const weddingDate = new Date("Aug 15, 2026 14:00:00").getTime();
@@ -308,6 +299,17 @@
                     document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
                 }
             }, 1000);
+        }
+
+        function toggleMusic() {
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('music-btn').innerText = "🎵";
+            } else {
+                audio.pause();
+                document.getElementById('music-btn').innerText = "🔇";
+            }
         }
     </script>
 </body>
