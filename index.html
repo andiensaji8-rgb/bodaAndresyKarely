@@ -41,47 +41,43 @@
         .btn-pases { background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 15px 30px; width: 100%; font-family: var(--font-c); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; cursor: pointer; transition: 0.4s; font-weight: bold; }
         .btn-pases:hover { background: white; color: var(--verde-oliva); }
 
-        /* --- SISTEMA PARALLAX REFORZADO --- */
-        .parallax-section {
+        /* --- SISTEMA PARALLAX --- */
+        .parallax-container {
             position: relative;
-            width: 100%;
             height: 70vh;
-            overflow: hidden;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
-        .parallax-bg {
+        .parallax-container::before {
+            content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-attachment: fixed;
             background-position: center;
-            background-repeat: no-repeat;
             background-size: cover;
-            z-index: 1;
+            background-repeat: no-repeat;
+            z-index: -1;
         }
 
-        .parallax-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Capa de contraste */
-            z-index: 2;
-        }
+        .bg-header::before { background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg'); }
+        .bg-recepcion::before { background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); }
 
-        .parallax-content {
-            position: relative;
-            z-index: 3;
-            color: white;
-            text-align: center;
-            width: 100%;
-        }
+        .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
+        .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- ELEMENTOS DE DISEÑO --- */
-        .photo-separator { width: 110px; height: 110px; border: 1px solid var(--oro); border-radius: 50%; margin: 0 auto; background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); background-size: cover; background-position: center; background-color: white; padding: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; top: 55px; z-index: 20; }
+        /* --- MAPA --- */
+        .map-wrapper { width: 100%; height: 300px; margin-top: 30px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: 0; }
+
+        /* --- SEPARADORES --- */
+        .photo-separator { width: 110px; height: 110px; border: 1px solid var(--oro); border-radius: 50%; margin: 0 auto; background-size: cover; background-position: center; background-color: white; padding: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; top: 55px; z-index: 20; }
         .card-premium { background: white; padding: 90px 40px 60px; border: 1px solid rgba(197, 160, 89, 0.2); max-width: 750px; width: 90%; margin: 0 auto 60px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
 
         h1, h2, h3 { font-family: var(--font-t); font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
@@ -99,7 +95,7 @@
         .btn-gold:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); }
 
         @media (max-width: 768px) { 
-            .parallax-bg { background-attachment: scroll; } /* En móvil se desactiva por rendimiento del sistema */
+            .parallax-container::before { background-attachment: scroll; } 
             .photo-separator { width: 90px; height: 90px; top: 45px; } 
         }
     </style>
@@ -132,11 +128,10 @@
 
     <div id="main-content" style="display: none;">
         
-        <header class="parallax-section" style="height: 100vh;">
-            <div class="parallax-bg" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');"></div>
+        <header class="parallax-container bg-header" style="height: 100vh;">
             <div class="parallax-overlay"></div>
             <div class="parallax-content reveal">
-                <h1 style="font-size: clamp(3rem, 10vw, 5.5rem); letter-spacing: 7px; margin-bottom: 10px;">Karely & Andrés</h1>
+                <h1 style="font-size: clamp(3rem, 10vw, 5.5rem); letter-spacing: 7px;">Karely & Andrés</h1>
                 <p style="font-size: 1.2rem; letter-spacing: 5px; font-weight: 300;">15 DE AGOSTO 2026</p>
                 <div class="countdown-container">
                     <div class="count-item"><span class="count-num" id="days">00</span><span class="count-lab">Días</span></div>
@@ -148,61 +143,59 @@
 
         <section style="padding: 50px 0;">
             <div class="reveal">
-                <div class="photo-separator"></div>
+                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
                 <div class="card-premium">
-                    <p style="font-style: italic; font-family: var(--font-t); font-size: 1.6rem; color: var(--verde-oliva); line-height: 1.4;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
-                    <p style="font-size: 0.8rem; margin-top: 20px; letter-spacing: 2px; font-weight: bold;">1 CORINTIOS 13:13</p>
+                    <p style="font-style: italic; font-family: var(--font-t); font-size: 1.6rem; color: var(--verde-oliva);">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
+                    <p style="font-size: 0.8rem; margin-top: 20px; font-weight: bold;">1 CORINTIOS 13:13</p>
                 </div>
             </div>
 
             <div class="reveal" style="margin: 40px 0;">
-                <div class="parallax-section" style="height: 60vh;">
-                    <div class="parallax-bg" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
+                <div class="parallax-container bg-recepcion" style="height: auto; padding: 80px 0;">
                     <div class="parallax-overlay" style="background: rgba(44,30,20,0.6);"></div>
                     <div class="parallax-content">
-                        <h2 style="font-size: 2.5rem; letter-spacing: 6px; margin-bottom: 15px;">La Recepción</h2>
-                        <p style="font-size: 1.4rem; margin-bottom: 5px;">SALÓN AMARANTO</p>
-                        <p style="opacity: 0.9; font-family: var(--font-c); letter-spacing: 2px; font-size: 0.9rem;">2:00 PM | Villahermosa, Tabasco</p>
-                        <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn-gold" style="color: white; border-color: white; margin-top: 20px;">📍 UBICACIÓN GPS</a>
+                        <h2 style="font-size: 2.5rem; letter-spacing: 6px;">La Recepción</h2>
+                        <p style="font-size: 1.4rem; margin-top: 10px;">SALÓN AMARANTO</p>
+                        <p style="font-size: 0.9rem; letter-spacing: 2px;">2:00 PM | Villahermosa, Tabasco</p>
+                        <p style="font-size: 0.8rem; opacity: 0.9; margin-top: 5px;">Tapanco 781, Ciudad Industrial, 86019</p>
+                        
+                        <div class="map-wrapper">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.12345!2d-92.8945303!3d18.0247135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ee059736f7de37%3A0x4554a74da70606c7!2sSalon%20De%20Fiestas%20Amaranto!5e0!3m2!1ses!2smx!4v1712770000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+                        <a href="https://maps.app.goo.gl/3fC2Z7B1A5v6xZqM7" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 ABRIR EN GOOGLE MAPS</a>
                     </div>
                 </div>
             </div>
 
             <div class="reveal">
-                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');"></div>
+                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/eedf07926f01ef1b8b1fbe9c4bb722617a029c04/IMG-20260409-WA0008.jpg');"></div>
                 <div class="card-premium">
                     <h3 style="color: var(--oro); font-size: 1.8rem; margin-bottom: 15px;">Código de Vestimenta</h3>
-                    <p style="font-size: 1.4rem; margin-bottom: 10px; letter-spacing: 5px; color: var(--verde-oliva);">FORMAL</p>
-                    <p style="font-size: 0.95rem; opacity: 0.8; font-family: var(--font-c);">Nos encantaría compartir este día con la elegancia que la ocasión amerita.</p>
+                    <p style="font-size: 1.4rem; letter-spacing: 5px; color: var(--verde-oliva);">FORMAL</p>
+                    <p style="font-size: 0.95rem; opacity: 0.8;">Nos encantaría compartir este día con la elegancia que la ocasión amerita.</p>
                 </div>
             </div>
 
             <div class="reveal">
-                <div class="photo-separator"></div>
+                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/eedf07926f01ef1b8b1fbe9c4bb722617a029c04/IMG-20260409-WA0009.jpg');"></div>
                 <div class="card-premium">
                     <h2 style="color: var(--oro); margin-bottom: 15px;">Mesa de Regalos</h2>
-                    <p style="margin-bottom: 15px; font-family: var(--font-c); font-size: 0.95rem;">Tu presencia es nuestro mayor regalo, pero si gustas tener un detalle:</p>
                     <p style="font-size: 1.2rem; font-family: var(--font-t);">Liverpool Evento: <strong>51985288</strong></p>
-                    <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold">🎁 VER MESA LIVERPOOL</a>
+                    <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold">🎁 VER MESA</a>
                     <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee;">
-                        <h3 style="font-size: 1.2rem; color: var(--verde-oliva); margin-bottom: 10px;">LLUVIA DE SOBRES</h3>
-                        <p style="font-family: var(--font-c); font-size: 0.9rem;">Contaremos con un baúl para sobres el día del evento.</p>
+                        <h3 style="font-size: 1.2rem; color: var(--verde-oliva);">LLUVIA DE SOBRES</h3>
+                        <p style="font-size: 0.9rem;">Contaremos con un baúl para sobres el día del evento.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="reveal">
-                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
-                <div class="card-premium" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <div class="reveal" style="text-align: center; padding: 60px 0 120px;">
+                <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
                     <a href="https://photos.app.goo.gl/6D1B6uL3yVvN6VzQ6" target="_blank" class="btn-gold" style="width: 250px;">📸 NUESTRA HISTORIA</a>
-                    <a href="https://open.spotify.com/playlist/..." target="_blank" class="btn-gold" style="width: 250px; background: #1DB954; color: white; border: none;">🎧 SUGERIR CANCIÓN</a>
                     <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold" style="width: 250px; background: var(--verde-oliva); color: white; border: none;">📩 CONFIRMAR AQUÍ</a>
                 </div>
-            </div>
-
-            <div class="reveal" style="text-align: center; padding: 80px 20px 120px;">
-                <p style="font-family: var(--font-c); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; color: var(--verde-oliva);">Queremos que seas testigo de este enorme amor que nos tenemos.</p>
-                <h2 style="font-size: 3.5rem; color: var(--verde-menta); font-family: var(--font-t); letter-spacing: 2px;">¡Te esperamos!</h2>
+                <h2 style="font-size: 3.5rem; color: var(--verde-menta); margin-top: 60px;">¡Te esperamos!</h2>
             </div>
         </section>
     </div>
@@ -263,8 +256,7 @@
                 document.getElementById('main-content').style.display = 'block';
                 const audio = document.getElementById('bg-music');
                 audio.volume = 0.3; audio.play();
-                startTimer();
-                reveal();
+                startTimer(); reveal();
             }, 1000);
         }
 
