@@ -11,7 +11,6 @@
 
     <style>
         :root {
-            /* PALETA ORIGINAL CREMA Y VERDE */
             --bg-crema: #fdf8f5;
             --texto: #2c1e14;
             --verde-menta: #7ea89b; 
@@ -79,7 +78,6 @@
         .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
         .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; max-width: 900px; }
 
-        /* --- SECCIONES --- */
         section { padding: 130px 0; } 
 
         .reveal { opacity: 0; transform: translateY(60px); transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -89,7 +87,6 @@
         
         .card-premium { background: white; padding: 130px 60px 80px; border: 1px solid rgba(197, 160, 89, 0.1); max-width: 950px; width: 92%; margin: 0 auto; text-align: center; box-shadow: var(--shadow-soft); }
 
-        /* --- MAPA INTERACTIVO --- */
         .map-container { 
             width: 100%; 
             height: 450px; 
@@ -99,7 +96,6 @@
             box-shadow: var(--shadow-strong);
         }
 
-        /* --- SECCIÓN SPOTIFY --- */
         .spotify-card {
             background: #191414;
             color: white;
@@ -110,7 +106,6 @@
         }
         .spotify-logo { width: 45px; margin-bottom: 20px; }
 
-        /* --- SECCIÓN HISTORIA EN FOTOS --- */
         .historia-foto-container {
             width: 100%;
             max-width: 800px; 
@@ -134,7 +129,6 @@
             background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/e092487e7d4b36a2427dafef8a34e44f00ca661d/IMG-20260409-WA0015.jpg');
         }
 
-        /* --- BOTONES --- */
         .btn-gold-lg { 
             display: inline-block; 
             padding: 22px 50px; 
@@ -157,7 +151,6 @@
         .btn-spotify { background: #1DB954; color: white; border: none; letter-spacing: 3px; }
         .btn-spotify:hover { background: #1ed760; border-color: #1ed760; color: white; }
 
-        /* --- DETALLES --- */
         h1, h2, h3 { font-family: var(--font-t); text-transform: uppercase; letter-spacing: 7px; font-weight: 300; }
         .adults-only { font-family: var(--font-t); font-size: 1.6rem; color: var(--oro); letter-spacing: 5px; margin: 30px 0; font-style: italic; border-top: 1px solid #f2ece8; border-bottom: 1px solid #f2ece8; padding: 25px 0; }
 
@@ -186,7 +179,7 @@
             <div id="step-1">
                 <h2>Karely & Andrés</h2>
                 <p style="letter-spacing: 8px; font-size: 0.75rem; margin-bottom: 50px; opacity: 0.8; color: white;">NUESTRA BODA — AGOSTO 2026</p>
-                <input type="text" id="guest-input" class="input-boda" placeholder="Ingresa tu nombre">
+                <input type="text" id="guest-input" class="input-boda" placeholder="Ingresa tu nombre completo">
                 <button class="btn-pases" onclick="checkGuest()">CONSULTAR INVITACIÓN</button>
             </div>
             <div id="step-2" style="display: none;">
@@ -214,8 +207,8 @@
             <div class="reveal">
                 <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
                 <div class="card-premium">
-                    <p style="font-style: italic; font-family: var(--font-t); font-size: 2.2rem; color: var(--verde-oliva); max-width: 700px; margin: 0 auto; line-height: 1.4;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
-                    <p style="font-size: 0.85rem; margin-top: 45px; letter-spacing: 6px; font-weight: bold; color: var(--oro);">1 CORINTIOS 13:13</p>
+                    <p style="font-style: italic; font-family: var(--font-t); font-size: 2.2rem; color: var(--verde-oliva); max-width: 700px; margin: 0 auto; line-height: 1.4;">"Las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos."</p>
+                    <p style="font-size: 0.85rem; margin-top: 45px; letter-spacing: 6px; font-weight: bold; color: var(--oro);">CANTARES 8:7</p>
                 </div>
             </div>
         </section>
@@ -298,51 +291,47 @@
 
     <script>
         const listaInvitados = [
-            { nombre: "Cruz del alba", pases: 1 },
-            { nombre: "Waldemar Ceballos y Carolina", pases: 2 },
-            { nombre: "Yitzhak Santiago Ceballos Cuéllar", pases: 1 },
-            { nombre: "Amelia Betzabé Gómez Cruz", pases: 1 },
-            { nombre: "Fabiola Carrillo y Esposo", pases: 2 },
-            { nombre: "Fabiola Mijangos", pases: 1 },
-            { nombre: "Joel Antonio López y Esposa", pases: 2 },
-            { nombre: "Enriqueta del Carmen Jiménez Jiménez", pases: 1 },
-            { nombre: "Reiner Andrés Sánchez Rodríguez", pases: 1 },
-            { nombre: "María Guadalupe García Priego", pases: 1 },
-            { nombre: "Roger Alberto Arias Méndez", pases: 1 },
-            { nombre: "Rodrigo Alberto Arias García", pases: 1 },
-            { nombre: "Mitzi Gordillo", pases: 1 },
-            { nombre: "Iván", pases: 1 },
-            { nombre: "Sehima", pases: 1 },
-            { nombre: "Yesenia Hernández", pases: 1 },
-            { nombre: "Perla Kristell Sánchez Jiménez", pases: 1 },
-            { nombre: "Juan Miguel Alejo", pases: 1 },
-            { nombre: "Sheyla Yuliana Sánchez Jiménez", pases: 1 },
-            { nombre: "Caleb", pases: 1 },
-            { nombre: "Christian Alberto Sánchez", pases: 1 },
-            { nombre: "Pedro", pases: 1 },
-            { nombre: "Maritza", pases: 1 },
-            { nombre: "Ariana", pases: 1 },
-            { nombre: "Cristina Priego", pases: 1 },
-            { nombre: "Angel Valenzuela", pases: 1 },
-            { nombre: "Obed Valenzuela", pases: 1 },
-            { nombre: "Martín", pases: 1 },
-            { nombre: "Roger", pases: 1 },
-            { nombre: "Gabriela y Luis Miguel", pases: 2 },
-            { nombre: "Elizabeth Sánchez", pases: 1 },
-            { nombre: "Jacobo", pases: 1 },
-            { nombre: "Sergio", pases: 1 },
-            { nombre: "Tecladista", pases: 1 }
+            { nombre: "CRUZ DEL ALBA PRIEGO", pases: 1 },
+            { nombre: "DAVID CEBALLOS CUELLAR", pases: 2 },
+            { nombre: "YITZHAK SANTIAGO CEBALLOS CUELLAR", pases: 2 },
+            { nombre: "FABIOLA CARILLO", pases: 3 },
+            { nombre: "JOEL ANTONIO LOPEZ LOPEZ", pases: 2 },
+            { nombre: "ENRIQUETA DEL CARMEN JIMENEZ JIMENEZ", pases: 2 },
+            { nombre: "MARIA GUADALUPE GARCIA PRIEGO", pases: 2 },
+            { nombre: "RODRIGO ALBERTO ARIAS GARCIA", pases: 2 },
+            { nombre: "MITZI SELINA GORDILLO GALLEGOS", pases: 3 },
+            { nombre: "YESENIA HERNANDEZ", pases: 1 },
+            { nombre: "PERLA KRYSTELL SANCHEZ JIMENEZ", pases: 2 },
+            { nombre: "SHEYLA YULIANA SANCHEZ JIMENEZ", pases: 2 },
+            { nombre: "CHRISTIAN ALBERTO SANCHEZ", pases: 1 },
+            { nombre: "PEDRO NHAIN JIMENEZ ALVAREZ", pases: 2 },
+            { nombre: "FAMILIA VALENZUELA GARCIA", pases: 3 },
+            { nombre: "MARTIN", pases: 1 },
+            { nombre: "ROGER ORLANDO ARIAS JIMENEZ", pases: 1 },
+            { nombre: "GABRIELA ALVAREZ GALICIA", pases: 2 },
+            { nombre: "ELIZABETH SANCHEZ", pases: 2 },
+            { nombre: "GRUPO MUSICAL", pases: 2 }
         ];
 
+        const eliminarAcentos = (str) => {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
         function checkGuest() {
-            const input = document.getElementById('guest-input').value.toLowerCase().trim();
-            const guest = listaInvitados.find(g => input.includes(g.nombre.toLowerCase()) || g.nombre.toLowerCase().includes(input));
-            if (guest && input !== "") {
-                document.getElementById('guest-name-display').innerText = guest.nombre.toUpperCase();
+            const inputRaw = document.getElementById('guest-input').value;
+            const inputLimpio = eliminarAcentos(inputRaw).toUpperCase().trim();
+            
+            // Búsqueda exacta de nombre completo
+            const guest = listaInvitados.find(g => eliminarAcentos(g.nombre).toUpperCase() === inputLimpio);
+
+            if (guest) {
+                document.getElementById('guest-name-display').innerText = guest.nombre;
                 document.getElementById('pases-display').innerText = guest.pases;
                 document.getElementById('step-1').style.display = 'none';
                 document.getElementById('step-2').style.display = 'block';
-            } else { alert("Nombre no encontrado. Por favor revisa la ortografía."); }
+            } else {
+                alert("Por favor, ingresa tu nombre completo tal como aparece en tu invitación física (sin acentos).");
+            }
         }
 
         function enterInvitation() {
@@ -351,7 +340,8 @@
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 const audio = document.getElementById('bg-music');
-                audio.volume = 0.3; audio.play();
+                audio.volume = 0.3;
+                audio.play();
                 reveal();
             }, 1200);
         }
@@ -361,15 +351,22 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
         window.addEventListener("scroll", reveal);
 
         function toggleMusic() {
             const audio = document.getElementById('bg-music');
-            if (audio.paused) { audio.play(); document.getElementById('music-btn').innerText = "🎵"; }
-            else { audio.pause(); document.getElementById('music-btn').innerText = "🔇"; }
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('music-btn').innerText = "🎵";
+            } else {
+                audio.pause();
+                document.getElementById('music-btn').innerText = "🔇";
+            }
         }
     </script>
 </body>
