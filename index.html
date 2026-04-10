@@ -13,7 +13,7 @@
         :root {
             --bg-crema: #fdf8f5;
             --texto: #2c1e14;
-            --verde-menta: #7ea89b; /* Color similar a tu captura */
+            --verde-menta: #7ea89b; 
             --verde-oliva: #4a5d4f;
             --oro: #c5a059;
             --blanco: #ffffff;
@@ -24,7 +24,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-c); background-color: var(--bg-crema); color: var(--texto); overflow-x: hidden; }
 
-        /* --- PANTALLA DE ACCESO (LOGIN) --- */
+        /* --- PANTALLA DE ACCESO (ESTILO CAPTURA) --- */
         #login-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -86,7 +86,7 @@
         .bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
 
         .card-premium {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
             padding: 50px 30px;
             border: 1px solid rgba(197, 160, 89, 0.3);
@@ -124,6 +124,7 @@
             position: fixed; bottom: 20px; right: 20px; z-index: 2000;
             background: white; border: 1px solid var(--oro); width: 50px; height: 50px;
             border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
@@ -197,7 +198,7 @@
                 <p style="font-size: 1.5rem; letter-spacing: 3px;">SALÓN AMARANTO</p>
                 <p>Villahermosa, Tabasco | 2:00 PM</p>
                 <br>
-                <a href="https://maps.app.goo.gl/..." target="_blank" class="btn-gold btn-white">📍 Ver Ubicación</a>
+                <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" class="btn-gold btn-white">📍 Ver Ubicación</a>
             </div>
         </section>
 
@@ -225,12 +226,42 @@
     </div>
 
     <script>
-        // --- LISTA DE INVITADOS (Edítala aquí) ---
+        // --- LISTA DE INVITADOS ---
         const listaInvitados = [
-            { nombre: "Carlos Gonzalez", pases: 2 },
-            { nombre: "Andrés", pases: 1 },
-            { nombre: "Karely", pases: 1 },
-            { nombre: "Familia Hernandez", pases: 4 }
+            { nombre: "Cruz del alba", pases: 1 },
+            { nombre: "Waldemar Ceballos y Carolina", pases: 2 },
+            { nombre: "Yitzhak Santiago Ceballos Cuéllar", pases: 1 },
+            { nombre: "Amelia Betzabé Gómez Cruz", pases: 1 },
+            { nombre: "Fabiola Carrillo y Esposo", pases: 2 },
+            { nombre: "Fabiola Mijangos", pases: 1 },
+            { nombre: "Joel Antonio López y Esposa", pases: 2 },
+            { nombre: "Enriqueta del Carmen Jiménez Jiménez", pases: 1 },
+            { nombre: "Reiner Andrés Sánchez Rodríguez", pases: 1 },
+            { nombre: "María Guadalupe García Priego", pases: 1 },
+            { nombre: "Roger Alberto Arias Méndez", pases: 1 },
+            { nombre: "Rodrigo Alberto Arias García", pases: 1 },
+            { nombre: "Mitzi Gordillo", pases: 1 },
+            { nombre: "Iván", pases: 1 },
+            { nombre: "Sehima", pases: 1 },
+            { nombre: "Yesenia Hernández", pases: 1 },
+            { nombre: "Perla Kristell Sánchez Jiménez", pases: 1 },
+            { nombre: "Juan Miguel Alejo", pases: 1 },
+            { nombre: "Sheyla Yuliana Sánchez Jiménez", pases: 1 },
+            { nombre: "Caleb", pases: 1 },
+            { nombre: "Christian Alberto Sánchez", pases: 1 },
+            { nombre: "Pedro", pases: 1 },
+            { nombre: "Maritza", pases: 1 },
+            { nombre: "Ariana", pases: 1 },
+            { nombre: "Cristina Priego", pases: 1 },
+            { nombre: "Angel Valenzuela", pases: 1 },
+            { nombre: "Obed Valenzuela", pases: 1 },
+            { nombre: "Martín", pases: 1 },
+            { nombre: "Roger", pases: 1 },
+            { nombre: "Gabriela y Luis Miguel", pases: 2 },
+            { nombre: "Elizabeth Sánchez", pases: 1 },
+            { nombre: "Jacobo", pases: 1 },
+            { nombre: "Sergio", pases: 1 },
+            { nombre: "Tecladista", pases: 1 }
         ];
 
         function checkGuest() {
@@ -252,7 +283,8 @@
             setTimeout(() => {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
-                toggleMusic(); // Inicia música al entrar
+                const audio = document.getElementById('bg-music');
+                audio.play(); // Inicia música al entrar
             }, 1000);
         }
 
@@ -261,7 +293,6 @@
             if (audio.paused) { audio.play(); } else { audio.pause(); }
         }
 
-        // --- ANIMACIONES & CONTADOR ---
         function reveal() {
             let reveals = document.querySelectorAll(".reveal");
             reveals.forEach(r => {
