@@ -13,7 +13,8 @@
         :root {
             --bg-crema: #fdf8f5;
             --texto: #2c1e14;
-            --verde: #4a5d4f;
+            --verde-menta: #7ea89b; /* Color similar a tu captura */
+            --verde-oliva: #4a5d4f;
             --oro: #c5a059;
             --blanco: #ffffff;
             --font-t: 'Cormorant Garamond', serif;
@@ -21,54 +22,40 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-c); background-color: var(--bg-crema); color: var(--texto); overflow-x: hidden; }
 
-        body {
-            font-family: var(--font-c);
-            background-color: var(--bg-crema);
-            color: var(--texto);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* --- CONTROL DE MÚSICA FLOTANTE --- */
-        #music-control {
+        /* --- PANTALLA DE ACCESO (LOGIN) --- */
+        #login-screen {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--oro);
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            cursor: pointer;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 3000;
+            background: linear-gradient(rgba(126, 168, 155, 0.8), rgba(126, 168, 155, 0.8)), 
+                        url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+            transition: opacity 1s ease;
         }
-        #music-control:hover { transform: scale(1.1); }
 
-        /* --- DECORACIÓN BOTÁNICA TRANSPARENTE --- */
-        .floral-corner {
-            position: absolute;
-            background-image: url('https://www.transparentpng.com/download/watercolor-leaves/green-watercolor-leaves-transparent-background-3051.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            width: 280px; 
-            height: 280px;
-            opacity: 0.4;
-            z-index: 0;
-            pointer-events: none;
-            filter: sepia(0.3) hue-rotate(15deg); 
+        .login-card { padding: 20px; max-width: 600px; width: 90%; }
+        .login-card h2 { font-size: clamp(2.5rem, 8vw, 4rem); font-family: var(--font-t); margin-bottom: 10px; }
+        
+        .input-boda {
+            padding: 15px; width: 100%; border: none; outline: none;
+            margin-bottom: 20px; text-align: center; font-size: 1rem;
+            background: rgba(255,255,255,0.9); color: var(--texto);
         }
-        .floral-top-left { top: -30px; left: -30px; }
-        .floral-bottom-right { bottom: -30px; right: -30px; transform: rotate(180deg); }
 
-        /* --- ESTRUCTURA GENERAL --- */
+        .pases-num { font-size: 6rem; font-family: var(--font-t); line-height: 1; margin: 20px 0; }
+
+        /* --- CONTENIDO PRINCIPAL (Oculto al inicio) --- */
+        #main-content { display: none; }
+
+        /* --- ESTILOS DE LA INVITACIÓN --- */
         .full-section {
             min-height: 100vh;
             display: flex;
@@ -88,204 +75,213 @@
             color: var(--blanco);
         }
 
-        h1, h2 { 
-            font-family: var(--font-t); 
-            text-transform: uppercase; 
-            letter-spacing: 6px; 
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
+        .floral-corner {
+            position: absolute;
+            background-image: url('https://www.transparentpng.com/download/watercolor-leaves/green-watercolor-leaves-transparent-background-3051.png');
+            background-size: contain; background-repeat: no-repeat;
+            width: 250px; height: 250px; opacity: 0.4; z-index: 0; pointer-events: none;
+            filter: sepia(0.3) hue-rotate(15deg);
         }
-
-        .hero-names { font-size: clamp(3.5rem, 12vw, 6rem); margin-bottom: 10px; }
-        .hero-names span { font-style: italic; font-family: var(--font-t); }
-
-        .divider-diamond {
-            width: 100px; height: 1px;
-            background: var(--oro);
-            margin: 30px auto;
-            position: relative;
-            z-index: 1;
-        }
-        .divider-diamond::after {
-            content: '♦'; position: absolute; top: -8px; left: 50%;
-            transform: translateX(-50%); background: transparent; color: var(--oro); font-size: 12px;
-        }
+        .top-left { top: -20px; left: -20px; }
+        .bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
 
         .card-premium {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            padding: 60px 40px;
+            padding: 50px 30px;
             border: 1px solid rgba(197, 160, 89, 0.3);
-            max-width: 800px;
-            position: relative;
-            z-index: 1;
+            max-width: 800px; width: 95%;
+            position: relative; z-index: 1;
         }
 
         .btn-gold {
             display: inline-block;
-            padding: 18px 35px;
+            padding: 15px 30px;
             border: 1px solid var(--oro);
             color: var(--texto);
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 0.75rem;
-            transition: all 0.5s;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.4s;
             margin: 10px;
-            position: relative;
-            z-index: 2;
         }
-        .btn-gold:hover { background: var(--verde); color: var(--blanco); border-color: var(--verde); }
+        .btn-gold:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); }
 
-        /* --- CONTADOR --- */
-        .countdown-container { display: flex; gap: 30px; margin: 40px 0; position: relative; z-index: 1;}
-        .cd-box { font-family: var(--font-t); font-size: clamp(2rem, 5vw, 3rem); border-bottom: 1px solid var(--oro); padding-bottom: 5px; }
+        .btn-white { border-color: white; color: white; background: transparent; }
+        .btn-white:hover { background: white; color: var(--verde-menta); }
 
-        /* --- ANIMACIÓN --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s all ease; }
+        .hero-names { font-size: clamp(3.5rem, 12vw, 6rem); font-family: var(--font-t); }
+        .divider { width: 80px; height: 1px; background: var(--oro); margin: 25px auto; position: relative; }
+        .divider::after { content: '♦'; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); color: var(--oro); font-size: 10px; background: transparent; }
+
+        .countdown { display: flex; gap: 20px; margin: 30px 0; }
+        .cd-item { font-family: var(--font-t); font-size: 2.5rem; border-bottom: 1px solid var(--oro); }
+
+        #music-btn {
+            position: fixed; bottom: 20px; right: 20px; z-index: 2000;
+            background: white; border: 1px solid var(--oro); width: 50px; height: 50px;
+            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
             .parallax { background-attachment: scroll; }
-            .floral-corner { width: 150px; height: 150px; }
-            .card-premium { padding: 40px 20px; }
+            .floral-corner { width: 140px; height: 140px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="music-control" onclick="toggleMusic()">
-        <span id="music-icon">🎵</span>
-    </div>
-
+    <div id="music-btn" onclick="toggleMusic()">🎵</div>
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
-    <header class="full-section parallax" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
-        <div class="floral-corner floral-top-left reveal active"></div>
-        
-        <p class="reveal active" style="letter-spacing: 8px;">NUESTRA BODA</p>
-        <h1 class="hero-names reveal active">Karely <span>&</span> Andrés</h1>
-        <div class="divider-diamond reveal active"></div>
-        <p class="reveal active" style="font-size: 1.3rem; font-family: var(--font-t);">15 . AGOSTO . 2026</p>
-        
-        <div class="countdown-container reveal active">
-            <div><div class="cd-box" id="days">00</div><p><small>DÍAS</small></p></div>
-            <div><div class="cd-box" id="hours">00</div><p><small>HORAS</small></p></div>
-            <div><div class="cd-box" id="mins">00</div><p><small>MINS</small></p></div>
-        </div>
-
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+Karely+y+Andrés&dates=20260815T140000Z/20260816T020000Z&location=Salón+Amaranto,+Villahermosa" target="_blank" class="btn-gold reveal active" style="color: white; border-color: white;">+ Agendar Fecha</a>
-    </header>
-
-    <section class="full-section reveal">
-        <div class="card-premium">
-            <div class="floral-corner floral-top-left" style="opacity: 0.2;"></div>
-            <h2 style="color: var(--verde);">Nuestra Historia</h2>
-            <div class="divider-diamond"></div>
-            <p style="font-style: italic; font-size: 1.2rem; color: var(--oro);">"Por encima de todo, vístanse de amor, que es el vínculo perfecto."</p>
-            <br>
-            <p>Bajo la bendición de Dios, decidimos unir nuestras vidas para siempre. Tu presencia hace este momento aún más especial.</p>
-        </div>
-    </section>
-
-    <section class="full-section parallax" style="background-image: linear-gradient(rgba(44,30,20,0.7), rgba(44,30,20,0.7)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');">
-        <div class="reveal">
-            <h2>La Recepción</h2>
-            <div class="divider-diamond"></div>
-            <p style="font-size: 1.6rem; letter-spacing: 3px;">SALÓN AMARANTO</p>
-            <p>2:00 PM — Villahermosa, Tabasco</p>
-            <br>
-            <p style="border: 1px solid var(--oro); padding: 15px 25px; display: inline-block; background: rgba(0,0,0,0.3); font-size: 0.8rem; letter-spacing: 2px;">EVENTO PARA ADULTOS</p>
-            <br><br>
-            <a href="https://maps.app.goo.gl/3wG4m2nK2m9K" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 Ver Ubicación</a>
-        </div>
-    </section>
-
-    <section class="full-section reveal">
-        <div class="card-premium">
-            <div class="floral-corner floral-bottom-right" style="opacity: 0.2;"></div>
-            <h2 style="color: var(--verde);">Mesa de Regalos</h2>
-            <div class="divider-diamond"></div>
-            <p style="margin-bottom: 30px;">Si desean tener un detalle con nosotros, pueden hacerlo a través de nuestra mesa de regalos:</p>
-            
-            <div style="padding: 30px; border: 1px dashed var(--oro); background: rgba(255,255,255,0.5); position: relative; z-index: 1;">
-                <p style="letter-spacing: 3px;"><strong>LIVERPOOL</strong></p>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Número de evento: <strong>51985288</strong></p>
-                <div class="divider-diamond" style="width: 40px; margin: 20px auto;"></div>
-                <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold">🎁 Ver Lista de Regalos</a>
-            </div>
-
-            <div style="margin-top: 40px;">
-                <p><strong>LLUVIA DE SOBRES</strong></p>
-                <p><small>Buzón disponible el día del evento en la recepción</small></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="full-section reveal">
-        <div class="card-premium">
-            <div class="floral-corner floral-top-left" style="opacity: 0.4;"></div>
-            <h2>Confirmación</h2>
-            <div class="divider-diamond"></div>
-            <p>Agradecemos tu confirmación antes del 15 de julio.</p>
-            <div style="margin-top: 30px; position: relative; z-index: 5;">
-                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Asistencia</a>
+    <div id="login-screen">
+        <div class="login-card">
+            <div id="step-1">
+                <h2>Karely & Andrés</h2>
+                <p style="letter-spacing: 4px; margin-bottom: 30px;">BIENVENIDOS</p>
+                <input type="text" id="guest-input" class="input-boda" placeholder="Escribe tu nombre">
                 <br>
-                <a href="https://wa.me/529934199255" target="_blank" style="display: block; margin-top: 20px; color: var(--verde); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px;">Confirmar vía WhatsApp</a>
+                <button class="btn-gold btn-white" onclick="checkGuest()">Buscar pases</button>
+            </div>
+
+            <div id="step-2" style="display: none;">
+                <h2 id="guest-name-display">Nombre</h2>
+                <p>Hola, te esperamos en nuestra Boda</p>
+                <p style="margin-top: 25px; letter-spacing: 2px; font-size: 0.8rem;">TU NÚMERO DE PASES SON:</p>
+                <div class="pases-num" id="pases-display">0</div>
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                    <button class="btn-gold btn-white" onclick="location.reload()">Regresar</button>
+                    <button class="btn-gold btn-white" onclick="enterInvitation()">Ver invitación →</button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div id="main-content">
+        
+        <header class="full-section parallax" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
+            <div class="floral-corner top-left reveal active"></div>
+            <p class="reveal active" style="letter-spacing: 6px;">NUESTRA BODA</p>
+            <h1 class="hero-names reveal active">Karely <span>&</span> Andrés</h1>
+            <div class="divider reveal active"></div>
+            <p class="reveal active">15 DE AGOSTO DE 2026</p>
+            
+            <div class="countdown reveal active">
+                <div><div class="cd-item" id="days">00</div><p><small>DÍAS</small></p></div>
+                <div><div class="cd-item" id="hours">00</div><p><small>HRS</small></p></div>
+                <div><div class="cd-item" id="mins">00</div><p><small>MIN</small></p></div>
+            </div>
+        </header>
+
+        <section class="full-section reveal">
+            <div class="card-premium">
+                <div class="floral-corner top-left" style="opacity: 0.2;"></div>
+                <h2 style="color: var(--verde-oliva);">Nuestra Historia</h2>
+                <div class="divider"></div>
+                <p>Bajo la bendición de Dios, decidimos unir nuestras vidas. Tu presencia hace este momento aún más especial.</p>
+            </div>
+        </section>
+
+        <section class="full-section parallax" style="background-image: linear-gradient(rgba(44,30,20,0.7), rgba(44,30,20,0.7)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');">
+            <div class="reveal">
+                <h2>La Recepción</h2>
+                <div class="divider"></div>
+                <p style="font-size: 1.5rem; letter-spacing: 3px;">SALÓN AMARANTO</p>
+                <p>Villahermosa, Tabasco | 2:00 PM</p>
+                <br>
+                <a href="https://maps.app.goo.gl/..." target="_blank" class="btn-gold btn-white">📍 Ver Ubicación</a>
+            </div>
+        </section>
+
+        <section class="full-section reveal">
+            <div class="card-premium">
+                <div class="floral-corner bottom-right" style="opacity: 0.2;"></div>
+                <h2>Mesa de Regalos</h2>
+                <div class="divider"></div>
+                <p>Número de evento Liverpool: <strong>51985288</strong></p>
+                <br>
+                <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold">🎁 Ver Mesa de Regalos</a>
+                <p style="margin-top: 20px;"><small>Lluvia de sobres en la recepción</small></p>
+            </div>
+        </section>
+
+        <section class="full-section reveal">
+            <div class="card-premium">
+                <h2>Confirmación</h2>
+                <div class="divider"></div>
+                <p>Confírmanos tu asistencia antes del 15 de julio.</p>
+                <br>
+                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Asistencia</a>
+            </div>
+        </section>
+    </div>
 
     <script>
-        // Función de Música (Play/Pause)
-        const music = document.getElementById("bg-music");
-        const musicBtn = document.getElementById("music-control");
-        const musicIcon = document.getElementById("music-icon");
+        // --- LISTA DE INVITADOS (Edítala aquí) ---
+        const listaInvitados = [
+            { nombre: "Carlos Gonzalez", pases: 2 },
+            { nombre: "Andrés", pases: 1 },
+            { nombre: "Karely", pases: 1 },
+            { nombre: "Familia Hernandez", pases: 4 }
+        ];
+
+        function checkGuest() {
+            const nameInput = document.getElementById('guest-input').value.trim();
+            const guest = listaInvitados.find(g => nameInput.toLowerCase().includes(g.nombre.toLowerCase()));
+
+            if (guest) {
+                document.getElementById('guest-name-display').innerText = guest.nombre;
+                document.getElementById('pases-display').innerText = guest.pases;
+                document.getElementById('step-1').style.display = 'none';
+                document.getElementById('step-2').style.display = 'block';
+            } else {
+                alert("No encontramos tu nombre. Por favor intenta de nuevo.");
+            }
+        }
+
+        function enterInvitation() {
+            document.getElementById('login-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                toggleMusic(); // Inicia música al entrar
+            }, 1000);
+        }
 
         function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                musicIcon.innerText = "⏸️";
-                musicBtn.style.background = "var(--oro)";
-                musicBtn.style.color = "white";
-            } else {
-                music.pause();
-                musicIcon.innerText = "🎵";
-                musicBtn.style.background = "rgba(255, 255, 255, 0.9)";
-                musicBtn.style.color = "black";
-            }
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) { audio.play(); } else { audio.pause(); }
         }
 
-        // Animaciones de Scroll
+        // --- ANIMACIONES & CONTADOR ---
         function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 150) {
-                    reveals[i].classList.add("active");
-                }
-            }
+            let reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(r => {
+                let windowHeight = window.innerHeight;
+                let elementTop = r.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) r.classList.add("active");
+            });
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Activar iniciales
 
-        // Contador
         const weddingDate = new Date("August 15, 2026 14:00:00").getTime();
-        function updateCountdown() {
+        setInterval(() => {
             const now = new Date().getTime();
             const diff = weddingDate - now;
-            if (diff < 0) return;
-            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            }
+        }, 1000);
     </script>
 </body>
 </html>
