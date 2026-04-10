@@ -23,88 +23,132 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-c); background-color: var(--bg-crema); color: var(--texto); overflow-x: hidden; line-height: 1.8; }
 
-        /* --- LOGIN SCREEN --- */
-        #login-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 5000; background: white; display: flex; justify-content: center; align-items: center; transition: opacity 1s; }
-        .login-card { text-align: center; padding: 40px; width: 90%; max-width: 450px; }
-        .input-boda { padding: 18px; width: 100%; border: 1px solid #ddd; text-align: center; margin-bottom: 15px; font-family: var(--font-c); font-size: 1rem; }
-        .btn-pases { background: var(--verde-oliva); color: white; border: none; padding: 18px 30px; cursor: pointer; letter-spacing: 2px; width: 100%; font-weight: bold; transition: 0.3s; }
+        /* --- PANTALLA DE ACCESO --- */
+        #login-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 3000;
+            background: linear-gradient(rgba(126, 168, 155, 0.8), rgba(126, 168, 155, 0.8)), 
+                        url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
+            background-size: cover; background-position: center;
+            display: flex; justify-content: center; align-items: center;
+            color: white; text-align: center; transition: opacity 1s ease;
+        }
 
-        /* --- PARALLAX --- */
-        .parallax-container { position: relative; height: 75vh; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .parallax-container::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-attachment: fixed; background-position: center; background-size: cover; z-index: -1; }
+        .login-card { width: 90%; max-width: 500px; padding: 20px; }
+        .login-card h2 { font-family: var(--font-t); font-size: clamp(2.5rem, 8vw, 4rem); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
+        .input-boda { padding: 18px; width: 100%; border: none; text-align: center; font-family: var(--font-c); font-size: 1rem; margin-bottom: 15px; background: white; color: var(--texto); outline: none; }
+        .btn-pases { background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 15px 30px; width: 100%; font-family: var(--font-c); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; cursor: pointer; transition: 0.4s; font-weight: bold; }
+        .btn-pases:hover { background: white; color: var(--verde-oliva); }
+
+        /* --- SISTEMA PARALLAX --- */
+        .parallax-container {
+            position: relative;
+            height: 85vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .parallax-container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
         .bg-header::before { background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg'); }
         .bg-recepcion::before { background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); }
-        .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
-        .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; }
 
-        /* --- CONTADOR --- */
-        #countdown { display: flex; justify-content: center; gap: 25px; margin-top: 30px; font-family: var(--font-t); }
-        .time-block { text-align: center; }
-        .time-num { font-size: 3rem; display: block; font-weight: 300; }
-        .time-lab { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
+        .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 1; }
+        .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; max-width: 800px; }
 
-        /* --- TARJETAS --- */
-        section { padding: 40px 0; } 
-        .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s all ease; }
+        /* --- SECCIONES AMPLIADAS --- */
+        section { padding: 150px 0; } 
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .photo-separator { width: 110px; height: 110px; border: 1px solid var(--oro); border-radius: 50%; margin: 0 auto; background-size: cover; background-position: center; position: relative; top: 55px; z-index: 10; background-color: white; padding: 5px; }
-        .card-premium { background: white; padding: 90px 40px 60px; border: 1px solid rgba(197, 160, 89, 0.15); max-width: 750px; width: 92%; margin: 0 auto; text-align: center; }
+        .photo-separator { width: 130px; height: 130px; border: 1px solid var(--oro); border-radius: 50%; margin: 0 auto; background-size: cover; background-position: center; background-color: white; padding: 6px; box-shadow: 0 8px 25px rgba(0,0,0,0.07); position: relative; top: 65px; z-index: 20; }
+        
+        .card-premium { background: white; padding: 120px 50px 80px; border: 1px solid rgba(197, 160, 89, 0.15); max-width: 850px; width: 92%; margin: 0 auto; text-align: center; box-shadow: 0 15px 50px rgba(0,0,0,0.02); }
 
-        /* --- BOTONES GRANDES INTERACTIVOS --- */
-        .btn-interactive {
-            display: inline-block;
-            padding: 25px 50px;
+        /* --- BOTONES GRANDES --- */
+        .btn-gold-lg { 
+            display: inline-block; 
+            padding: 22px 50px; 
+            border: 1px solid var(--oro); 
+            color: var(--texto); 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-size: 0.9rem; 
+            transition: 0.4s; 
+            font-family: var(--font-c); 
+            font-weight: 400; 
+            width: 100%; 
+            max-width: 450px; 
             margin: 15px 0;
-            width: 100%;
-            max-width: 500px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 1rem;
-            transition: 0.4s;
-            border: 1px solid var(--oro);
-            color: var(--texto);
-            background: white;
+            background: transparent;
             cursor: pointer;
-            font-weight: 500;
         }
-        .btn-interactive:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); transform: scale(1.05); }
-        .btn-confirm { background: var(--verde-oliva); color: white; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        #music-btn { position: fixed; bottom: 25px; right: 25px; z-index: 2000; background: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid var(--oro); }
+        .btn-gold-lg:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); transform: translateY(-3px); }
+        .btn-confirm { background: var(--verde-oliva); color: white; border: none; box-shadow: 0 10px 30px rgba(74, 93, 79, 0.3); }
+
+        /* --- OTROS --- */
+        h1, h2, h3 { font-family: var(--font-t); text-transform: uppercase; letter-spacing: 6px; font-weight: 400; }
+        .adults-only { font-family: var(--font-t); font-size: 1.5rem; color: var(--oro); letter-spacing: 4px; margin: 45px 0; font-style: italic; border-top: 1px solid #f2ece8; border-bottom: 1px solid #f2ece8; padding: 20px 0; }
+
+        #music-btn, #whatsapp-btn { position: fixed; bottom: 25px; z-index: 2000; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.15); background: white; }
+        #music-btn { right: 25px; border: 1px solid var(--oro); font-size: 1.4rem; }
+        #whatsapp-btn { left: 25px; border: 1px solid #eee; background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8837d6d3561e18e38ea617e33356963ed4a06a24/%E2%80%94Pngtree%E2%80%94whatsapp%20icon%20whatsapp%20logo%20whatsapp_3584845.png'); background-size: 60%; background-position: center; background-repeat: no-repeat; }
+
+        @media (max-width: 768px) { 
+            section { padding: 110px 0; }
+            .parallax-container::before { background-attachment: scroll; }
+        }
     </style>
 </head>
 <body>
+
     <div id="music-btn" onclick="toggleMusic()">🎵</div>
-    <audio id="bg-music" loop><source src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/055dab076222b2e50963a89841cbe0fe08210021/PURE%20RELAXATION%20with%20Piano%20Jazz%20Music%20-%205%20minute%20timer!.mp3" type="audio/mpeg"></audio>
+    <a href="https://wa.me/529934199255" id="whatsapp-btn" target="_blank"></a>
+
+    <audio id="bg-music" loop>
+        <source src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/055dab076222b2e50963a89841cbe0fe08210021/PURE%20RELAXATION%20with%20Piano%20Jazz%20Music%20-%205%20minute%20timer!.mp3" type="audio/mpeg">
+    </audio>
 
     <div id="login-screen">
-        <div class="login-card" id="step-1">
-            <h2 style="font-family: var(--font-t); font-size: 2.5rem; letter-spacing: 5px;">Karely & Andrés</h2>
-            <p style="letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 30px; opacity: 0.7;">BIENVENIDOS</p>
-            <input type="text" id="guest-input" class="input-boda" placeholder="Ingresa tu nombre">
-            <button class="btn-pases" onclick="checkGuest()">BUSCAR PASES</button>
-        </div>
-        <div class="login-card" id="step-2" style="display:none;">
-            <h2 id="guest-name" style="font-family: var(--font-t); font-size: 2rem;"></h2>
-            <p style="font-size: 6rem; font-family: var(--font-t); margin: 10px 0; color: var(--oro);" id="pases-num">0</p>
-            <p style="letter-spacing: 4px; font-size: 0.9rem;">PASES CONFIRMADOS</p>
-            <button class="btn-pases" onclick="startApp()" style="margin-top: 30px;">ABRIR INVITACIÓN</button>
+        <div class="login-card">
+            <div id="step-1">
+                <h2>Karely & Andrés</h2>
+                <p style="letter-spacing: 7px; font-size: 0.8rem; margin-bottom: 45px;">NUESTRA BODA</p>
+                <input type="text" id="guest-input" class="input-boda" placeholder="Escribe tu nombre">
+                <button class="btn-pases" onclick="checkGuest()">BUSCAR PASES</button>
+            </div>
+            <div id="step-2" style="display: none;">
+                <h2 id="guest-name-display" style="font-size: 2.2rem; margin-bottom: 10px;"></h2>
+                <p>¡Nos hace mucha ilusión verte!</p>
+                <div style="font-family: var(--font-t); font-size: 7.5rem; line-height: 1; margin: 15px 0;"><span id="pases-display">0</span></div>
+                <button class="btn-pases" onclick="enterInvitation()">ABRIR INVITACIÓN</button>
+            </div>
         </div>
     </div>
 
-    <div id="main-content" style="display:none;">
+    <div id="main-content" style="display: none;">
+        
         <header class="parallax-container bg-header">
             <div class="parallax-overlay"></div>
             <div class="parallax-content reveal">
-                <h1 style="font-size: clamp(3.5rem, 12vw, 6rem); letter-spacing: 12px; font-family: var(--font-t);">Karely & Andrés</h1>
-                <p style="letter-spacing: 10px; font-size: 1.3rem; margin-top: 15px;">15 . AGOSTO . 2026</p>
-                <div id="countdown">
-                    <div class="time-block"><span class="time-num" id="days">00</span><span class="time-lab">Días</span></div>
-                    <div class="time-block"><span class="time-num" id="hours">00</span><span class="time-lab">Horas</span></div>
-                    <div class="time-block"><span class="time-num" id="minutes">00</span><span class="time-lab">Mins</span></div>
-                </div>
+                <h1 style="font-size: clamp(3.5rem, 12vw, 6.5rem); letter-spacing: 12px;">Karely & Andrés</h1>
+                <p style="font-size: 1.4rem; letter-spacing: 7px; font-weight: 300; margin-top: 20px;">AGOSTO 15, 2026</p>
             </div>
         </header>
 
@@ -112,116 +156,138 @@
             <div class="reveal">
                 <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');"></div>
                 <div class="card-premium">
-                    <h2 style="color: var(--verde-oliva); font-size: 2.2rem; margin-bottom: 10px; font-family: var(--font-t);">La Recepción</h2>
-                    <p style="font-size: 1.3rem; letter-spacing: 3px; color: var(--oro);">SALÓN AMARANTO</p>
-                    <p style="margin-top: 10px;">2:00 PM | Villahermosa, Tabasco</p>
-                    <a href="https://maps.app.goo.gl/..." target="_blank" class="btn-interactive" style="margin-top: 30px; padding: 15px; font-size: 0.8rem;">📍 VER UBICACIÓN GPS</a>
+                    <p style="font-style: italic; font-family: var(--font-t); font-size: 2rem; color: var(--verde-oliva); max-width: 650px; margin: 0 auto;">"Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."</p>
+                    <p style="font-size: 0.9rem; margin-top: 40px; letter-spacing: 5px; font-weight: bold;">1 CORINTIOS 13:13</p>
                 </div>
             </div>
         </section>
 
-        <section class="parallax-container bg-recepcion" style="height: 40vh;"></section>
+        <section class="parallax-container bg-recepcion" style="height: auto; padding: 180px 0;">
+            <div class="parallax-overlay" style="background: rgba(44,30,20,0.68);"></div>
+            <div class="parallax-content reveal">
+                <h2 style="font-size: 3.2rem;">La Recepción</h2>
+                <p style="font-size: 1.8rem; margin: 30px 0;">SALÓN AMARANTO</p>
+                <p style="font-size: 1.1rem; letter-spacing: 5px;">2:00 PM | Villahermosa, Tabasco</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 40px;">📍 VER EN GOOGLE MAPS</a>
+            </div>
+        </section>
 
         <section>
             <div class="reveal">
                 <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/eedf07926f01ef1b8b1fbe9c4bb722617a029c04/IMG-20260409-WA0008.jpg');"></div>
                 <div class="card-premium">
-                    <h3 style="font-family: var(--font-t); font-size: 1.8rem;">Código de Vestimenta</h3>
-                    <p style="font-size: 1.5rem; letter-spacing: 10px; margin: 15px 0; color: var(--verde-oliva);">FORMAL</p>
-                    <p style="opacity: 0.8;">Nos encantaría compartir este día con la elegancia que la ocasión amerita.</p>
-                    <div style="color: var(--oro); font-family: var(--font-t); font-size: 1.6rem; margin: 30px 0; letter-spacing: 4px; font-style: italic; border-top: 1px solid #f2ece8; border-bottom: 1px solid #f2ece8; padding: 15px 0;">
-                        ADULTOS SOLAMENTE <br> 
-                        <span style="font-size: 1rem; font-style: normal; opacity: 0.7;">NO NIÑOS</span>
+                    <h3 style="color: var(--oro); font-size: 2.2rem; margin-bottom: 30px;">Código de Vestimenta</h3>
+                    <p style="font-size: 1.6rem; letter-spacing: 10px; color: var(--verde-oliva); margin-bottom: 30px;">FORMAL</p>
+                    <p style="font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto;">Nos encantaría compartir este día con la elegancia que la ocasión amerita.</p>
+                    <div class="adults-only">ADULTOS SOLAMENTE<br><span style="font-size: 1rem; letter-spacing: 2px; font-style: normal;">NO NIÑOS</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="reveal">
+                <div class="photo-separator" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/eedf07926f01ef1b8b1fbe9c4bb722617a029c04/IMG-20260409-WA0009.jpg');"></div>
+                <div class="card-premium">
+                    <h2 style="color: var(--oro); margin-bottom: 40px;">Mesa de Regalos</h2>
+                    <p style="font-size: 1.4rem; margin-bottom: 30px;">Liverpool Evento: <strong>51985288</strong></p>
+                    <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold-lg">🎁 ABRIR MESA</a>
+                    <div style="margin-top: 80px; padding-top: 70px; border-top: 1px solid #f2ece8;">
+                        <h3 style="font-size: 1.5rem; color: var(--verde-oliva); margin-bottom: 25px;">LLUVIA DE SOBRES</h3>
+                        <p style="font-size: 1.1rem; opacity: 0.8;">Contaremos con un baúl para sobres el día del evento.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="background-color: #fcf9f7;">
+        <section style="background-color: #f9f4f0; padding: 200px 0;">
             <div class="reveal" style="text-align: center;">
-                <h2 style="color: var(--oro); margin-bottom: 30px; font-family: var(--font-t);">Regalos</h2>
-                <p>Liverpool Evento: <strong>51985288</strong></p>
-                <a href="https://mesaderegalos.liverpool.com.mx/..." target="_blank" class="btn-interactive">🎁 VER MESA DE REGALOS</a>
-                <h3 style="margin-top: 60px; color: var(--verde-oliva); font-family: var(--font-t);">Lluvia de Sobres</h3>
-                <p style="max-width: 450px; margin: 15px auto; opacity: 0.8;">Contaremos con un baúl para sobres el día del evento si deseas darnos un obsequio en efectivo.</p>
-            </div>
-        </section>
-
-        <section style="padding-bottom: 150px;">
-            <div class="reveal" style="text-align: center;">
-                <h2 style="margin-bottom: 50px; font-family: var(--font-t); letter-spacing: 8px;">¡Acompáñanos!</h2>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                    <a href="https://photos.app.goo.gl/..." target="_blank" class="btn-interactive" style="border-width: 2px;">📷 NUESTRA HISTORIA</a>
-                    <a href="https://form.typeform.com/..." target="_blank" class="btn-interactive btn-confirm" style="transform: scale(1.05);">📩 CONFIRMAR ASISTENCIA</a>
+                <p style="font-family: var(--font-t); font-size: 1.8rem; color: var(--verde-oliva); margin-bottom: 60px; letter-spacing: 3px;">Queremos que seas testigo de este enorme amor que nos tenemos.</p>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+                    <a href="https://photos.app.goo.gl/6D1B6uL3yVvN6VzQ6" target="_blank" class="btn-gold-lg">📷 NUESTRA HISTORIA</a>
+                    <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold-lg btn-confirm">📩 CONFIRMAR ASISTENCIA</a>
                 </div>
-                
-                <div style="margin-top: 100px; padding: 0 30px;">
-                    <p style="font-family: var(--font-t); font-size: 1.8rem; font-style: italic; color: var(--verde-oliva);">"Gracias por ser parte de nuestra historia y de este nuevo capítulo. Su presencia es nuestro mejor regalo."</p>
-                    <h2 style="font-size: 4rem; color: var(--verde-menta); margin-top: 25px; font-family: var(--font-t);">¡Te esperamos!</h2>
-                    <p style="font-family: var(--font-t); font-size: 1.5rem; letter-spacing: 8px; margin-top: 20px; color: var(--oro);">KARELY & ANDRÉS</p>
+                <h2 style="font-size: clamp(3.5rem, 12vw, 6.5rem); color: var(--verde-menta); margin-top: 140px;">¡Te esperamos!</h2>
+                <div style="margin-top: 40px; border-top: 1px solid rgba(197, 160, 89, 0.4); display: inline-block; padding-top: 20px;">
+                    <p style="font-family: var(--font-t); font-size: 1.6rem; letter-spacing: 10px; color: var(--oro);">KARELY & ANDRÉS</p>
                 </div>
             </div>
         </section>
     </div>
 
     <script>
-        const invitados = [
-            {n: "Cruz del alba", p: 1}, {n: "Waldemar Ceballos", p: 2}, {n: "Yitzhak Santiago", p: 1}, {n: "Amelia Betzabe", p: 1},
-            {n: "Fabiola Carrillo", p: 2}, {n: "Fabiola Mijangos", p: 1}, {n: "Joel Antonio", p: 2}, {n: "Enriqueta del Carmen", p: 1},
-            {n: "Reiner Andres", p: 1}, {n: "Maria Guadalupe", p: 1}, {n: "Roger Alberto", p: 1}, {n: "Rodrigo Alberto", p: 1},
-            {n: "Mitzi Gordillo", p: 1}, {n: "Ivan", p: 1}, {n: "Sehima", p: 1}, {n: "Yesenia Hernandez", p: 1},
-            {n: "Perla Kristell", p: 1}, {n: "Juan Miguel", p: 1}, {n: "Sheyla Yuliana", p: 1}, {n: "Caleb", p: 1},
-            {n: "Christian Alberto", p: 1}, {n: "Pedro", p: 1}, {n: "Maritza", p: 1}, {n: "Ariana", p: 1},
-            {n: "Cristina Priego", p: 1}, {n: "Angel Valenzuela", p: 1}, {n: "Obed Valenzuela", p: 1}, {n: "Martin", p: 1},
-            {n: "Roger", p: 1}, {n: "Gabriela y Luis", p: 2}, {n: "Elizabeth Sanchez", p: 1}, {n: "Jacobo", p: 1},
-            {n: "Sergio", p: 1}, {n: "Tecladista", p: 1}
+        const listaInvitados = [
+            { nombre: "Cruz del alba", pases: 1 },
+            { nombre: "Waldemar Ceballos y Carolina", pases: 2 },
+            { nombre: "Yitzhak Santiago Ceballos Cuéllar", pases: 1 },
+            { nombre: "Amelia Betzabé Gómez Cruz", pases: 1 },
+            { nombre: "Fabiola Carrillo y Esposo", pases: 2 },
+            { nombre: "Fabiola Mijangos", pases: 1 },
+            { nombre: "Joel Antonio López y Esposa", pases: 2 },
+            { nombre: "Enriqueta del Carmen Jiménez Jiménez", pases: 1 },
+            { nombre: "Reiner Andrés Sánchez Rodríguez", pases: 1 },
+            { nombre: "María Guadalupe García Priego", pases: 1 },
+            { nombre: "Roger Alberto Arias Méndez", pases: 1 },
+            { nombre: "Rodrigo Alberto Arias García", pases: 1 },
+            { nombre: "Mitzi Gordillo", pases: 1 },
+            { nombre: "Iván", pases: 1 },
+            { nombre: "Sehima", pases: 1 },
+            { nombre: "Yesenia Hernández", pases: 1 },
+            { nombre: "Perla Kristell Sánchez Jiménez", pases: 1 },
+            { nombre: "Juan Miguel Alejo", pases: 1 },
+            { nombre: "Sheyla Yuliana Sánchez Jiménez", pases: 1 },
+            { nombre: "Caleb", pases: 1 },
+            { nombre: "Christian Alberto Sánchez", pases: 1 },
+            { nombre: "Pedro", pases: 1 },
+            { nombre: "Maritza", pases: 1 },
+            { nombre: "Ariana", pases: 1 },
+            { nombre: "Cristina Priego", pases: 1 },
+            { nombre: "Angel Valenzuela", pases: 1 },
+            { nombre: "Obed Valenzuela", pases: 1 },
+            { nombre: "Martín", pases: 1 },
+            { nombre: "Roger", pases: 1 },
+            { nombre: "Gabriela y Luis Miguel", pases: 2 },
+            { nombre: "Elizabeth Sánchez", pases: 1 },
+            { nombre: "Jacobo", pases: 1 },
+            { nombre: "Sergio", pases: 1 },
+            { nombre: "Tecladista", pases: 1 }
         ];
 
         function checkGuest() {
-            const v = document.getElementById('guest-input').value.toLowerCase().trim();
-            const g = invitados.find(i => v.includes(i.n.toLowerCase()) || i.n.toLowerCase().includes(v));
-            if(g && v !== "") {
-                document.getElementById('guest-name').innerText = g.n.toUpperCase();
-                document.getElementById('pases-num').innerText = g.p;
+            const input = document.getElementById('guest-input').value.toLowerCase().trim();
+            const guest = listaInvitados.find(g => input.includes(g.nombre.toLowerCase()) || g.nombre.toLowerCase().includes(input));
+            if (guest && input !== "") {
+                document.getElementById('guest-name-display').innerText = guest.nombre.toUpperCase();
+                document.getElementById('pases-display').innerText = guest.pases;
                 document.getElementById('step-1').style.display = 'none';
                 document.getElementById('step-2').style.display = 'block';
-            } else { alert("Nombre no encontrado."); }
+            } else { alert("Nombre no encontrado. Por favor revisa la ortografía."); }
         }
 
-        function startApp() {
+        function enterInvitation() {
             document.getElementById('login-screen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 const audio = document.getElementById('bg-music');
-                audio.play();
-                initCountdown();
-                window.addEventListener("scroll", reveal);
+                audio.volume = 0.3; audio.play();
                 reveal();
             }, 1000);
         }
 
-        function initCountdown() {
-            const target = new Date("August 15, 2026 14:00:00").getTime();
-            setInterval(() => {
-                const now = new Date().getTime();
-                const d = target - now;
-                document.getElementById('days').innerText = Math.floor(d / (1000 * 60 * 60 * 24));
-                document.getElementById('hours').innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('minutes').innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-            }, 1000);
-        }
-
         function reveal() {
-            const reveals = document.querySelectorAll(".reveal");
-            reveals.forEach(r => {
-                if(r.getBoundingClientRect().top < window.innerHeight - 80) r.classList.add("active");
-            });
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
         }
+        window.addEventListener("scroll", reveal);
 
         function toggleMusic() {
-            const m = document.getElementById('bg-music');
-            m.paused ? m.play() : m.pause();
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) { audio.play(); document.getElementById('music-btn').innerText = "🎵"; }
+            else { audio.pause(); document.getElementById('music-btn').innerText = "🔇"; }
         }
     </script>
 </body>
