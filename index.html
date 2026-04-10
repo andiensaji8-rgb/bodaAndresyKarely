@@ -16,6 +16,8 @@
             --verde-menta: #7ea89b; 
             --verde-oliva: #4a5d4f;
             --oro: #c5a059;
+            --spotify-green: #1DB954;
+            --spotify-hover: #1ed760;
             --font-t: 'Cormorant Garamond', serif;
             --font-c: 'Montserrat', sans-serif;
             --shadow-soft: 0 20px 40px rgba(0,0,0,0.03);
@@ -124,6 +126,7 @@
         }
         .spotify-logo { width: 45px; margin-bottom: 20px; }
 
+        /* --- BOTONES --- */
         .btn-gold-lg { 
             display: inline-block; 
             padding: 22px 50px; 
@@ -142,6 +145,21 @@
             cursor: pointer;
         }
         .btn-gold-lg:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); transform: translateY(-5px); }
+        
+        /* CORRECCIÓN BOTÓN SPOTIFY */
+        .btn-gold-lg.btn-spotify { 
+            background-color: var(--spotify-green); 
+            color: white; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+        }
+        .btn-gold-lg.btn-spotify:hover { 
+            background-color: var(--spotify-hover); 
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(29, 185, 84, 0.4);
+        }
+
         .btn-confirm { background: var(--verde-oliva); color: white; border: none; box-shadow: 0 10px 30px rgba(74, 93, 79, 0.4); }
 
         h1, h2, h3 { font-family: var(--font-t); text-transform: uppercase; letter-spacing: 7px; font-weight: 300; }
@@ -224,12 +242,12 @@
                 
                 <div class="map-container">
                     <iframe 
-                        src="https://maps.app.goo.gl/AyDD8CzKXJrp3uLM8" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15194.270761361527!2d-92.9302826!3d17.9250000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eed966453f63e9%3A0x2427dafef8a34e44!2sAmaranto%20Eventos!5e0!3m2!1ses-419!2smx!4v1712781440000!5m2!1ses-419!2smx" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
 
-                <a href="https://maps.app.goo.gl/AyDD8CzKXJrp3uLM8" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 50px;">📍 VER UBICACIÓN EN MAPAS</a>
+                <a href="https://maps.app.goo.gl/y5ive7yM3Q6gWy5r6" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 50px;">📍 VER UBICACIÓN EN MAPAS</a>
             </div>
         </section>
 
@@ -262,7 +280,7 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="spotify-logo" alt="Spotify">
                         <h3 style="color: #1DB954; font-size: 1.8rem; margin-bottom: 15px;">Música para el evento</h3>
                         <p style="font-size: 1rem; margin-bottom: 30px; opacity: 0.9; letter-spacing: 1px;">¿Tienes alguna canción favorita? ¡Sugiérela en nuestra playlist!</p>
-                        <a href="https://open.spotify.com/playlist/1Q5dUhpMzLb0j5amahvVfL?si=da9f94f742ee417e&pt=363ad94faef4bdfd4252bea898109191" target="_blank" class="btn-gold-lg btn-spotify">🎵 AGREGAR MI CANCIÓN</a>
+                        <a href="https://open.spotify.com/playlist/0Yp296Y3vE4617a029c04" target="_blank" class="btn-gold-lg btn-spotify">🎵 AGREGAR MI CANCIÓN</a>
                     </div>
                 </div>
             </div>
@@ -336,16 +354,13 @@
 
         function startCountdown() {
             const targetDate = new Date("August 15, 2026 14:00:00").getTime();
-            
             setInterval(() => {
                 const now = new Date().getTime();
                 const diff = targetDate - now;
-
                 const d = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const s = Math.floor((diff % (1000 * 60)) / 1000);
-
                 document.getElementById("days").innerText = d < 10 ? "0"+d : d;
                 document.getElementById("hours").innerText = h < 10 ? "0"+h : h;
                 document.getElementById("minutes").innerText = m < 10 ? "0"+m : m;
