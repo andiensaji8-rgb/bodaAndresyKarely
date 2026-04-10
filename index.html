@@ -49,22 +49,23 @@
             color: var(--blanco);
         }
 
-        /* DECORACIÓN FLORAL CON TRANSPARENCIA REAL */
+        /* --- DECORACIÓN BOTÁNICA TRANSPARENTE --- */
         .floral-corner {
             position: absolute;
+            /* Esta imagen tiene transparencia real garantizada */
             background-image: url('https://www.transparentpng.com/download/watercolor-leaves/green-watercolor-leaves-transparent-background-3051.png');
             background-size: contain;
             background-repeat: no-repeat;
-            width: 220px; 
-            height: 220px;
-            opacity: 0.5;
+            width: 280px; 
+            height: 280px;
+            opacity: 0.4;
             z-index: 0;
             pointer-events: none;
-            filter: sepia(0.4) saturate(0.8); /* Ajuste de color para tono Oliva */
+            filter: sepia(0.3) hue-rotate(15deg); /* Tono oliva suave */
         }
         
-        .floral-top-left { top: -20px; left: -20px; }
-        .floral-bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
+        .floral-top-left { top: -30px; left: -30px; }
+        .floral-bottom-right { bottom: -30px; right: -30px; transform: rotate(180deg); }
 
         h1, h2 { 
             font-family: var(--font-t); 
@@ -90,7 +91,6 @@
             transform: translateX(-50%); background: transparent; color: var(--oro); font-size: 12px;
         }
 
-        /* Tarjeta Premium */
         .card-premium {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
@@ -129,7 +129,7 @@
             .parallax { background-attachment: scroll; }
             .hero-names { font-size: 3.5rem; }
             .card-premium { padding: 40px 20px; }
-            .floral-corner { width: 140px; height: 140px; }
+            .floral-corner { width: 160px; height: 160px; }
         }
     </style>
 </head>
@@ -154,10 +154,10 @@
 
     <section class="full-section reveal">
         <div class="card-premium">
-            <div class="floral-corner floral-top-left" style="opacity: 0.3;"></div>
+            <div class="floral-corner floral-top-left" style="opacity: 0.2;"></div>
             <h2 style="color: var(--verde);">Nuestra Historia</h2>
             <div class="divider-diamond"></div>
-            <p style="font-style: italic; font-size: 1.2rem; color: var(--oro);">"Por encima de todo, vístanse de amor, que es el vínculo perfecto."</p>
+            <p style="font-style: italic; font-size: 1.2rem; color: var(--oro);">"Por encima de todo, vístanse de amor."</p>
             <br>
             <p>Bajo la bendición de Dios, decidimos unir nuestras vidas para siempre. Tu presencia hace este momento aún más especial.</p>
         </div>
@@ -172,51 +172,41 @@
             <br>
             <p style="border: 1px solid var(--oro); padding: 20px; display: inline-block; background: rgba(0,0,0,0.3);">EVENTO PARA ADULTOS</p>
             <br><br>
-            <a href="https://www.google.com/maps?q=Salon+De+Fiestas+Amaranto+Villahermosa+Tabasco" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 Ver Ubicación</a>
+            <a href="https://maps.google.com" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 Ver Ubicación</a>
         </div>
     </section>
 
     <section class="full-section reveal">
         <div class="card-premium">
-            <div class="floral-corner floral-bottom-right" style="opacity: 0.3;"></div>
+            <div class="floral-corner floral-bottom-right" style="opacity: 0.2;"></div>
             <h2 style="color: var(--verde);">Mesa de Regalos</h2>
             <div class="divider-diamond"></div>
-            <p style="margin-bottom: 30px;">Vuestra presencia es nuestro mejor regalo, pero si desean tener un detalle:</p>
+            <p style="margin-bottom: 30px;">Si deseas tener un detalle con nosotros:</p>
             
             <div style="padding: 30px; border: 1px dashed var(--oro); background: rgba(255,255,255,0.5);">
                 <p><strong>LLUVIA DE SOBRES</strong></p>
                 <p><small>Buzón disponible en la recepción</small></p>
                 <div class="divider-diamond" style="width: 40px; margin: 20px auto;"></div>
-                <a href="https://www.liverpool.com.mx/tienda/mesa-de-regalos" target="_blank" class="btn-gold">🎁 Mesa Liverpool</a>
+                <a href="https://www.liverpool.com.mx" target="_blank" class="btn-gold">🎁 Mesa Liverpool</a>
             </div>
         </div>
     </section>
 
-    <section class="full-section reveal" style="background-color: rgba(244, 238, 232, 0.8);">
-        <div class="floral-corner floral-top-left" style="opacity: 0.2;"></div>
-        <h2>Música de la Fiesta</h2>
-        <div class="divider-diamond"></div>
-        <p>¿Qué canción no puede faltar? Ayúdanos con la playlist.</p>
-        <br>
-        <a href="https://open.spotify.com/playlist/1Q5dUhpMzLb0j5amahvVfL?si=kwaFk4ODT1auPTOopkMovA" target="_blank" class="btn-gold">🎵 Sugerir en Spotify</a>
-    </section>
-
     <section class="full-section reveal">
         <div class="card-premium">
-            <div class="floral-corner floral-top-left" style="opacity: 0.5;"></div>
+            <div class="floral-corner floral-top-left" style="opacity: 0.4;"></div>
             <h2>Confirmación</h2>
             <div class="divider-diamond"></div>
-            <p>Por favor, confírmanos tu asistencia antes del 15 de julio.</p>
+            <p>Confírmanos tu asistencia antes del 15 de julio.</p>
             <div style="margin-top: 30px;">
-                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar en Typeform</a>
+                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Asistencia</a>
                 <br>
-                <a href="https://wa.me/529934199255" target="_blank" style="display: block; margin-top: 20px; color: var(--verde); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">Confirmar vía WhatsApp</a>
+                <a href="https://wa.me/529934199255" target="_blank" style="display: block; margin-top: 20px; color: var(--verde); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">WhatsApp</a>
             </div>
         </div>
     </section>
 
     <script>
-        // Animación de aparición suave
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -230,7 +220,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // Contador
         const weddingDate = new Date("August 15, 2026 14:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
