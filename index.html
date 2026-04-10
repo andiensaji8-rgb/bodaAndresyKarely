@@ -57,7 +57,6 @@
             left: 50%; transform: translateX(-50%); background: var(--bg-crema); padding: 0 4px;
         }
 
-        /* HERO SECTION */
         .hero {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -74,7 +73,6 @@
         .cd-item { display: flex; flex-direction: column; align-items: center; }
         .cd-num { font-size: 2rem; font-weight: 200; }
 
-        /* CARDS */
         .card-pro {
             background: var(--blanco); padding: 60px 40px; border: 1px solid rgba(197, 160, 89, 0.2);
             box-shadow: 0 10px 40px rgba(0,0,0,0.03); max-width: 750px; margin: 0 auto;
@@ -82,27 +80,15 @@
         
         .cite { font-style: italic; color: var(--oro-suave); font-family: var(--font-titulo); font-size: 1.3rem; margin-bottom: 25px; }
 
-        /* BOTONES */
         .btn-group { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; }
         .btn-pro {
             display: inline-block; width: 100%; max-width: 350px; padding: 18px 20px;
             background-color: transparent; color: var(--texto-principal); text-decoration: none;
             font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-            border: 1px solid var(--oro-suave); transition: all 0.4s ease; cursor: pointer;
+            border: 1px solid var(--oro-suave); transition: all 0.4s ease; cursor: pointer; text-align: center;
         }
         .btn-pro:hover { color: var(--blanco); background-color: var(--verde-oliva); border-color: var(--verde-oliva); }
 
-        /* MESA VISUAL */
-        .mesa-layout { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 30px; }
-        .mesa-circle {
-            width: 90px; height: 90px; border-radius: 50%; border: 1px solid var(--oro-suave);
-            display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
-            flex-direction: column; background: var(--blanco); transition: 0.3s;
-        }
-        .mesa-circle:hover { background-color: #fff9f0; transform: scale(1.05); }
-        .mesa-circle span { font-weight: bold; color: var(--verde-oliva); font-size: 1.2rem; }
-
-        /* GALERÍA CIRCULAR */
         .gallery-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; padding: 20px; }
         .gallery-pro img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 1px solid var(--oro-suave); padding: 8px; }
 
@@ -148,26 +134,13 @@
         </div>
     </div>
 
-    <div class="section fade-in-section" id="asientos">
-        <h2>Distribución de Mesas</h2>
-        <div class="divider-pro"></div>
-        <p>Selecciona tu mesa preferida o consulta tu lugar asignado.</p>
-        <div class="mesa-layout">
-            <div class="mesa-circle">Mesa<span>1</span><small>Familiar</small></div>
-            <div class="mesa-circle">Mesa<span>2</span><small>Amigos</small></div>
-            <div class="mesa-circle">Mesa<span>3</span><small>Amigos</small></div>
-            <div class="mesa-circle">Mesa<span>4</span><small>General</small></div>
-            <div class="mesa-circle">Mesa<span>5</span><small>General</small></div>
-        </div>
-    </div>
-
     <div class="section fade-in-section">
         <h2>Ubicación</h2>
         <div class="divider-pro"></div>
         <div style="border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px;">
-            <iframe width="100%" height="450" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.123456789!2d-92.9!3d17.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDU0JzAwLjAiTiA5MsKwNTQnMDAuMCJX!5e0!3m2!1ses!2smx!4v123456789" allowfullscreen></iframe>
+            <iframe width="100%" height="450" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.271378396349!2d-92.9056251!3d17.989375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eed99736afa7d5%3A0x4455a74deb0606c7!2sSal%C3%B3n%20De%20Fiestas%20Amaranto!5e0!3m2!1ses-419!2smx!4v1712710000000" allowfullscreen></iframe>
         </div>
-        <a class="btn-pro" href="https://maps.app.goo.gl/T6p7aW5A8k87J7hR9" target="_blank">📍 Abrir en Google Maps</a>
+        <a class="btn-pro" href="https://maps.app.goo.gl/qXUv6T4BvG3j3aX88" target="_blank">📍 Abrir en Google Maps</a>
     </div>
 
     <div class="section fade-in-section">
@@ -192,12 +165,12 @@
                     📩 Llenar Formulario de Asistencia
                 </a>
 
-                <a class="btn-pro" href="https://wa.me/529934199255?text=Hola%20Andr%C3%A9s!%20Queremos%20confirmar%20nuestra%20asistencia%20a%20la%20boda.%20Nos%20gustar%C3%ADa%20consultar%20la%20mesa%20disponible." target="_blank">
+                <a class="btn-pro" href="https://wa.me/529934199255?text=Hola%20Andr%C3%A9s!%20Queremos%20confirmar%20nuestra%20asistencia%20a%20la%20boda." target="_blank">
                     📱 Confirmar por WhatsApp
                 </a>
 
-                <a class="btn-pro" href="#asientos">
-                    🪑 Ver Mapa de Asientos
+                <a class="btn-pro" href="mesas.html" target="_blank">
+                    🪑 Ver Distribución de Asientos
                 </a>
             </div>
         </div>
