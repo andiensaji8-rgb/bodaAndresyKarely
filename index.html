@@ -69,9 +69,9 @@
         .hero-names { font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 200; text-transform: none; letter-spacing: -1px; margin-bottom: 10px; }
         .hero-names span { font-style: italic; }
 
-        .countdown-pro { display: flex; gap: 20px; }
-        .cd-item { display: flex; flex-direction: column; align-items: center; }
-        .cd-num { font-size: 2rem; font-weight: 200; }
+        .countdown-pro { display: flex; gap: 25px; }
+        .cd-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+        .cd-num { font-size: 2.5rem; font-weight: 200; font-family: var(--font-titulo); }
 
         .card-pro {
             background: var(--blanco); padding: 60px 40px; border: 1px solid rgba(197, 160, 89, 0.2);
@@ -89,13 +89,19 @@
         }
         .btn-pro:hover { color: var(--blanco); background-color: var(--verde-oliva); border-color: var(--verde-oliva); }
 
-        .gallery-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; padding: 20px; }
-        .gallery-pro img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 1px solid var(--oro-suave); padding: 8px; }
+        .gallery-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; padding: 20px; }
+        .gallery-pro img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 1px solid var(--oro-suave); padding: 8px; transition: 0.3s; }
+        .gallery-pro img:hover { transform: scale(1.03); }
 
         .adults-only { max-width: 600px; margin: 40px auto 0; padding: 30px; border-top: 1px double var(--oro-suave); border-bottom: 1px double var(--oro-suave); }
 
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 600px) {
+            .hero { background-attachment: scroll; }
+            .card-pro { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
@@ -137,7 +143,7 @@
     <div class="section fade-in-section">
         <h2>Ubicación</h2>
         <div class="divider-pro"></div>
-        <div style="border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px;">
+        <div style="border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border-radius: 8px; overflow: hidden;">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.682855212519!2d-92.89671892404677!3d18.02471348325997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ee999736afa7d5%3A0x5554a74deb0906c7!2sSalon%20De%20Fiestas%20Amaranto!5e0!3m2!1ses-419!2smx!4v1712711142915!5m2!1ses-419!2smx" 
                 width="100%" 
@@ -148,7 +154,6 @@
             </iframe>
         </div>
 
-        <!-- ✅ LINK QUE SÍ FUNCIONA -->
         <a class="btn-pro" href="https://www.google.com/maps?q=Salon+De+Fiestas+Amaranto+Villahermosa+Tabasco" target="_blank">
             📍 Abrir en Google Maps
         </a>
@@ -200,14 +205,24 @@
         faders.forEach(fader => appearOnScroll.observe(fader));
 
         const targetDate = new Date("August 15, 2026 14:00:00").getTime();
-        setInterval(() => {
+        
+        function updateCountdown() {
             const now = new Date().getTime();
             const d = targetDate - now;
+            
             if (d < 0) return;
-            document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-        }, 1000);
+
+            const days = Math.floor(d / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>
