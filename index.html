@@ -19,21 +19,17 @@ body{
   font-family:'Poppins',sans-serif;
   background:var(--bg);
   color:var(--brown);
+  overflow-x:hidden;
 }
 
-h1,h2{
-  font-family:'Dancing Script',cursive;
-}
+h1,h2{font-family:'Dancing Script',cursive;}
 
-.section{
-  padding:60px 20px;
-  text-align:center;
-}
+.section{padding:70px 20px;text-align:center;}
 
-/* HERO */
+/* HERO PRO */
 .hero{
   height:100vh;
-  background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');
+  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
   background-size:cover;
   background-position:center;
   display:flex;
@@ -41,30 +37,50 @@ h1,h2{
   justify-content:center;
   align-items:center;
   color:white;
+  text-align:center;
 }
 
-.hero h1{font-size:3.2em;}
-.hero p{font-size:1.2em;}
+.hero h1{
+  font-size:3.5em;
+  animation:fadeDown 1.5s ease;
+}
+
+.hero p{animation:fadeUp 2s ease;}
 
 .countdown{
+  margin-top:20px;
   font-size:1.6em;
-  margin-top:15px;
-  letter-spacing:1px;
+  letter-spacing:2px;
 }
 
-/* CARDS */
+/* ANIMACIONES */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);}
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CARD */
 .card{
   background:white;
   margin:auto;
-  max-width:600px;
-  padding:30px;
+  max-width:650px;
+  padding:35px;
   border-radius:25px;
   box-shadow:0 15px 40px rgba(0,0,0,.1);
-  transition:.4s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
 }
 
 /* BOTONES */
@@ -72,7 +88,7 @@ h1,h2{
   display:inline-block;
   margin:10px;
   padding:14px 28px;
-  border-radius:40px;
+  border-radius:50px;
   background:linear-gradient(135deg,var(--green),#6f8a78);
   color:white;
   text-decoration:none;
@@ -82,44 +98,35 @@ h1,h2{
 }
 
 .btn:hover{
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:0 15px 35px rgba(94,114,97,.6);
+  transform:translateY(-4px) scale(1.07);
+  box-shadow:0 20px 40px rgba(94,114,97,.6);
 }
 
-/* GALERIA */
+/* GALERIA PRO */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-  padding:20px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
 }
 
 .gallery img{
   width:100%;
-  border-radius:15px;
-  height:150px;
+  height:180px;
   object-fit:cover;
-  transition:.3s;
+  border-radius:20px;
+  transition:.4s;
 }
 
 .gallery img:hover{
-  transform:scale(1.05);
+  transform:scale(1.08);
 }
 
 /* MAP */
-.map{
-  width:100%;
-  height:300px;
-  border-radius:20px;
-}
+.map{width:100%;height:320px;border-radius:20px;}
 
-/* DIVIDER */
 .divider{
-  width:60px;
-  height:3px;
-  background:var(--green);
-  margin:20px auto;
-  border-radius:5px;
+  width:70px;height:3px;background:var(--green);
+  margin:20px auto;border-radius:10px;
 }
 
 </style>
@@ -134,16 +141,16 @@ h1,h2{
 </div>
 
 <!-- MENSAJE -->
-<div class="section">
+<div class="section fade">
   <div class="card">
-    <h2>Nuestra Boda</h2>
+    <h2>Nuestra Historia</h2>
     <div class="divider"></div>
-    <p>Con la bendición de Dios y de nuestros padres, queremos invitarte a compartir con nosotros este día tan especial.</p>
+    <p>Dos caminos que Dios unió, dos corazones con un mismo propósito. Hoy queremos compartir contigo el inicio de esta nueva etapa.</p>
   </div>
 </div>
 
 <!-- DETALLES -->
-<div class="section">
+<div class="section fade">
   <div class="card">
     <h2>Ceremonia & Recepción</h2>
     <div class="divider"></div>
@@ -154,7 +161,7 @@ h1,h2{
 </div>
 
 <!-- MAPA -->
-<div class="section">
+<div class="section fade">
   <h2>Ubicación</h2>
   <div class="divider"></div>
   <iframe class="map" src="https://maps.google.com/maps?q=Tepanco%20781%20Villahermosa&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
@@ -163,25 +170,27 @@ h1,h2{
 </div>
 
 <!-- GALERIA -->
-<div class="section">
+<div class="section fade">
   <h2>Momentos</h2>
   <div class="divider"></div>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
+    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0008.jpg">
+    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0009.jpg">
+    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg">
+    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0014.jpg">
+    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0015.jpg">
   </div>
 </div>
 
 <!-- FOTOS -->
-<div class="section">
+<div class="section fade">
   <h2>Comparte tus fotos</h2>
   <div class="divider"></div>
   <a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir fotos</a>
 </div>
 
 <!-- RSVP -->
-<div class="section">
+<div class="section fade">
   <h2>Confirmación</h2>
   <div class="divider"></div>
   <a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">👤 1 persona</a>
@@ -192,6 +201,16 @@ h1,h2{
 </div>
 
 <script>
+// animaciones scroll
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+ faders.forEach(el=>{
+  const top=el.getBoundingClientRect().top;
+  if(top<window.innerHeight-50){el.classList.add('show');}
+ });
+});
+
+// contador
 const date=new Date("2026-08-15T14:00:00").getTime();
 setInterval(()=>{
  let now=new Date().getTime();
