@@ -53,7 +53,7 @@
         /* --- SISTEMA PARALLAX --- */
         .parallax-container {
             position: relative;
-            height: 95vh;
+            height: 100vh;
             width: 100%;
             display: flex;
             align-items: center;
@@ -77,6 +77,24 @@
 
         .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
         .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; max-width: 900px; }
+
+        /* --- CONTADOR --- */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .count-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            min-width: 80px;
+            border-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .count-number { font-size: 1.8rem; font-weight: 300; display: block; }
+        .count-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
 
         section { padding: 130px 0; } 
 
@@ -106,29 +124,6 @@
         }
         .spotify-logo { width: 45px; margin-bottom: 20px; }
 
-        .historia-foto-container {
-            width: 100%;
-            max-width: 800px; 
-            margin: 0 auto;
-            position: relative;
-            padding: 20px;
-            background: white;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 4px;
-            box-shadow: var(--shadow-strong);
-            margin-bottom: 50px; 
-        }
-        .historia-foto-frame {
-            width: 100%;
-            height: 0;
-            padding-bottom: 75%; 
-            background-size: cover;
-            background-position: center;
-            border-radius: 2px;
-            overflow: hidden;
-            background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/e092487e7d4b36a2427dafef8a34e44f00ca661d/IMG-20260409-WA0015.jpg');
-        }
-
         .btn-gold-lg { 
             display: inline-block; 
             padding: 22px 50px; 
@@ -148,8 +143,6 @@
         }
         .btn-gold-lg:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); transform: translateY(-5px); }
         .btn-confirm { background: var(--verde-oliva); color: white; border: none; box-shadow: 0 10px 30px rgba(74, 93, 79, 0.4); }
-        .btn-spotify { background: #1DB954; color: white; border: none; letter-spacing: 3px; }
-        .btn-spotify:hover { background: #1ed760; border-color: #1ed760; color: white; }
 
         h1, h2, h3 { font-family: var(--font-t); text-transform: uppercase; letter-spacing: 7px; font-weight: 300; }
         .adults-only { font-family: var(--font-t); font-size: 1.6rem; color: var(--oro); letter-spacing: 5px; margin: 30px 0; font-style: italic; border-top: 1px solid #f2ece8; border-bottom: 1px solid #f2ece8; padding: 25px 0; }
@@ -162,6 +155,8 @@
             section { padding: 90px 0; }
             .parallax-container::before { background-attachment: scroll; }
             .card-premium { padding: 100px 30px 60px; }
+            #countdown { gap: 10px; }
+            .count-item { min-width: 65px; padding: 10px; }
         }
     </style>
 </head>
@@ -200,6 +195,13 @@
                 <h1 style="font-size: clamp(3.5rem, 12vw, 7rem); letter-spacing: 15px; margin-bottom: 10px; color: white;">Karely & Andrés</h1>
                 <div style="width: 60px; height: 1px; background: white; margin: 30px auto;"></div>
                 <p style="font-size: 1.5rem; letter-spacing: 9px; font-weight: 300; color: white;">15 . 08 . 2026</p>
+                
+                <div id="countdown">
+                    <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
+                    <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Hrs</span></div>
+                    <div class="count-item"><span class="count-number" id="minutes">00</span><span class="count-label">Min</span></div>
+                    <div class="count-item"><span class="count-number" id="seconds">00</span><span class="count-label">Seg</span></div>
+                </div>
             </div>
         </header>
 
@@ -261,7 +263,6 @@
                         <h3 style="color: #1DB954; font-size: 1.8rem; margin-bottom: 15px;">Música para el evento</h3>
                         <p style="font-size: 1rem; margin-bottom: 30px; opacity: 0.9; letter-spacing: 1px;">¿Tienes alguna canción favorita? ¡Sugiérela en nuestra playlist!</p>
                         <a href="https://open.spotify.com/playlist/1Q5dUhpMzLb0j5amahvVfL?si=da9f94f742ee417e&pt=363ad94faef4bdfd4252bea898109191" target="_blank" class="btn-gold-lg btn-spotify">🎵 AGREGAR MI CANCIÓN</a>
-                        <p style="font-size: 0.75rem; margin-top: 20px; color: #888;">(Enlace a la playlist colaborativa de Karely y Andrés)</p>
                     </div>
                 </div>
             </div>
@@ -269,22 +270,13 @@
 
         <section style="background-color: #f9f4f0; padding: 180px 0;">
             <div class="reveal" style="text-align: center;">
-                <p style="font-family: var(--font-t); font-size: 2rem; color: var(--verde-oliva); margin-bottom: 70px; letter-spacing: 4px; padding: 0 20px;">Nos haría muy felices compartir este nuevo comienzo contigo.</p>
-                
-                <div class="reveal active historias-grande">
-                    <div class="historia-foto-container">
-                        <div class="historia-foto-frame"></div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 25px;">
-                        <a href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank" class="btn-gold-lg">📷 VER ÁLBUM COMPLETO</a>
-                        <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold-lg btn-confirm">📩 CONFIRMAR ASISTENCIA AQUÍ</a>
-                    </div>
+                <p style="font-family: var(--font-t); font-size: 2rem; color: var(--verde-oliva); margin-bottom: 70px; letter-spacing: 4px;">Nos haría muy felices compartir este nuevo comienzo contigo.</p>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 25px;">
+                    <a href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank" class="btn-gold-lg">📷 VER ÁLBUM COMPLETO</a>
+                    <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold-lg btn-confirm">📩 CONFIRMAR ASISTENCIA AQUÍ</a>
                 </div>
-
                 <h2 style="font-size: clamp(3.5rem, 12vw, 7rem); color: var(--verde-menta); margin-top: 150px; letter-spacing: 10px;">¡Te esperamos!</h2>
-                <div style="margin-top: 50px; border-top: 1px solid rgba(197, 160, 89, 0.4); display: inline-block; padding-top: 25px;">
-                    <p style="font-family: var(--font-t); font-size: 1.8rem; letter-spacing: 12px; color: var(--oro);">KARELY & ANDRÉS</p>
-                </div>
+                <p style="font-family: var(--font-t); font-size: 1.8rem; letter-spacing: 12px; color: var(--oro); margin-top: 50px;">KARELY & ANDRÉS</p>
             </div>
         </section>
     </div>
@@ -308,20 +300,16 @@
             { nombre: "FAMILIA VALENZUELA GARCIA", pases: 3 },
             { nombre: "MARTIN", pases: 1 },
             { nombre: "ROGER ORLANDO ARIAS JIMENEZ", pases: 1 },
-            { nombre: "GABRIELA ALVAREZ GALICIA", pases: 2 },
+            { nombre: "GABRIELA PAULET", pases: 2 },
             { nombre: "ELIZABETH SANCHEZ", pases: 2 },
             { nombre: "GRUPO MUSICAL", pases: 2 }
         ];
 
-        const eliminarAcentos = (str) => {
-            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        }
+        const eliminarAcentos = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
         function checkGuest() {
             const inputRaw = document.getElementById('guest-input').value;
             const inputLimpio = eliminarAcentos(inputRaw).toUpperCase().trim();
-            
-            // Búsqueda exacta de nombre completo
             const guest = listaInvitados.find(g => eliminarAcentos(g.nombre).toUpperCase() === inputLimpio);
 
             if (guest) {
@@ -330,7 +318,7 @@
                 document.getElementById('step-1').style.display = 'none';
                 document.getElementById('step-2').style.display = 'block';
             } else {
-                alert("Por favor, ingresa tu nombre completo tal como aparece en tu invitación física (sin acentos).");
+                alert("Por favor, ingresa tu nombre completo tal como aparece en tu invitación física.");
             }
         }
 
@@ -340,10 +328,29 @@
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 const audio = document.getElementById('bg-music');
-                audio.volume = 0.3;
-                audio.play();
+                audio.volume = 0.3; audio.play();
+                startCountdown();
                 reveal();
             }, 1200);
+        }
+
+        function startCountdown() {
+            const targetDate = new Date("August 15, 2026 14:00:00").getTime();
+            
+            setInterval(() => {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = d < 10 ? "0"+d : d;
+                document.getElementById("hours").innerText = h < 10 ? "0"+h : h;
+                document.getElementById("minutes").innerText = m < 10 ? "0"+m : m;
+                document.getElementById("seconds").innerText = s < 10 ? "0"+s : s;
+            }, 1000);
         }
 
         function reveal() {
@@ -351,22 +358,15 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
             }
         }
         window.addEventListener("scroll", reveal);
 
         function toggleMusic() {
             const audio = document.getElementById('bg-music');
-            if (audio.paused) {
-                audio.play();
-                document.getElementById('music-btn').innerText = "🎵";
-            } else {
-                audio.pause();
-                document.getElementById('music-btn').innerText = "🔇";
-            }
+            if (audio.paused) { audio.play(); document.getElementById('music-btn').innerText = "🎵"; }
+            else { audio.pause(); document.getElementById('music-btn').innerText = "🔇"; }
         }
     </script>
 </body>
