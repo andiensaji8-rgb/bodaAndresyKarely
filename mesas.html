@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribución de Mesas — Karely & Andrés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fdf8f5; font-family: 'Montserrat', sans-serif; color: #2c1e14; margin: 0; padding: 40px 20px; text-align: center; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
+        .divider { width: 50px; height: 1px; background: #c5a059; margin: 20px auto 40px; }
+        
+        .mapa-container {
+            max-width: 900px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+        }
+
+        .mesa-card {
+            background: white; padding: 25px; border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .mesa-number { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #4a5d4f; margin-bottom: 10px; }
+
+        .asientos-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+            list-style: none; padding: 0; font-size: 0.8rem; color: #888;
+        }
+
+        .asiento-item { padding: 5px; border-bottom: 1px solid #f9f4f0; }
+
+        .btn-back {
+            display: inline-block; margin-top: 50px; padding: 15px 30px;
+            border: 1px solid #c5a059; color: #2c1e14; text-decoration: none;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Distribución de Mesas</h1>
+    <div class="divider"></div>
+
+    <div class="mapa-container">
+        <div class="mesa-card">
+            <div class="mesa-number">Mesa 01</div>
+            <p><strong>Familia Novios</strong></p>
+            <div class="asientos-grid">
+                <div class="asiento-item">01</div><div class="asiento-item">02</div>
+                <div class="asiento-item">03</div><div class="asiento-item">04</div>
+                <div class="asiento-item">05</div><div class="asiento-item">06</div>
+                <div class="asiento-item">07</div><div class="asiento-item">08</div>
+            </div>
+        </div>
+
+        <div class="mesa-card">
+            <div class="mesa-number">Mesa 02</div>
+            <p><strong>Amigos</strong></p>
+            <div class="asientos-grid">
+                <div class="asiento-item">09</div><div class="asiento-item">10</div>
+                <div class="asiento-item">11</div><div class="asiento-item">12</div>
+                <div class="asiento-item">13</div><div class="asiento-item">14</div>
+                <div class="asiento-item">15</div><div class="asiento-item">16</div>
+            </div>
+        </div>
+
+        <div class="mesa-card">
+            <div class="mesa-number">Mesa 03</div>
+            <p><strong>Amigos</strong></p>
+            <div class="asientos-grid">
+                <div class="asiento-item">17</div><div class="asiento-item">18</div>
+                <div class="asiento-item">19</div><div class="asiento-item">20</div>
+                <div class="asiento-item">21</div><div class="asiento-item">22</div>
+                <div class="asiento-item">23</div><div class="asiento-item">24</div>
+            </div>
+        </div>
+
+        <div class="mesa-card">
+            <div class="mesa-number">Mesa 04</div>
+            <p><strong>Invitados</strong></p>
+            <div class="asientos-grid">
+                <div class="asiento-item">25</div><div class="asiento-item">26</div>
+                <div class="asiento-item">27</div><div class="asiento-item">28</div>
+                <div class="asiento-item">29</div><div class="asiento-item">30</div>
+                <div class="asiento-item">31</div><div class="asiento-item">32</div>
+            </div>
+        </div>
+
+        <div class="mesa-card">
+            <div class="mesa-number">Mesa 05</div>
+            <p><strong>Invitados</strong></p>
+            <div class="asientos-grid">
+                <div class="asiento-item">33</div><div class="asiento-item">34</div>
+                <div class="asiento-item">35</div><div class="asiento-item">36</div>
+                <div class="asiento-item">37</div><div class="asiento-item">38</div>
+                <div class="asiento-item">39</div><div class="asiento-item">40</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-back">Regresar a la Invitación</a>
+
+</body>
+</html>
