@@ -37,15 +37,13 @@
 
         .login-card { width: 90%; max-width: 500px; padding: 20px; }
         .login-card h2 { font-family: var(--font-t); font-size: clamp(2.5rem, 8vw, 4rem); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
-
         .input-boda { padding: 18px; width: 100%; border: none; text-align: center; font-family: var(--font-c); font-size: 1rem; margin-bottom: 15px; background: white; color: var(--texto); outline: none; }
-
         .btn-pases { background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 15px 30px; width: 100%; font-family: var(--font-c); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; cursor: pointer; transition: 0.4s; font-weight: bold; }
         .btn-pases:hover { background: white; color: var(--verde-oliva); }
 
-        /* --- ANIMACIONES Y PARALLAX --- */
+        /* --- SISTEMA PARALLAX GLOBAL --- */
         .parallax-window { 
-            height: 80vh; 
+            height: 70vh; 
             background-attachment: fixed; 
             background-position: center; 
             background-repeat: no-repeat; 
@@ -55,21 +53,24 @@
             justify-content: center; 
             position: relative;
             width: 100%;
+            overflow: hidden;
         }
 
-        /* Ajuste específico para la segunda imagen Parallax */
-        .parallax-secondary {
-            height: 70vh;
-            background-image: linear-gradient(rgba(44,30,20,0.6), rgba(44,30,20,0.6)), 
-                              url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');
+        /* Capa de oscurecimiento para legibilidad */
+        .parallax-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 1;
         }
+
+        .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- ELEMENTOS DE DISEÑO --- */
         .photo-separator { width: 110px; height: 110px; border: 1px solid var(--oro); border-radius: 50%; margin: 0 auto; background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); background-size: cover; background-position: center; background-color: white; padding: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; top: 55px; z-index: 20; }
-
         .card-premium { background: white; padding: 90px 40px 60px; border: 1px solid rgba(197, 160, 89, 0.2); max-width: 750px; width: 90%; margin: 0 auto 60px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
 
         h1, h2, h3 { font-family: var(--font-t); font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
@@ -86,7 +87,10 @@
         .btn-gold { display: inline-block; padding: 14px 35px; border: 1px solid var(--oro); color: var(--texto); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; transition: 0.3s; margin-top: 25px; font-family: var(--font-c); }
         .btn-gold:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); }
 
-        @media (max-width: 768px) { .parallax-window { background-attachment: scroll; height: 60vh; } .photo-separator { width: 90px; height: 90px; top: 45px; } }
+        @media (max-width: 768px) { 
+            .parallax-window { background-attachment: scroll; height: 60vh; } 
+            .photo-separator { width: 90px; height: 90px; top: 45px; } 
+        }
     </style>
 </head>
 <body>
@@ -116,8 +120,9 @@
     </div>
 
     <div id="main-content" style="display: none;">
-        <header class="parallax-window" style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
-            <div class="reveal" style="text-align: center; color: white;">
+        <header class="parallax-window" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg'); height: 85vh;">
+            <div class="parallax-overlay"></div>
+            <div class="parallax-content reveal">
                 <h1 style="font-size: clamp(3.5rem, 11vw, 6rem); letter-spacing: 7px; margin-bottom: 10px;">Karely & Andrés</h1>
                 <p style="font-size: 1.4rem; letter-spacing: 5px; font-weight: 300;">15 DE AGOSTO 2026</p>
                 <div class="countdown-container" id="countdown">
@@ -137,13 +142,14 @@
                 </div>
             </div>
 
-            <div class="reveal" style="margin-top: 40px;">
-                <div class="parallax-window parallax-secondary">
-                    <div style="color: white; text-align: center; z-index: 10;">
+            <div class="reveal" style="margin-top: 40px; margin-bottom: 60px;">
+                <div class="parallax-window" style="background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); height: 65vh;">
+                    <div class="parallax-overlay" style="background: rgba(44,30,20,0.5);"></div>
+                    <div class="parallax-content">
                         <h2 style="font-size: 3rem; letter-spacing: 7px; margin-bottom: 15px;">La Recepción</h2>
                         <p style="font-size: 1.5rem; margin-bottom: 5px;">SALÓN AMARANTO</p>
                         <p style="opacity: 0.9; font-family: var(--font-c); letter-spacing: 2px;">2:00 PM | Villahermosa, Tabasco</p>
-                        <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 UBICACIÓN GPS</a>
+                        <a href="https://maps.google.com2" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 UBICACIÓN GPS</a>
                     </div>
                 </div>
             </div>
@@ -183,7 +189,7 @@
                 <div class="photo-separator"></div>
                 <div class="card-premium">
                     <h2 style="color: var(--oro); margin-bottom: 15px;">Sugerencia de canciones</h2>
-                    <a href="https://spotify.com" target="_blank" class="btn-gold" style="background: #1DB954; color: white; border: none;">🎧 ABRIR SPOTIFY</a>
+                    <a href="http://googleusercontent.com/spotify.com/13" target="_blank" class="btn-gold" style="background: #1DB954; color: white; border: none;">🎧 ABRIR SPOTIFY</a>
                 </div>
             </div>
 
