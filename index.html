@@ -3,38 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karely & Andrés — XV . VIII . MMXXVI</title>
+    <title>Karely & Andrés — Nuestra Boda</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-crema: #fdf8f5;
-            --texto-principal: #2c1e14;
-            --verde-oliva: #4a5d4f;
-            --oro-suave: #c5a059;
+            --texto: #2c1e14;
+            --verde: #4a5d4f;
+            --oro: #c5a059;
             --blanco: #ffffff;
-            --font-titulo: 'Cormorant Garamond', serif;
-            --font-cuerpo: 'Montserrat', sans-serif;
+            --font-t: 'Cormorant Garamond', serif;
+            --font-c: 'Montserrat', sans-serif;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            margin: 0;
-            font-family: var(--font-cuerpo);
+            font-family: var(--font-c);
             background-color: var(--bg-crema);
-            color: var(--texto-principal);
+            /* FONDO BOTÁNICO SUAVE */
+            background-image: url('http://googleusercontent.com/image_generation_content/0');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--texto);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3 { 
-            font-family: var(--font-titulo); 
-            font-weight: 300; 
+        .full-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: var(--blanco);
+        }
+
+        /* DECORACIÓN FLORAL EN ESQUINAS */
+        .floral-corner {
+            position: absolute;
+            width: 150px;
+            height: auto;
+            opacity: 0.7;
+            z-index: 0;
+        }
+        .floral-top-left { top: 20px; left: 20px; }
+        .floral-bottom-right { bottom: 20px; right: 20px; transform: rotate(180deg); }
+
+        h1, h2 { 
+            font-family: var(--font-t); 
+            text-transform: uppercase; 
+            letter-spacing: 6px; 
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-names { font-size: clamp(3.5rem, 12vw, 6rem); margin-bottom: 10px; }
+        .hero-names span { font-style: italic; font-family: var(--font-t); }
+
+        .divider-diamond {
+            width: 100px; height: 1px;
+            background: var(--oro);
+            margin: 30px auto;
+            position: relative;
+            z-index: 1;
+        }
+        .divider-diamond::after {
+            content: '♦'; position: absolute; top: -8px; left: 50%;
+            transform: translateX(-50%); background: transparent; color: var(--oro); font-size: 12px;
+        }
+
+        /* Tarjeta con Transparencia Sofisticada */
+        .card-premium {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 20px 40px;
+            border: 1px solid var(--oro);
+            color: var(--texto);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            transition: all 0.5s;
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+            margin: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-gold:hover { background: var(--verde); color: var(--blanco); border-color: var(--verde); }
+
+        .countdown-container { display: flex; gap: 30px; margin: 40px 0; position: relative; z-index: 1;}
+        .cd-box { font-family: var(--font-t); font-size: 2.5rem; border-bottom: 1px solid var(--oro); }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .parallax { background-attachment: scroll; }
+            .hero-names { font-size: 3.5rem; }
+            .card-premium { padding: 40px 20px; }
+            .floral-corner { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="full-section parallax" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');">
+        <img src="http://googleusercontent.com/image_generation_content/0" alt="decoración floral" class="floral-corner floral-top-left reveal active">
+        
+        <p class="reveal active" style="letter-spacing: 8px;">¡QUEREMOS CELEBRARLO CONTIGO!</p>
+        <h1 class="hero-names reveal active">Karely <span>&</span> Andrés</h1>
+        <div class="divider-diamond reveal active"></div>
+        <p class="reveal active" style="font-size: 1.2rem; font-family: var(--font-t);">15 . 08 . 2026</p>
+        
+        <div class="countdown-container reveal active">
+            <div><div class="cd-box" id="days">00</div><p><small>DÍAS</small></p></div>
+            <div><div class="cd-box" id="hours">00</div><p><small>HORAS</small></p></div>
+            <div><div class="cd-box" id="mins">00</div><p><small>MINS</small></p></div>
+        </div>
+
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+Karely+y+Andrés&dates=20260815T140000Z/20260816T020000Z&location=Salón+Amaranto,+Villahermosa" target="_blank" class="btn-gold reveal active" style="color: white; border-color: white;">+ Agendar Fecha</a>
+    </header>
+
+    <section class="full-section reveal">
+        <div class="card-premium">
+            <img src="http://googleusercontent.com/image_generation_content/0" alt="decoración floral" class="floral-corner floral-top-left" style="width: 100px; opacity: 0.4;">
+            <h2 style="color: var(--verde);">Nuestra Historia</h2>
+            <div class="divider-diamond"></div>
+            <p style="font-style: italic; font-size: 1.2rem; color: var(--oro);">"Por encima de todo, vístanse de amor, que es el vínculo perfecto."</p>
+            <br>
+            <p>Bajo la bendición de Dios, decidimos unir nuestras vidas para siempre. Tu presencia hace este momento aún más especial.</p>
+        </div>
+    </section>
+
+    <section class="full-section parallax" style="background-image: linear-gradient(rgba(44,30,20,0.7), rgba(44,30,20,0.7)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg');">
+        <div class="reveal">
+            <h2>La Recepción</h2>
+            <div class="divider-diamond"></div>
+            <p style="font-size: 1.5rem; letter-spacing: 3px;">SALÓN AMARANTO</p>
+            <p>2:00 PM — Villahermosa, Tabasco</p>
+            <br>
+            <p style="border: 1px solid var(--oro); padding: 20px; display: inline-block; background: rgba(0,0,0,0.3);">EVENTO PARA ADULTOS</p>
+            <br><br>
+            <a href="https://www.google.com/maps?q=Salon+De+Fiestas+Amaranto+Villahermosa+Tabasco" target="_blank" class="btn-gold" style="color: white; border-color: white;">📍 Ver Ubicación</a>
+        </div>
+    </section>
+
+    <section class="full-section reveal">
+        <div class="card-premium">
+            <h2 style="color: var(--verde);">Mesa de Regalos</h2>
+            <div class="divider-diamond"></div>
+            <p style="margin-bottom: 30px;">Vuestra presencia es nuestro mejor regalo, pero si desean tener un detalle:</p>
+            
+            <div style="padding: 30px; border: 1px dashed var(--oro); background: rgba(255,255,255,0.5);">
+                <p><strong>LLUVIA DE SOBRES</strong></p>
+                <p><small>Buzón disponible en la recepción</small></p>
+                <div class="divider-diamond" style="width: 40px; margin: 20px auto;"></div>
+                <a href="https://www.liverpool.com.mx/tienda/mesa-de-regalos" target="_blank" class="btn-gold">🎁 Mesa Liverpool</a>
+            </div>
+            <img src="http://googleusercontent.com/image_generation_content/0" alt="decoración floral" class="floral-corner floral-bottom-right" style="width: 80px; opacity: 0.3;">
+        </div>
+    </section>
+
+    <section class="full-section reveal" style="background-color: rgba(244, 238, 232, 0.8);">
+        <h2>Música en Vivo</h2>
+        <div class="divider-diamond"></div>
+        <p>Acompáñanos a crear el ambiente perfecto.</p>
+        <br>
+        <a href="https://open.spotify.com/playlist/1Q5dUhpMzLb0j5amahvVfL?si=kwaFk4ODT1auPTOopkMovA" target="_blank" class="btn-gold">🎵 Sugerir Canción</a>
+    </section>
+
+    <section class="full-section reveal">
+        <img src="http://googleusercontent.com/image_generation_content/0" alt="decoración floral" class="floral-corner floral-top-left">
+        <div class="card-premium">
+            <h2>Confirmación</h2>
+            <div class="divider-pro divider-diamond"></div>
+            <p>Agradecemos tu confirmación antes del 15 de julio.</p>
+            <div style="margin-top: 30px;">
+                <a href="https://form.typeform.com/to/gnDaDMFL" target="_blank" class="btn-gold">📩 Confirmar Asistencia</a>
+                <br>
+                <a href="https://wa.me/529934199255" target="_blank" style="display: block; margin-top: 20px; color: var(--verde); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">Confirmar vía WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animación al hacer scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Para activar las que ya están visibles
+
+        // Cuenta regresiva
+        const weddingDate = new Date("August 15, 2026 14:00:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff < 0) {
+                document.getElementById("countdown").innerHTML = "¡LLEGÓ EL DÍA!";
+                return;
+            }
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>            font-weight: 300; 
             text-transform: uppercase; 
             letter-spacing: 4px;
             margin: 0;
