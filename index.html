@@ -1,226 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Boda Andrés & Karely</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Andrés & Karely</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg:#faf0eb;
-  --brown:#614124;
-  --green:#5e7261;
-}
+    <style>
+        :root {
+            --bg: #faf0eb;
+            --brown: #614124;
+            --green: #5e7261;
+            --white: #ffffff;
+        }
 
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:var(--brown);
-  overflow-x:hidden;
-}
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--brown);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-h1,h2{font-family:'Dancing Script',cursive;}
+        h1, h2 { font-family: 'Dancing Script', cursive; }
 
-.section{padding:70px 20px;text-align:center;}
+        .section { padding: 60px 20px; text-align: center; max-width: 1000px; margin: auto; }
 
-/* HERO PRO */
-.hero{
-  height:100vh;
-  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
-}
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
 
-.hero h1{
-  font-size:3.5em;
-  animation:fadeDown 1.5s ease;
-}
+        .hero h1 { font-size: 4em; margin-bottom: 10px; animation: fadeDown 1.5s ease; }
+        .hero p { font-size: 1.2em; animation: fadeUp 2s ease; }
 
-.hero p{animation:fadeUp 2s ease;}
+        .countdown {
+            margin-top: 30px;
+            font-size: 1.4em;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
 
-.countdown{
-  margin-top:20px;
-  font-size:1.6em;
-  letter-spacing:2px;
-}
+        /* ANIMACIONES */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ANIMACIONES */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}
-}
+        .fade { opacity: 0; transform: translateY(30px); transition: 1.2s all ease-out; }
+        .fade.show { opacity: 1; transform: translateY(0); }
 
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);}
-}
+        /* CARDS */
+        .card {
+            background: var(--white);
+            margin: auto;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
 
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
+        .divider {
+            width: 60px; height: 2px; background: var(--green);
+            margin: 20px auto; border-radius: 10px; opacity: 0.6;
+        }
 
-.fade.show{
-  opacity:1;
-  transform:translateY(0);
-}
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            margin: 8px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: var(--green);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.4s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(94,114,97,0.3);
+        }
 
-/* CARD */
-.card{
-  background:white;
-  margin:auto;
-  max-width:650px;
-  padding:35px;
-  border-radius:25px;
-  box-shadow:0 15px 40px rgba(0,0,0,.1);
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(94,114,97,0.4);
+            filter: brightness(1.1);
+        }
 
-/* BOTONES */
-.btn{
-  display:inline-block;
-  margin:10px;
-  padding:14px 28px;
-  border-radius:50px;
-  background:linear-gradient(135deg,var(--green),#6f8a78);
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 10px 25px rgba(94,114,97,.4);
-  transition:.3s;
-}
+        /* GALERIA */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
 
-.btn:hover{
-  transform:translateY(-4px) scale(1.07);
-  box-shadow:0 20px 40px rgba(94,114,97,.6);
-}
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
 
-/* GALERIA PRO */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
-}
+        .gallery img:hover { transform: scale(1.03); }
 
-.gallery img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:20px;
-  transition:.4s;
-}
+        /* MAPA */
+        .map-container { position: relative; overflow: hidden; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .map { width: 100%; height: 350px; border: none; }
 
-.gallery img:hover{
-  transform:scale(1.08);
-}
-
-/* MAP */
-.map{width:100%;height:320px;border-radius:20px;}
-
-.divider{
-  width:70px;height:3px;background:var(--green);
-  margin:20px auto;border-radius:10px;
-}
-
-</style>
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.8em; }
+            .section { padding: 40px 15px; }
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+            .gallery img { height: 150px; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Karely & Andrés</h1>
-  <p>15 de agosto 2026 · 2:00 PM</p>
-  <div class="countdown" id="countdown"></div>
-</div>
+    <div class="hero">
+        <h1>Karely & Andrés</h1>
+        <p>Sábado, 15 de Agosto 2026</p>
+        <div class="countdown" id="countdown">Cargando...</div>
+    </div>
 
-<!-- MENSAJE -->
-<div class="section fade">
-  <div class="card">
-    <h2>Nuestra Historia</h2>
-    <div class="divider"></div>
-    <p>Dos caminos que Dios unió, dos corazones con un mismo propósito. Hoy queremos compartir contigo el inicio de esta nueva etapa.</p>
-  </div>
-</div>
+    <div class="section fade">
+        <div class="card">
+            <h2>Nuestra Historia</h2>
+            <div class="divider"></div>
+            <p>“Por encima de todo, vístanse de amor, que es el vínculo perfecto.”<br><small>Colosenses 3:14</small></p>
+            <p>Dos caminos que Dios unió y dos corazones con un mismo propósito. ¡Estamos felices de que seas parte de nuestro comienzo!</p>
+        </div>
+    </div>
 
-<!-- DETALLES -->
-<div class="section fade">
-  <div class="card">
-    <h2>Ceremonia & Recepción</h2>
-    <div class="divider"></div>
-    <p>Tepanco 781, Ciudad Industrial</p>
-    <p>Villahermosa, Tabasco</p>
-    <p>15 de agosto · 2:00 PM</p>
-  </div>
-</div>
+    <div class="section fade">
+        <div class="card">
+            <h2>¿Dónde y Cuándo?</h2>
+            <div class="divider"></div>
+            <p><strong>Ceremonia y Recepción</strong></p>
+            <p>Tepanco 781, Ciudad Industrial<br>Villahermosa, Tabasco</p>
+            <p><strong>2:00 PM</strong></p>
+        </div>
+    </div>
 
-<!-- MAPA -->
-<div class="section fade">
-  <h2>Ubicación</h2>
-  <div class="divider"></div>
-  <iframe class="map" src="https://maps.google.com/maps?q=Tepanco%20781%20Villahermosa&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  <br>
-  <a class="btn" href="https://maps.app.goo.gl/rxnKV2LaLfoJeEDS6" target="_blank">Abrir en Maps</a>
-</div>
+    <div class="section fade">
+        <h2>Ubicación</h2>
+        <div class="divider"></div>
+        <div class="map-container">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15161.432655383568!2d-92.9066601!3d17.9859567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eed95df4a78107%3A0x67396a32669e46a7!2sCiudad%20Industrial%2C%20Villahermosa%2C%20Tab.!5e0!3m2!1ses-419!2smx!4v1712680000000!5m2!1ses-419!2smx"></iframe>
+        </div>
+        <br>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Tepanco+781+Ciudad+Industrial+Villahermosa" target="_blank">Ver en Google Maps</a>
+    </div>
 
-<!-- GALERIA -->
-<div class="section fade">
-  <h2>Momentos</h2>
-  <div class="divider"></div>
-  <div class="gallery">
-    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0008.jpg">
-    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0009.jpg">
-    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg">
-    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0014.jpg">
-    <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0015.jpg">
-  </div>
-</div>
+    <div class="section fade">
+        <h2>Momentos</h2>
+        <div class="divider"></div>
+        <div class="gallery">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0008.jpg" alt="Foto 1">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0009.jpg" alt="Foto 2">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg" alt="Foto 3">
+            <img src="https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0014.jpg" alt="Foto 4">
+        </div>
+    </div>
 
-<!-- FOTOS -->
-<div class="section fade">
-  <h2>Comparte tus fotos</h2>
-  <div class="divider"></div>
-  <a class="btn" href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank">Subir fotos</a>
-</div>
+    <div class="section fade">
+        <h2>Confirmación</h2>
+        <p>Por favor, confirma tu asistencia antes del 1 de agosto.</p>
+        <div class="divider"></div>
+        <a class="btn" href="https://wa.me/5219934199255?text=¡Hola!%20Confirmo%20mi%20asistencia%20(1%20persona)" target="_blank">👤 1 Persona</a>
+        <a class="btn" href="https://wa.me/5219934199255?text=¡Hola!%20Confirmamos%20asistencia%20(2%20personas)" target="_blank">👥 2 Personas</a>
+        <a class="btn" href="https://wa.me/5219934199255?text=¡Hola!%20Confirmamos%20asistencia%20familiar" target="_blank">👨‍👩‍👧 Familia</a>
+    </div>
 
-<!-- RSVP -->
-<div class="section fade">
-  <h2>Confirmación</h2>
-  <div class="divider"></div>
-  <a class="btn" href="https://wa.me/5219934199255?text=Confirmo%201%20persona">👤 1 persona</a>
-  <a class="btn" href="https://wa.me/5219934199255?text=Confirmamos%202%20personas">👥 2 personas</a>
-  <a class="btn" href="https://wa.me/5219934199255?text=Iremos%20en%20familia">👨‍👩‍👧 Familia</a>
-  <br>
-  <a class="btn" href="https://wa.me/5219934199255?text=No%20asistiré">❌ No asistiré</a>
-</div>
+    <script>
+        // Animación de entrada al hacer scroll
+        const faders = document.querySelectorAll('.fade');
+        const appearOptions = { threshold: 0.2 };
 
-<script>
-// animaciones scroll
-const faders=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
- faders.forEach(el=>{
-  const top=el.getBoundingClientRect().top;
-  if(top<window.innerHeight-50){el.classList.add('show');}
- });
-});
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
 
-// contador
-const date=new Date("2026-08-15T14:00:00").getTime();
-setInterval(()=>{
- let now=new Date().getTime();
- let d=date-now;
- let days=Math.floor(d/(1000*60*60*24));
- let h=Math.floor((d/(1000*60*60))%24);
- let m=Math.floor((d/(1000*60))%60);
- document.getElementById("countdown").innerHTML=`${days} días · ${h} hrs · ${m} min`;
-},1000);
-</script>
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
 
+        // Contador de tiempo
+        const targetDate = new Date("August 15, 2026 14:00:00").getTime();
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "¡Hoy es el gran día!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("countdown").innerHTML = `${days}d : ${hours}h : ${minutes}m`;
+        }, 1000);
+    </script>
 </body>
 </html>
