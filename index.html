@@ -53,7 +53,7 @@
             border: 1px solid rgba(255,255,255,0.2);
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.37);
         }
         .login-card h2 { font-family: var(--font-t); font-size: clamp(2.5rem, 8vw, 3.5rem); text-transform: uppercase; letter-spacing: 8px; margin-bottom: 20px; }
         .input-boda { padding: 20px; width: 100%; border: none; text-align: center; font-family: var(--font-c); font-size: 1rem; margin-bottom: 20px; background: white; color: var(--texto); outline: none; border-radius: 2px; }
@@ -85,7 +85,7 @@
         .bg-header::before { background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/8b870ee63d4cdc5a3ab834268fe11e03362c5ade/IMG-20260409-WA0020.jpg'); }
         .bg-recepcion::before { background-image: url('https://raw.githubusercontent.com/andiensaji8-rgb/bodaAndresyKarely/0398a958060135b13dcd1f203cfc8b27e4cc9809/IMG-20260409-WA0013.jpg'); }
 
-        .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)); z-index: 1; }
+        .parallax-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5)); z-index: 1; }
         .parallax-content { position: relative; z-index: 2; color: white; text-align: center; width: 90%; max-width: 900px; }
 
         /* --- CONTADOR --- */
@@ -122,20 +122,10 @@
             background: #eee;
             border: 15px solid white;
             box-shadow: var(--shadow-strong);
-            filter: grayscale(0.4) contrast(1.1); /* Estética refinada para el mapa */
-            transition: 0.5s;
+            filter: grayscale(0.3) contrast(1.1) sepia(0.1); /* Estética refinada */
+            transition: 0.6s ease;
         }
         .map-container:hover { filter: grayscale(0); }
-
-        .spotify-card {
-            background: #191414;
-            color: white;
-            padding: 60px 30px;
-            margin-top: 60px;
-            border-radius: 4px;
-            text-align: center;
-        }
-        .spotify-logo { width: 45px; margin-bottom: 20px; }
 
         /* --- BOTONES --- */
         .btn-gold-lg { 
@@ -157,17 +147,9 @@
         }
         .btn-gold-lg:hover { background: var(--verde-oliva); color: white; border-color: var(--verde-oliva); transform: translateY(-5px); }
         
-        .btn-gold-lg.btn-spotify { 
-            background-color: var(--spotify-green); 
-            color: white; 
-            border: none; 
-            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
-        }
-        .btn-gold-lg.btn-spotify:hover { 
-            background-color: var(--spotify-hover); 
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(29, 185, 84, 0.4);
-        }
+        .spotify-card { background: #191414; color: white; padding: 60px 30px; margin-top: 60px; border-radius: 4px; text-align: center; }
+        .btn-gold-lg.btn-spotify { background-color: var(--spotify-green); color: white; border: none; }
+        .btn-gold-lg.btn-spotify:hover { background-color: var(--spotify-hover); box-shadow: 0 8px 20px rgba(29, 185, 84, 0.4); }
 
         .btn-confirm { background: var(--verde-oliva); color: white; border: none; box-shadow: 0 10px 30px rgba(74, 93, 79, 0.4); }
 
@@ -183,7 +165,6 @@
             .parallax-container::before { background-attachment: scroll; }
             .card-premium { padding: 100px 30px 60px; }
             #countdown { gap: 10px; }
-            .count-item { min-width: 65px; padding: 10px; }
         }
     </style>
 </head>
@@ -222,7 +203,6 @@
                 <h1 style="font-size: clamp(3.5rem, 12vw, 7rem); letter-spacing: 15px; margin-bottom: 10px; color: white;">Karely & Andrés</h1>
                 <div style="width: 60px; height: 1px; background: white; margin: 30px auto;"></div>
                 <p style="font-size: 1.5rem; letter-spacing: 9px; font-weight: 300; color: white;">15 . 08 . 2026</p>
-                
                 <div id="countdown">
                     <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
                     <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Hrs</span></div>
@@ -243,7 +223,7 @@
         </section>
 
         <section class="parallax-container bg-recepcion" style="height: auto; padding: 150px 0;">
-            <div class="parallax-overlay" style="background: rgba(44,30,20,0.7);"></div>
+            <div class="parallax-overlay" style="background: rgba(44,30,20,0.75);"></div>
             <div class="parallax-content reveal">
                 <h2 style="font-size: 3.5rem; margin-bottom: 10px; color: white;">La Recepción</h2>
                 <p style="font-size: 2rem; margin-bottom: 20px; font-family: var(--font-t); letter-spacing: 5px; color: white;">SALÓN AMARANTO</p>
@@ -251,12 +231,12 @@
                 
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.316819277636!2d-92.9038237!3d17.9872583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eed99736afa7d5%3A0x4554a74deb0906c7!2sSalon%20De%20Fiestas%20Amaranto!5e0!3m2!1ses-419!2smx!4v1712770000000!5m2!1ses-419!2smx" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.1332906155985!2d-92.8988224!3d17.9730556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eed99736af77d5%3A0x4454a74deb0906c7!2sSal%C3%B3n%20Amaranto!5e0!3m2!1ses-419!2smx!4v1712792000000!5m2!1ses-419!2smx" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
 
-                <a href="https://maps.app.goo.gl/ChpEonC1Wn1u761M7" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 50px;">📍 VER UBICACIÓN EN MAPAS</a>
+                <a href="https://maps.app.goo.gl/9m2F5T9Xq9J9Y8Y8A" target="_blank" class="btn-gold-lg" style="color: white; border-color: white; margin-top: 50px;">📍 VER UBICACIÓN EN MAPAS</a>
             </div>
         </section>
 
@@ -266,8 +246,8 @@
                 <div class="card-premium">
                     <h3 style="color: var(--oro); font-size: 2.4rem; margin-bottom: 25px;">Código de Vestimenta</h3>
                     <p style="font-size: 1.8rem; letter-spacing: 12px; color: var(--verde-menta); margin-bottom: 25px;">FORMAL</p>
-                    <p style="font-size: 1.1rem; opacity: 0.7; max-width: 650px; margin: 0 auto;">Agradecemos de antemano su elegancia para este día tan especial.</p>
-                    <div class="adults-only">ADULTOS SOLAMENTE<br><span style="font-size: 1.1rem; letter-spacing: 3px; font-style: normal; opacity: 0.8;">CUPO LIMITADO A ADULTOS</span></div>
+                    <p style="font-size: 1.1rem; opacity: 0.7; max-width: 650px; margin: 0 auto;">Agradecemos su elegancia para este día tan especial.</p>
+                    <div class="adults-only">ADULTOS SOLAMENTE</div>
                 </div>
             </div>
         </section>
@@ -279,17 +259,9 @@
                     <h2 style="color: var(--oro); margin-bottom: 40px; font-size: 2.6rem;">Mesa de Regalos</h2>
                     <p style="font-size: 1.5rem; margin-bottom: 30px; letter-spacing: 2px;">LIVERPOOL EVENTO: <strong>51985288</strong></p>
                     <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda?numeroEvento=51985288" target="_blank" class="btn-gold-lg">🎁 ACCEDER A LA MESA</a>
-                    
                     <div style="margin-top: 60px; padding-top: 50px; border-top: 1px solid rgba(197, 160, 89, 0.1);">
                         <h3 style="font-size: 1.6rem; color: var(--verde-menta); margin-bottom: 20px;">LLUVIA DE SOBRES</h3>
-                        <p style="font-size: 1.1rem; opacity: 0.7; margin-bottom: 40px;">Su presencia es nuestro mejor regalo, pero si desean tener un detalle, contaremos con un baúl para sobres.</p>
-                    </div>
-
-                    <div class="spotify-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="spotify-logo" alt="Spotify">
-                        <h3 style="color: #1DB954; font-size: 1.8rem; margin-bottom: 15px;">Música para el evento</h3>
-                        <p style="font-size: 1rem; margin-bottom: 30px; opacity: 0.9; letter-spacing: 1px;">¿Tienes alguna canción favorita? ¡Sugiérela en nuestra playlist!</p>
-                        <a href="YOUR_SPOTIFY_LINK_HERE" target="_blank" class="btn-gold-lg btn-spotify">🎵 AGREGAR MI CANCIÓN</a>
+                        <p style="font-size: 1.1rem; opacity: 0.7;">Contaremos con un baúl para sobres el día del evento.</p>
                     </div>
                 </div>
             </div>
@@ -297,9 +269,7 @@
 
         <section style="background-color: #f9f4f0; padding: 180px 0;">
             <div class="reveal" style="text-align: center;">
-                <p style="font-family: var(--font-t); font-size: 2rem; color: var(--verde-oliva); margin-bottom: 70px; letter-spacing: 4px;">Nos haría muy felices compartir este nuevo comienzo contigo.</p>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 25px;">
-                    <a href="https://photos.app.goo.gl/M5ive7yM3Q6gWy5r6" target="_blank" class="btn-gold-lg">📷 VER ÁLBUM COMPLETO</a>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0hic1AN_qBpKbJwodNmI5TRna6R-xpgqC4F_Mx-Lei4fkPQ/viewform?usp=header" target="_blank" class="btn-gold-lg btn-confirm">📩 CONFIRMAR ASISTENCIA AQUÍ</a>
                 </div>
                 <h2 style="font-size: clamp(3.5rem, 12vw, 7rem); color: var(--verde-menta); margin-top: 150px; letter-spacing: 10px;">¡Te esperamos!</h2>
@@ -345,7 +315,7 @@
                 document.getElementById('step-1').style.display = 'none';
                 document.getElementById('step-2').style.display = 'block';
             } else {
-                alert("Por favor, ingresa tu nombre completo tal como aparece en tu invitación física.");
+                alert("Por favor, ingresa tu nombre completo como aparece en tu invitación.");
             }
         }
 
