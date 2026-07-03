@@ -306,7 +306,7 @@
     </div>
 
     <script>
-    const listaInvitados = [
+       const listaInvitados = [
             { nombre: "CRUZ DEL ALBA PRIEGO", pases: 1 },
             { nombre: "DAVID JAHAZIEL CEBALLOS CUELLAR", pases: 2 },
             { nombre: "YITZHAK SANTIAGO CEBALLOS CUELLAR", pases: 2 },
@@ -330,6 +330,20 @@
 
         const eliminarAcentos = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
+        // --- NUEVO: Comprobar si ya inició sesión antes ---
+        window.onload = function() {
+            if (localStorage.getItem('boda_KarelyAndres_sesion')) {
+                // Si ya hay sesión guardada, ocultamos el login y mostramos el contenido directo
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                startCountdown();
+                setTimeout(reveal, 100); // Pequeño retraso para asegurar que los elementos cargaron
+                
+                // Nota: Los navegadores bloquean la música automática si el usuario no hace clic primero,
+                // así que si entran directo, tendrán que encender la música con el botón de la nota musical.
+            }
+        };
+
         function checkGuest() {
             const inputRaw = document.getElementById('guest-input').value;
             const inputLimpio = eliminarAcentos(inputRaw).toUpperCase().trim();
@@ -346,12 +360,22 @@
         }
 
         function enterInvitation() {
+            // --- NUEVO: Guardar en el navegador que ya ingresó ---
+            localStorage.setItem('boda_KarelyAndres_sesion', 'activa');
+
             document.getElementById('login-screen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
+                
                 const audio = document.getElementById('bg-music');
-                audio.volume = 0.3; audio.play();
+                audio.volume = 0.3; 
+                // Evitamos errores en consola si el navegador bloquea el audio
+                let playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => { console.log("Auto-play prevenido por el navegador."); });
+                }
+                
                 startCountdown();
                 reveal();
             }, 1200);
@@ -385,8 +409,13 @@
 
         function toggleMusic() {
             const audio = document.getElementById('bg-music');
-            if (audio.paused) { audio.play(); document.getElementById('music-btn').innerText = "🎵"; }
-            else { audio.pause(); document.getElementById('music-btn').innerText = "🔇"; }
+            if (audio.paused) { 
+                audio.play(); 
+                document.getElementById('music-btn').innerText = "🎵"; 
+            } else { 
+                audio.pause(); 
+                document.getElementById('music-btn').innerText = "🔇"; 
+            }
         }
     </script>
 </body>
